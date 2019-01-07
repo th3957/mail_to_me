@@ -1,0 +1,7 @@
+<%= form_with(model: travel, local: true) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.datetime_select :departured_at %>
+  <%= f.datetime_select :returend_at %>
+  <%= f.file_field :travel_image %>
+  <%= f.submit %>
+<% end %>
