@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   root to: 'travels#index'
 
   devise_for :users, controllers: {
-    registrations:'users/registrations'
+    registrations: 'users/registrations',
+    sessions:      'users/sessions'
   }
 
-  resources :users, only: [:show]
+  resources :user, only: [:show]
   resources :travels
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
