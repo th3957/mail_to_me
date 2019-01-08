@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MailToMe</title>
+    <title>Mail to Me !</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <p>ヘッダー</p>
+      <% if action_name == 'show' %>
+        <li><%= link_to "Edit", edit_user_registration_path %></li>
+      <% else %>
+        <li><%= link_to "Mypage", user_path %></li>
+      <% end %>
+      <% if action_name == 'index' %>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Back", :back %></li>
+      <% end %>
+    <% end %>
+    <hr><%= yield %><hr>
   </body>
 </html>
