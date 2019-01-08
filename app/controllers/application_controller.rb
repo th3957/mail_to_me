@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
   before_action :configure_sign_up_params, if: :devise_controller?
   before_action :configure_account_update_params, if: :devise_controller?
 
