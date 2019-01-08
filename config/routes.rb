@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     sessions:      'users/sessions'
   }
 
-  resources :user, only: [:show]
+  resource :user, only: [:show]
   resources :travels
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
