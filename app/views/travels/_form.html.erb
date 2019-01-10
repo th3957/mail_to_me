@@ -1,10 +1,21 @@
+  <% if @travel.errors.any? %>
+    <div>
+      <h3><%= pluralize(@travel.errors.count, "error") %> prohibited from being saved:</h3>
+      <ul>
+        <% @travel.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= form_with(model: travel, local: true) do |f| %>
   <p>
     <%= f.label :"title" %>
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :"arrival date" %>
+    <%= f.label :"departure date" %>
     <%= f.datetime_select :departured_at %>
   </p>
   <p>

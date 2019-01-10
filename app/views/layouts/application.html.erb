@@ -23,6 +23,12 @@
         <li><%= link_to "Back", :back %></li>
       <% end %>
     <% end %>
-    <hr><%= yield %><hr>
+
+    <hr>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <hr>
+
   </body>
 </html>
