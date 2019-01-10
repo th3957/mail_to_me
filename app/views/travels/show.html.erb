@@ -1,3 +1,22 @@
-<p><%= @travel.title %></p>
-<p><%= @travel.departured_at %></p>
-<p><%= @travel.returend_at %></p>
+<p>
+  <%= "title:" %>
+  <%= @travel.title %>
+</p>
+<p>
+  <%= "arrival date:" %>
+  <%= @travel.departured_at %>
+</p>
+<p>
+  <%= "return date:" %>
+  <%= @travel.returend_at %>
+</p>
+<% @travel.areas.each_with_index do |x, i| %>
+  <p>
+    <%= "country:" %>
+    <%= x.country %>
+  </p>
+  <p>
+    <%= "place:" %>
+    <%= x.place %>
+  </p>
+<% end %>

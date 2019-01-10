@@ -1,7 +1,31 @@
 <%= form_with(model: travel, local: true) do |f| %>
-  <p><%= f.text_field :title %></p>
-  <p><%= f.datetime_select :departured_at %></p>
-  <p><%= f.datetime_select :returend_at %></p>
-  <p><%= f.file_field :travel_image %></p>
+  <p>
+    <%= f.label :"title" %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :"arrival date" %>
+    <%= f.datetime_select :departured_at %>
+  </p>
+  <p>
+    <%= f.label :"return date" %>
+    <%= f.datetime_select :returend_at %>
+  </p>
+  <p>
+    <%= f.label :"image" %>
+    <%= f.file_field :travel_image %>
+  </p>
+
+  <%= f.fields_for :areas do |a| %>
+    <p>
+      <%= a.label :"country" %>
+      <%= a.text_field :country %>
+    </p>
+    <p>
+      <%= a.label :"place" %>
+      <%= a.text_field :place %>
+    </p>
+  <% end %>
+
   <p><%= f.submit %></p>
 <% end %>

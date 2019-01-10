@@ -1,9 +1,7 @@
-ここはtravelのindexページ
-
 <% @travels.each do |t| %>
   <p><%= t.title %></p>
   <% if t.travel_image.url.nil? %>
-    <p><%= link_to image_tag 'blank.png', t %></p>
+    <p><%= link_to image_tag('blank.png'), t %></p>
   <% else %>
     <p><%= link_to image_tag(t.travel_image.url), t %></p>
   <% end %>
