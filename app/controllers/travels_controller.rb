@@ -13,7 +13,7 @@ class TravelsController < ApplicationController
     @travel = Travel.new(travel_params)
     @travel.user_id = current_user.id
     if @travel.save
-      redirect_to travel_path(@travel), notice: 'Successfully created.'
+      redirect_to travels_path, notice: 'Successfully created.'
     else
       render :new
     end

@@ -3,9 +3,9 @@
 <% @travels.each do |t| %>
   <p><%= t.title %></p>
   <% if t.travel_image.url.nil? %>
-    <p><%= image_tag 'blank.png' %></p>
+    <p><%= link_to image_tag 'blank.png', t %></p>
   <% else %>
-    <p><%= image_tag t.travel_image.url %></p>
+    <p><%= link_to image_tag(t.travel_image.url), t %></p>
   <% end %>
   <p><%= t.departured_at %></p>
   <p><%= t.returend_at %></p>
