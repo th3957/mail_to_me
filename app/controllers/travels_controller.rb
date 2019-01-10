@@ -7,11 +7,11 @@ class TravelsController < ApplicationController
 
   def new
     @travel = Travel.new
+    Area::FORM.times { @travel.areas.build }
   end
 
   def create
-    @travel = Travel.new(travel_params)
-    @travel.user_id = current_user.id
+    @travel = current_user.travels.build(travel_params)
     if @travel.save
       redirect_to travels_path, notice: 'Successfully created.'
     else
@@ -23,6 +23,7 @@ class TravelsController < ApplicationController
   end
 
   def edit
+    (Areas::FORM - @travel.areas.count).times { @travel.areas.build }
   end
 
   def update
@@ -50,6 +51,7 @@ class TravelsController < ApplicationController
                                    :returend_at,
                                    :travel_image,
                                    :user_id,
+                                   areas_attributes:[:id, :country, :place]
                                    )
   end
 end
