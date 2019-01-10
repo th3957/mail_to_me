@@ -12,12 +12,12 @@
   <body>
     <% if user_signed_in? %>
       <p>ヘッダー</p>
-      <% if action_name == 'show' %>
+      <% if action_name == 'show' && controller_name == "users" %>
         <li><%= link_to "Edit", edit_user_registration_path %></li>
       <% else %>
         <li><%= link_to "Mypage", user_path %></li>
       <% end %>
-      <% if action_name == 'index' %>
+      <% if action_name == 'index' && controller_name == "travels"%>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Back", :back %></li>
