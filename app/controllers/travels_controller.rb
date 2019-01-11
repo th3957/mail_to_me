@@ -20,6 +20,7 @@ class TravelsController < ApplicationController
   end
 
   def show
+    keep_travel_id
   end
 
   def edit
@@ -43,6 +44,10 @@ class TravelsController < ApplicationController
 
   def set_travel
     @travel = Travel.find(params[:id])
+  end
+
+  def keep_travel_id
+    session[:travel_id] = @travel.id
   end
 
   def travel_params

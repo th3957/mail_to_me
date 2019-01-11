@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_sign_up_params, if: :devise_controller?
   before_action :configure_account_update_params, if: :devise_controller?
 
+  def set_associated_travel
+    @associated_travel = Travel.find(session[:travel_id])
+  end
+
   protected
 
   def configure_sign_up_params
