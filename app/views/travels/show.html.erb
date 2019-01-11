@@ -11,6 +11,7 @@
   <%= @travel.returend_at %>
 </p>
 <% @travel.areas.each_with_index do |x, i| %>
+  <p>area information<%= i+1 %></p>
   <p>
     <%= "country:" %>
     <%= x.country %>

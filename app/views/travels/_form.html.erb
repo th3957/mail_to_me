@@ -28,6 +28,7 @@
   </p>
 
   <%= f.fields_for :areas do |a| %>
+  <p>area information<%= a.index + 1 %></p>
     <p>
       <%= a.label :"country" %>
       <%= a.text_field :country %>
