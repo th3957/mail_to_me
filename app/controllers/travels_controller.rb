@@ -23,7 +23,7 @@ class TravelsController < ApplicationController
   end
 
   def edit
-    (Areas::FORM - @travel.areas.count).times { @travel.areas.build }
+    (Area::FORM - @travel.areas.count).times { @travel.areas.build }
   end
 
   def update
