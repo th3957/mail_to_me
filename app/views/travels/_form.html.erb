@@ -38,5 +38,10 @@
     </p>
   <% end %>
 
-  <p><%= f.submit %></p>
+  <% if action_name == 'edit' %>
+    <%= f.submit "UPDATE" %>
+    <%= button_to "DELETE", travel_path(@travel), data: { confirm: "Are you sure?" }, method: :delete %>
+  <% else %>
+    <%= f.submit "CREATE" %>
+  <% end %>
 <% end %>

@@ -2,7 +2,7 @@ class Travel < ApplicationRecord
   mount_uploader :travel_image, ImagesUploader
 
   belongs_to :user
-  has_many :areas, inverse_of: :travel
+  has_many :areas, inverse_of: :travel, dependent: :destroy
   accepts_nested_attributes_for :areas, allow_destroy: true
 
   validates :title, presence: true, length: { in: 1..20 }
