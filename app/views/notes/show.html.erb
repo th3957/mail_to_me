@@ -1,0 +1,20 @@
+<p>
+  <%= "content:" %>
+  <%= @note.content %>
+</p>
+<p>
+  <%= @note.image.url %>
+</p>
+<p>
+  <%= "create_at:" %>
+  <%= @note.create_at %>
+</p>
+<p>
+  <%= "update_at:" %>
+  <%= @note.update_at %>
+</p>
+
+<hr>
+<p>パーシャルへ分ける前のフッター</p>
+<p><%= link_to "SHOW", travel_path(@associated_travel) %></p>
+<p><%= link_to "NOTE INDEX", notes_path %></p>

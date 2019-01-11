@@ -1,0 +1,32 @@
+<% if @note.errors.any? %>
+  <div>
+    <h3><%= pluralize(@note.errors.count, "error") %> prohibited from being saved:</h3>
+    <ul>
+      <% @note.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: note, local: true) do |f| %>
+  <p>
+    <%= f.label :"content" %>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.label :"image" %>
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.label :"importance" %>
+    <%= f.check_box :importance, {}, true, false %>
+  </p>
+
+  <% if action_name == 'edit' %>
+    <%= f.submit "UPDATE" %>
+    <%= button_to "DELETE", note_path(@note), data: { confirm: "Are you sure?" }, method: :delete %>
+  <% else %>
+    <%= f.submit "CREATE" %>
+  <% end %>
+<% end %>
