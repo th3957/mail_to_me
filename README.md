@@ -62,6 +62,7 @@
 <https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=128152128>
 
 ## 使用予定Gem
+- active_decorator
 - devise
 - rails_admin
 - cancancan
