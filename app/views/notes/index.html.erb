@@ -1,6 +1,8 @@
 <% @notes.each do |n| %>
-  <p><%=n.content %><%=n.created_at %></p>
+  <p><%= link_to n.content,n %><%=n.created_at %></p>
 <% end %>
+
+<p><%= link_to "NOTE NEW", new_note_path %></p>
 
 <hr>
 <p>パーシャルへ分ける前のフッター</p>

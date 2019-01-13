@@ -1,18 +1,20 @@
 <p>
-  <%= "content:" %>
   <%= @note.content %>
 </p>
 <p>
-  <%= @note.image.url %>
+  <%= image_tag(@note.image.url) unless @note.image.url.nil? %>
 </p>
 <p>
   <%= "create_at:" %>
-  <%= @note.create_at %>
+  <%= @note.created_at %>
 </p>
 <p>
   <%= "update_at:" %>
-  <%= @note.update_at %>
+  <%= @note.updated_at %>
 </p>
+
+<p><%= link_to "NOTE NEW", new_note_path %></p>
+<p><%= link_to "NOTE EDIT", edit_note_path(@note) %></p>
 
 <hr>
 <p>パーシャルへ分ける前のフッター</p>
