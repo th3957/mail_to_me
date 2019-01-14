@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      card: カード
+    attributes:
+      user:
+        role: 権限
+      card:
+        frame_style: フレーム
+        font_style: フォント
+  enums:
+    user:
+      role:
+        common: 一般ユーザー
+        admin: 管理ユーザー
+    card:
+      frame_style:
+        frame_sample0: フレーム0番
+        frame_sample1: フレーム1番
+        frame_sample2: フレーム2番
+      font_style:
+        font_sample0: フォント0番
+        font_sample1: フォント1番
+        font_sample2: フォント2番
