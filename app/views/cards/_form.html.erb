@@ -1,0 +1,36 @@
+<% if @card.errors.any? %>
+  <div>
+    <h3><%= pluralize(@card.errors.count, "error") %> prohibited from being saved:</h3>
+    <ul>
+      <% @card.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: card, local: true) do |f| %>
+  <%= f.fields_for :images do |i| %>
+    <p>image<%= i.index + 1 %><%= i.file_field :data %></p>
+  <% end %>
+
+  <p>
+    <%= f.label :"title" %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.select :frame_style, @card.frame_style_labels, include_blank: @card.frame_style_label %>
+    <%= f.select :font_style, @card.font_style_labels, include_blank: @card.font_style_label %>
+  </p>
+  <p>
+    <%= f.label :"sentence" %>
+    <%= f.text_field :sentence %>
+  </p>
+
+  <% if action_name == 'edit' %>
+    <%= f.submit "UPDATE" %>
+    <%= link_to "DELETE", card_path(@card), data: { confirm: "Are you sure?" }, method: :delete %>
+  <% else %>
+    <%= f.submit "CREATE" %>
+  <% end %>
+<% end %>

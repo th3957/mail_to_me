@@ -1,0 +1,20 @@
+<p>
+  <%= @card.sentence %>
+</p>
+<p>
+  <% @card.images.each_with_index do |x| %>
+    <% if x.present? %>
+      <%= image_tag(x.data.url) %>
+    <% else %>
+      <%= image_tag('transparent.png') %>
+    <% end %>
+  <% end %>
+</p>
+
+<p><%= link_to "CARD EDIT", edit_card_path(@card) %></p>
+<p><%= link_to "CARD NEW", new_card_path %></p>
+
+<hr>
+<p>パーシャルへ分ける前のフッター</p>
+<p><%= link_to "SHOW", travel_path(@associated_travel) %></p>
+<p><%= link_to "NOTE INDEX", notes_path %></p>
