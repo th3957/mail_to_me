@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'travels#index'
+  root to: 'users#top'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   }
 
   resource :user, only: [:show]
+  resource :user do
+    get 'top', on: :collection
+  end
   resources :travels
   resources :notes
   resources :cards, except: [:index]
