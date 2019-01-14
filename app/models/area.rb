@@ -1,5 +1,6 @@
 class Area < ApplicationRecord
   FORM = 10
+
   belongs_to :travel, inverse_of: :areas
 
   validates_presence_of :travel
