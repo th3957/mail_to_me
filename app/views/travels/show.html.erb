@@ -22,6 +22,16 @@
   </p>
 <% end %>
 
+<% @travel.cards.each do |c| %>
+  <% if c.images.present? %>
+    <p><%= link_to image_tag(c.images.first.data.url), c %></p>
+  <% else %>
+    <p><%= link_to image_tag('blank.png'), c %></p>
+  <% end %>
+  <p><%= c.title %></p>
+<% end %>
+
+<p><%= link_to "CARD NEW", new_card_path %></p>
 <p><%= link_to "EDIT", edit_travel_path(@travel) %></p>
 
 <hr>
