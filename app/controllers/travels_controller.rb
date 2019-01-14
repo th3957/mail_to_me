@@ -1,8 +1,9 @@
 class TravelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_travel, only: [:edit, :show, :update, :destroy]
 
   def index
-    @travels = Travel.all
+    @travels = Travel.where(user_id: current_user.id)
   end
 
   def new
