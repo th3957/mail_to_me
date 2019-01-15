@@ -1,40 +1,27 @@
-<p>
-  <%= "title:" %>
-  <%= @travel.title %>
-</p>
-<p>
-  <%= "departure date:" %>
-  <%= @travel.departured_at %>
-</p>
-<p>
-  <%= "return date:" %>
-  <%= @travel.returend_at %>
-</p>
+<%= @travel.title %><br>
+<%= 'departure date:' %><%= @travel.departured_at %><br>
+<%= 'return date:' %><%= @travel.returend_at %><br>
+
 <% @travel.areas.each_with_index do |x, i| %>
-  <p>area information<%= i+1 %></p>
-  <p>
-    <%= "country:" %>
-    <%= x.country %>
-  </p>
-  <p>
-    <%= "place:" %>
-    <%= x.place %>
-  </p>
+  area information<%= i+1 %><br>
+  <%= 'country:' %><%= x.country %><br>
+  <%= 'place:' %><%= x.place %><br>
 <% end %>
 
-<% @travel.cards.each do |c| %>
+<% @travel.cards.includes(:images).each do |c| %>
   <% if c.images.present? %>
-    <p><%= link_to image_tag(c.images.first.data.url), c %></p>
+    <%= link_to image_tag(c.images.first.data.url), c %><br>
   <% else %>
-    <p><%= link_to image_tag('blank.png'), c %></p>
+    <%= link_to image_tag('blank.png'), c %><br>
   <% end %>
-  <p><%= c.title %></p>
+  <%= c.title %><br>
 <% end %>
 
-<p><%= link_to "CARD NEW", new_card_path %></p>
-<p><%= link_to "EDIT", edit_travel_path(@travel) %></p>
+<p>
+  <%= link_to 'カード新規作成', new_card_path %>
+  <%= link_to 'トラベル編集', edit_travel_path(@travel) %>
+</p>
 
 <hr>
-<p>パーシャルへ分ける前のフッター</p>
-<p><%= link_to "SHOW", travel_path(@travel) %></p>
-<p><%= link_to "NOTE INDEX", notes_path %></p>
+<%= link_to 'トラベル詳細', travel_path(@travel) %>
+<%= link_to 'メモ一覧', notes_path %>

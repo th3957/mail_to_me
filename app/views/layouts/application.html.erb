@@ -10,24 +10,25 @@
   </head>
 
   <body>
+    <%# ヘッダー %>
     <% if user_signed_in? %>
-      <p>ヘッダー</p>
-      <% if action_name == 'show' && controller_name == "users" %>
-        <li><%= link_to "Edit", edit_user_registration_path %></li>
+      <% if action_name == 'show' && controller_name == 'users' %>
+        <%= link_to 'ユーザー編集', edit_user_registration_path %>
       <% else %>
-        <li><%= link_to "Mypage", user_path %></li>
+        <%= link_to 'ユーザー詳細', user_path %>
       <% end %>
-      <% if action_name == 'index' && controller_name == "travels"%>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% if action_name == 'index' && controller_name == 'travels' %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% else %>
-        <li><%= link_to "Back", :back %></li>
+        <%= link_to '戻る', :back %>
       <% end %>
+      <hr>
     <% end %>
 
-    <hr>
+    <%# 通知 %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
 
+    <%= yield %>
   </body>
 </html>

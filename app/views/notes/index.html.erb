@@ -1,10 +1,9 @@
 <% @notes.each do |n| %>
-  <p><%= link_to n.content,n %><%=n.created_at %></p>
+  <%= link_to n.content,n %><%=n.created_at %><br>
 <% end %>
 
-<p><%= link_to "NOTE NEW", new_note_path %></p>
+<p>
+  <%= link_to 'メモ新規作成', new_note_path %>
+</p>
 
-<hr>
-<p>パーシャルへ分ける前のフッター</p>
-<p><%= link_to "SHOW", travel_path(@associated_travel) %></p>
-<p><%= link_to "NOTE INDEX", notes_path %></p>
+<%= render 'layouts/travels_footer' %>

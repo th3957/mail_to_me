@@ -1,22 +1,11 @@
+<%= @note.content %><br>
+<%= image_tag(@note.image.url) if @note.image.present? %><br>
+<%= 'create_at:' %><%= @note.created_at %><br>
+<%= 'update_at:' %><%= @note.updated_at %><br>
+
 <p>
-  <%= @note.content %>
-</p>
-<p>
-  <%= image_tag(@note.image.url) unless @note.image.url.nil? %>
-</p>
-<p>
-  <%= "create_at:" %>
-  <%= @note.created_at %>
-</p>
-<p>
-  <%= "update_at:" %>
-  <%= @note.updated_at %>
+  <%= link_to 'メモ新規作成', new_note_path %>
+  <%= link_to 'メモ編集', edit_note_path(@note) %>
 </p>
 
-<p><%= link_to "NOTE NEW", new_note_path %></p>
-<p><%= link_to "NOTE EDIT", edit_note_path(@note) %></p>
-
-<hr>
-<p>パーシャルへ分ける前のフッター</p>
-<p><%= link_to "SHOW", travel_path(@associated_travel) %></p>
-<p><%= link_to "NOTE INDEX", notes_path %></p>
+<%= render 'layouts/travels_footer' %>
