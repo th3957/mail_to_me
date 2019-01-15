@@ -4,4 +4,6 @@ class Image < ApplicationRecord
   FORM = 10
 
   belongs_to :card, inverse_of: :images
+
+  validates_presence_of :card
 end
