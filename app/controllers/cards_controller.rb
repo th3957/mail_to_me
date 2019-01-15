@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card, only: [:edit, :show, :update, :destroy]
-  before_action :set_associated_travel, only: [:create, :show, :destroy]
+  before_action :set_associated_travel, only: [:create, :destroy]
 
   def new
     @card = Card.new
@@ -18,6 +18,8 @@ class CardsController < ApplicationController
   end
 
   def show
+    keep_own_travel_id
+    set_associated_travel
   end
 
   def edit
@@ -41,6 +43,10 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find(params[:id])
+  end
+
+  def keep_own_travel_id
+    session[:travel_id] = @card.travel_id
   end
 
   def card_params
