@@ -1,5 +1,15 @@
-<%= @user.name %>のマイページ
+<%= @user.name %>'s page<br>
+Number of travels: <%= @user.travels.count %><br>
+Number of cards: <%= Card.where(travel_id: @user.travels.ids).count %><br>
+
+<% Card.where(travel_id: @user.travels.ids).includes(:images).each do |c| %>
+  <% if c.images.present? %>
+    <%= link_to image_tag(c.images.first.data.url), c %><br>
+  <% else %>
+    <%= link_to image_tag('blank.png'), c %><br>
+  <% end %>
+  <%= c.title %><br>
+<% end %>
 
 <hr>
-<p>パーシャルへ分ける前のフッター</p>
-<p><%= link_to "Index", travels_path %></p>
+<%= link_to 'トラベル一覧', travels_path %>
