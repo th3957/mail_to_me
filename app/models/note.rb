@@ -5,4 +5,5 @@ class Note < ApplicationRecord
 
   validates :content, presence: true, length: { in: 1..255 }
   validates :importance, inclusion: { in: [true, false] }
+  validates_presence_of :travel
 end

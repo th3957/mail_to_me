@@ -11,6 +11,7 @@ class Travel < ApplicationRecord
   validates :departured_at, presence: true
   validates :returend_at, presence: true
   validate :return_before_departure_date
+  validates_presence_of :user
 
   def return_before_departure_date
     if returend_at < departured_at
