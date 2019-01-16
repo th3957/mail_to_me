@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'top', on: :collection
   end
   resources :travels
-  resources :notes
+  resources :notes, except: [:new]
   resources :cards, except: [:index]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
