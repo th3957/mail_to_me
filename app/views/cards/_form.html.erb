@@ -1,31 +1,19 @@
 <% if @card.errors.any? %>
-  <div>
-    <h3><%= pluralize(@card.errors.count, "error") %> prohibited from being saved:</h3>
-    <ul>
-      <% @card.errors.full_messages.each do |m| %>
-        <li><%= m %></li>
-      <% end %>
-    </ul>
-  </div>
+  Creation failed due to <%= pluralize(@card.errors.count, "error") %>.<br>
+  <% @card.errors.full_messages.each do |m| %>
+    <li><%= m %></li>
+  <% end %>
 <% end %>
 
 <%= form_with(model: card, local: true) do |f| %>
   <%= f.fields_for :images do |i| %>
-    <p>image<%= i.index + 1 %><%= i.file_field :data %></p>
+    image<%= i.index + 1 %><%= i.file_field :data %><br>
   <% end %>
 
-  <p>
-    <%= f.label :"title" %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.select :frame_style, @card.frame_style_labels, include_blank: @card.frame_style_label %>
-    <%= f.select :font_style, @card.font_style_labels, include_blank: @card.font_style_label %>
-  </p>
-  <p>
-    <%= f.label :"sentence" %>
-    <%= f.text_field :sentence %>
-  </p>
+  <%= f.label :"title" %><%= f.text_field :title %><br>
+  <%= f.select :frame_style, @card.frame_style_labels, include_blank: @card.frame_style_label %>
+  <%= f.select :font_style, @card.font_style_labels, include_blank: @card.font_style_label %><br>
+  <%= f.label :"sentence" %><%= f.text_field :sentence %><br>
 
   <% if action_name == 'edit' %>
     <%= f.submit "UPDATE" %>

@@ -1,42 +1,20 @@
-  <% if @travel.errors.any? %>
-    <div>
-      <h3><%= pluralize(@travel.errors.count, "error") %> prohibited from being saved:</h3>
-      <ul>
-        <% @travel.errors.full_messages.each do |m| %>
-          <li><%= m %></li>
-        <% end %>
-      </ul>
-    </div>
+<% if @travel.errors.any? %>
+  Creation failed due to <%= pluralize(@travel.errors.count, "error") %>.<br>
+  <% @travel.errors.full_messages.each do |m| %>
+    <li><%= m %></li>
   <% end %>
+<% end %>
 
 <%= form_with(model: travel, local: true) do |f| %>
-  <p>
-    <%= f.label :"title" %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :"departure date" %>
-    <%= f.datetime_select :departured_at %>
-  </p>
-  <p>
-    <%= f.label :"return date" %>
-    <%= f.datetime_select :returend_at %>
-  </p>
-  <p>
-    <%= f.label :"image" %>
-    <%= f.file_field :travel_image %>
-  </p>
+  <%= f.label :"title" %><%= f.text_field :title %><br>
+  <%= f.label :"departure date" %><%= f.datetime_select :departured_at %><br>
+  <%= f.label :"return date" %><%= f.datetime_select :returend_at %><br>
+  <%= f.label :"image" %><%= f.file_field :travel_image %><br>
 
   <%= f.fields_for :areas do |a| %>
-  <p>area information<%= a.index + 1 %></p>
-    <p>
-      <%= a.label :"country" %>
-      <%= a.text_field :country %>
-    </p>
-    <p>
-      <%= a.label :"place" %>
-      <%= a.text_field :place %>
-    </p>
+    area information<%= a.index + 1 %><br>
+    <%= a.label :"country" %><%= a.text_field :country %><br>
+    <%= a.label :"place" %><%= a.text_field :place %><br>
   <% end %>
 
   <% if action_name == 'edit' %>
