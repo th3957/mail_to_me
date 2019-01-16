@@ -48,7 +48,8 @@ class NotesController < ApplicationController
     params.require(:note).permit(:content,
                                  :image,
                                  :importance,
-                                 :travel_id
+                                 :travel_id,
+                                 :remove_image
                                  )
   end
 end

@@ -10,6 +10,7 @@
 <%= form_with(model: @note) do |f| %>
   <%= f.label :"content" %><%= f.text_area :content %><br>
   <%= f.label :"image" %><%= f.file_field :image %><br>
+  <%= f.label :"remove image" %><%= f.check_box :remove_image %><br>
   <%= f.label :"importance" %><%= f.check_box :importance, {}, true, false %><br>
   <%= f.submit 'CREATE' %>
 <% end %>

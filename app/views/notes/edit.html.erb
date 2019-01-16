@@ -10,6 +10,7 @@
 <%= form_with(model: @note, local: true) do |f| %>
   <p><%= f.label :"content" %><%= f.text_area :content %></p>
   <p><%= f.label :"image" %><%= f.file_field :image %></p>
+  <p><%= f.label :"remove image" %><%= f.check_box :remove_image %><p>
   <p><%= f.label :"importance" %><%= f.check_box :importance, {}, true, false %></p>
   <%= f.submit "UPDATE" %>
   <%= link_to "DELETE", note_path(@note), data: { confirm: "Are you sure?" }, method: :delete %>
