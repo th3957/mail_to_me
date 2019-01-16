@@ -5,18 +5,17 @@ class NotesController < ApplicationController
 
   def index
     @notes = @associated_travel.notes
-  end
-
-  def new
     @note = Note.new
   end
 
   def create
     @note = @associated_travel.notes.build(note_params)
-    if @note.save
-      redirect_to notes_path, notice: 'Successfully created.'
-    else
-      render :new
+    respond_to do |f|
+      if @note.save
+        f.js { render partial: 'notes/index_js' }
+      else
+        f.js { render partial: 'notes/new_js' }
+      end
     end
   end
 
