@@ -1,9 +1,9 @@
-<% @notes.each do |n| %>
-  <%= link_to n.content,n %><%=n.created_at %><br>
-<% end %>
+<div id="notes_area">
+  <%= render partial: 'notes/index', locals: { notes: @notes } %>
+</div>
 
-<p>
-  <%= link_to 'メモ新規作成', new_note_path %>
-</p>
+<div id="note_area">
+<%= render partial: 'notes/new', locals: { note: @note } %>
+</div>
 
 <%= render 'layouts/travels_footer' %>

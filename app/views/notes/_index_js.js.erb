@@ -1,0 +1,5 @@
+$("#notes_area").html("<%= j(render 'notes/index', { notes: @associated_travel.notes }) %>")
+$("textarea").val('')
+$("#note_image").val('')
+$("#note_importance").prop("checked", false)
+$("#note_error_area").remove()
