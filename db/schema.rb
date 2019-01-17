@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_16_095734) do
+ActiveRecord::Schema.define(version: 2019_01_17_031503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 2019_01_16_095734) do
     t.string "data", limit: 255, null: false
     t.bigint "card_id", null: false
     t.index ["card_id"], name: "index_images_on_card_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.string "group", limit: 255
+    t.bigint "list_id", null: false
+    t.index ["list_id"], name: "index_items_on_list_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -94,6 +101,7 @@ ActiveRecord::Schema.define(version: 2019_01_16_095734) do
   add_foreign_key "areas", "travels"
   add_foreign_key "cards", "travels"
   add_foreign_key "images", "cards"
+  add_foreign_key "items", "lists"
   add_foreign_key "lists", "travels"
   add_foreign_key "lists", "users"
   add_foreign_key "notes", "travels"
