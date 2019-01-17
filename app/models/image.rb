@@ -5,5 +5,6 @@ class Image < ApplicationRecord
 
   belongs_to :card, inverse_of: :images
 
+  validates :data, presence: true, image: true
   validates_presence_of :card
 end
