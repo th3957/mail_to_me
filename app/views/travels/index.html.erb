@@ -2,7 +2,7 @@
   <% if t.travel_image.url.nil? %>
     <p><%= link_to image_tag('blank.png'), t %></p>
   <% else %>
-    <p><%= link_to image_tag(t.travel_image.url), t %></p>
+    <p><%= link_to image_tag(t.travel_image.thumb.url), t %></p>
   <% end %>
   <%= t.title %><br>
   <%= t.departured_at %><br>

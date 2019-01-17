@@ -1,5 +1,5 @@
 <%= @note.content %><br>
-<%= image_tag(@note.image.url) if @note.image.present? %><br>
+<%= image_tag(@note.image.thumb.url) if @note.image.present? %><br>
 <%= 'create_at:' %><%= @note.created_at %><br>
 <%= 'update_at:' %><%= @note.updated_at %><br>
 

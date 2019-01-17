@@ -10,7 +10,7 @@
 
 <% @travel.cards.includes(:images).each do |c| %>
   <% if c.images.present? %>
-    <%= link_to image_tag(c.images.first.data.url), c %><br>
+    <%= link_to image_tag(c.images.first.data.thumb.url), c %><br>
   <% else %>
     <%= link_to image_tag('blank.png'), c %><br>
   <% end %>
