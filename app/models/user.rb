@@ -2,7 +2,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :validatable
 
   has_many :travels, dependent: :destroy
-  has_many :lists, dependent: :destroy
 
   enum role: { common: 0, admin: 1 }
 
