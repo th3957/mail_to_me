@@ -5,4 +5,5 @@ class List < ApplicationRecord
   accepts_nested_attributes_for :items, allow_destroy: true, reject_if: :all_blank
 
   validates_presence_of :user
+  validates_presence_of :travel
 end
