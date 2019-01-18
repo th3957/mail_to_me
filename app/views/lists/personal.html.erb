@@ -1,0 +1,6 @@
+<% @lists.includes(:travel).each do |l| %>
+  <%= link_to l.title,l %> on <%= l.travel.title %><br>
+  Number of items: <%= l.items.count %><br>
+<% end %>
+
+<%= render 'layouts/users_footer' %>

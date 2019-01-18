@@ -1,0 +1,10 @@
+<%= @list.title %><br>
+<% @list.items.each do |i| %>
+  <%= i.name %>:<%= i.remark %><br>
+<% end %>
+
+<p>
+  <%= link_to 'リスト編集', edit_list_path(@list) %>
+</p>
+
+<%= render 'layouts/travels_footer' %>

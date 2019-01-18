@@ -1,0 +1,9 @@
+<div id="lists_area">
+  <%= render partial: 'lists/index', locals: { lists: @lists } %>
+</div>
+
+<div id="list_area">
+<%= render partial: 'lists/new', locals: { list: @list } %>
+</div>
+
+<%= render 'layouts/travels_footer' %>
