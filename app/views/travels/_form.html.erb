@@ -11,15 +11,25 @@
   <%= f.label :"return date" %><%= f.datetime_select :returend_at %><br>
   <%= f.label :"image" %><%= f.file_field :travel_image %><br>
 
-  <%= f.fields_for :areas do |a| %>
-    area information<%= a.index + 1 %><br>
-    <%= a.label :"country" %><%= a.text_field :country %><br>
-    <%= a.label :"place" %><%= a.text_field :place %><br>
-  <% end %>
+  <div id='add_area'>
+    <%= f.fields_for :areas do |a| %>
+      <%= render 'area_fields', f: a %>
+    <% end %>
+  </div>
+
+  <%= link_to_add_association 'ADD AREA', f, :areas,
+    id: 'add_area_link',
+    data: {
+     association_insertion_node: '#add_area',
+     association_insertion_method: 'append'
+    }
+  %><br>
 
   <% if action_name == 'edit' %>
     <%= f.submit "UPDATE" %>
-    <%= link_to "DELETE", travel_path(@travel), data: { confirm: "Are you sure?" }, method: :delete %>
+    <%= link_to "DELETE", travel_path(@travel),
+        data: { confirm: "Are you sure?" }, method: :delete
+    %>
   <% else %>
     <%= f.submit "CREATE" %>
   <% end %>
