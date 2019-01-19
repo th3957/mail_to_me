@@ -8,7 +8,7 @@ class TravelsController < ApplicationController
 
   def new
     @travel = Travel.new
-    Area::FORM.times { @travel.areas.build }
+    @travel.areas.build
   end
 
   def create
@@ -25,7 +25,7 @@ class TravelsController < ApplicationController
   end
 
   def edit
-    (Area::FORM - @travel.areas.count).times { @travel.areas.build }
+    @travel.areas.build if @travel.areas.blank?
   end
 
   def update
@@ -57,7 +57,7 @@ class TravelsController < ApplicationController
                                    :returend_at,
                                    :travel_image,
                                    :user_id,
-                                   areas_attributes:[:id, :country, :place]
+                                   areas_attributes:[:id, :country, :place, :_destroy]
                                    )
   end
 end
