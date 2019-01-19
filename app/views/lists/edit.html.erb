@@ -9,6 +9,21 @@
 
 <%= form_with(model: @list) do |f| %>
   <%= f.label :"title" %><%= f.text_field :title %><br>
+
+  <div id='add_item'>
+    <%= f.fields_for :items do |i| %>
+      <%= render 'item_fields', f: i %>
+    <% end %>
+  </div>
+
+  <%= link_to_add_association 'ADD ITEM', f, :items,
+    id: 'add_item_link',
+    data: {
+     association_insertion_node: '#add_item',
+     association_insertion_method: 'append'
+    }
+  %><br>
+
   <%= f.submit "UPDATE" %>
   <%= link_to "DELETE", list_path(@list), data: { confirm: "Are you sure?" }, method: :delete %>
 <% end %>
