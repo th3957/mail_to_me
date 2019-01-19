@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   def index
     @lists = @associated_travel.lists
     @list = List.new
+    @list.items.build
   end
 
   def personal
@@ -29,7 +30,7 @@ class ListsController < ApplicationController
   end
 
   def edit
-    (Item::FORM - @list.items.count).times { @list.items.build }
+    @list.items.build if @list.items.blank?
   end
 
   def update
@@ -57,7 +58,7 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:title,
-                                 items_attributes:[:id, :name, :remark]
+                                 items_attributes:[:id, :name, :remark, :_destroy]
                                  )
   end
 end

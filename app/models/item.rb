@@ -1,6 +1,4 @@
 class Item < ApplicationRecord
-  FORM = 10
-
   belongs_to :list, inverse_of: :items
 
   validates :name, presence: true, length: { in: 1..20 }
