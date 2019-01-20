@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   end
 
   def edit
-    (Image::FORM - @card.images.count).times { @card.images.build }
+    Image::FORM.times { @card.images.build }
   end
 
   def update

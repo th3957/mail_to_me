@@ -1,7 +1,8 @@
 class Image < ApplicationRecord
   mount_uploader :data, ImagesUploader
 
-  FORM = 10
+  # まずは写真を２枚使用するレイアウトを実装
+  FORM = 2
 
   belongs_to :card, inverse_of: :images
 
