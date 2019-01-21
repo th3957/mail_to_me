@@ -22,7 +22,4 @@
   <%= link_to 'トラベル編集', edit_travel_path(@travel) %>
 </p>
 
-<hr>
-<%= link_to 'トラベル詳細', travel_path(@travel) %>
-<%= link_to 'メモ一覧', notes_path %>
-<%= link_to 'リスト一覧', lists_path %>
+<%= render 'layouts/travels_footer' %>
