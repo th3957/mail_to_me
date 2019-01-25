@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Mail to Me !</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,29 +11,29 @@
   </head>
 
   <body>
-    <%# ヘッダー %>
-    <% if user_signed_in? %>
-      <% if action_name == 'show' && controller_name == 'users' %>
-        <%= link_to 'ユーザー編集', edit_user_registration_path %>
-      <% else %>
-        <%= link_to 'ユーザー詳細', user_path %>
+    <div class="container-fluid">
+      <% if user_signed_in? %>
+        <% if action_name == 'show' && controller_name == 'users' %>
+          <%= link_to 'ユーザー編集', edit_user_registration_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'ユーザー詳細', user_path %>
+          <%= link_to '戻る', :back %>
+        <% end %>
+        <hr>
       <% end %>
-      <% if action_name == 'index' && controller_name == 'travels' %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to '戻る', :back %>
+
+      <%# 通知 %>
+      <% if controller_name != 'sessions' %>
+        <% if notice.present? %>
+          <p class="notice"><%= notice %></p>
+        <% end %>
+        <% if alert.present? %>
+          <p class="alert"><%= alert %></p>
+        <% end %>
       <% end %>
-      <hr>
-    <% end %>
 
-    <%# 通知 %>
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,5 +1,31 @@
-<h1>welcome to application!</h1>
-<p>
-  <%= link_to "SIGNUP", new_user_registration_path %>
-  <%= link_to "LOGIN", new_user_session_path %>
-</p>
+<%= stylesheet_link_tag 'top', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div id="fullpage">
+  <div class="section">
+    <div class="row" id="first_row">
+      <div class="col-sm-6 offset-sm-3"><%= image_tag('logo.png', class: 'top_image') %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3 log_in">
+        <%= link_to "Log in", new_user_session_path, class: 'btn btn-outline-light' %>
+      </div>
+      <div class="col-sm-6 offset-sm-3 scroll_down">
+        <br><p>or scroll down</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="second_section">
+    <div class="row" id="second_row">
+      <div class="col-sm-6 offset-sm-1">
+        <%= image_tag('key_image.png', class: 'key_image') %>
+      </div>
+      <div class="col-sm-4 message_box">
+        <p class="message_text">
+          左にイメージ画像、ここにappの説明が入ります。以下はレイアウト確認用です。サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト
+        </p>
+        <p><%= link_to "Sign up", new_user_registration_path, class: 'btn btn-outline-light' %></p>
+      </div>
+    </div>
+  </div>
+</div>
