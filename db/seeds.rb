@@ -1,7 +1,111 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+1.times do |s|
+  name = "管理ユーザー"
+  email = "1@gmail.com"
+  password = "111111"
+  User.create!(
+    name: name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+    role: 1,
+  )
+end
+
+1.times do |s|
+  name = "一般ユーザー"
+  email = "2@gmail.com"
+  password = "222222"
+  User.create!(
+    name: name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+  )
+end
+
+3.times do |s|
+  name = Faker::Name.name
+  email = Faker::Internet.unique.email
+  password = Faker::Internet.password(6)
+  User.create!(
+    name: name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+  )
+end
+
+20.times do |s|
+  title = "旅行のサンプル#{s}"
+  departured_at = Faker::Time.between(DateTime.now + 1, DateTime.now + 8)
+  returend_at = Faker::Time.between(DateTime.now + 9, DateTime.now + 30)
+  user_id = 2
+  Travel.create!(
+    title: title,
+    travel_image: File.open("./app/assets/images/sample_travel_image.png"),
+    departured_at: departured_at,
+    returend_at: returend_at,
+    user_id: user_id,
+  )
+end
+
+10.times do |s|
+  country = Faker::Nation.nationality
+  place = Faker::Nation.capital_city
+  travel_id = 1
+  Area.create!(
+    country: country,
+    place: place,
+    travel_id: travel_id,
+  )
+end
+
+20.times do |s|
+  content = Faker::Lorem.paragraph(sentence_count = 10)
+  travel_id = 1
+  Note.create!(
+    content: content,
+    image: File.open("./app/assets/images/sample_note_image.png"),
+    travel_id: travel_id,
+  )
+end
+
+20.times do |s|
+  title = "カードのサンプル#{s}"
+  sentence = Faker::Lorem.paragraph(sentence_count = 10)
+  frame_style = [0, 1, 2].sample
+  font_style = [0, 1, 2].sample
+  travel_id = 1
+  Card.create!(
+    title: title,
+    sentence: sentence,
+    frame_style: frame_style,
+    font_style: font_style,
+    travel_id: travel_id,
+  )
+  card_id = Card.last.id
+  Image.create!(
+    data: File.open("./app/assets/images/sample_card_image.png"),
+    card_id: card_id,
+  )
+end
+
+20.times do |s|
+  title = "リストのサンプル#{s}"
+  travel_id = 1
+  List.create!(
+    title: title,
+    travel_id: travel_id,
+  )
+end
+
+100.times do |s|
+  name = Faker::Lorem.word
+  remark = Faker::Lorem.sentence
+  list_id = 1
+  Item.create!(
+    name: name,
+    remark: remark,
+    list_id: list_id,
+  )
+end
