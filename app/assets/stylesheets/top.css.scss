@@ -1,4 +1,5 @@
 .container-fluid {
+  padding: 0;
   background-color: #032123;
 }
 
@@ -50,8 +51,4 @@
 
 .message_box {
   color: white;
-}
-
-.message_text {
-  overflow-wrap: break-word;
 }
