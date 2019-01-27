@@ -1,9 +1,10 @@
-<hr>
-<% if action_name == 'show' && controller_name == 'travels' %>
-  <%= link_to 'トラベル一覧', travels_path %>
-<% else %>
-  <%= link_to 'トラベル詳細', travel_path(@associated_travel) %>
-<% end %>
+<footer class="navbar fixed-bottom bg-dark" id="footer">
+  <% if action_name == 'show' && controller_name == 'travels' %>
+    <%= link_to 'トラベル一覧', travels_path %>
+  <% else %>
+    <%= link_to 'トラベル詳細', travel_path(@associated_travel) %>
+  <% end %>
 
-<%= link_to 'メモ一覧', notes_path %>
-<%= link_to 'リスト一覧', lists_path %>
+  <%= link_to 'メモ一覧', notes_path %>
+  <%= link_to 'リスト一覧', lists_path %>
+</footer>

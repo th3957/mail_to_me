@@ -13,23 +13,26 @@
   <body>
     <div class="container-fluid">
       <% if user_signed_in? %>
-        <% if action_name == 'show' && controller_name == 'users' %>
-          <%= link_to 'ユーザー編集', edit_user_registration_path %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'ユーザー詳細', user_path %>
-          <%= link_to '戻る', :back %>
-        <% end %>
-        <hr>
+        <header class="navbar fixed-top bg-dark" id="header">
+          <% if action_name == 'show' && controller_name == 'users' %>
+            <%= link_to 'ユーザー編集', edit_user_registration_path %>
+            app名
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'ユーザー詳細', user_path %>
+            app名
+            <%= link_to '戻る', :back %>
+          <% end %>
+        </header>
       <% end %>
 
       <%# 通知 %>
       <% if controller_name != 'sessions' %>
         <% if notice.present? %>
-          <p class="notice"><%= notice %></p>
+          <div class="notice"><%= notice %></div>
         <% end %>
         <% if alert.present? %>
-          <p class="alert"><%= alert %></p>
+          <div class="alert"><%= alert %></div>
         <% end %>
       <% end %>
 

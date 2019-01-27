@@ -1,6 +1,26 @@
 @import "bootstrap";
 
-.container-fluid {
-  padding-left: 0;
-  padding-right: 0;
+@media only screen and (min-width: 576px){
+  #header,
+  #footer,
+  #user_information2 {
+    display: none;
+  }
+
+  .container-fluid {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 576px){
+  #sidebar,
+  #user_information1 {
+    display: none;
+  }
+
+  .container-fluid {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
