@@ -1,14 +1,47 @@
-<%= @user.name %>'s page<br>
-Number of travels: <%= @user.travels.count %><br>
-Number of cards: <%= Card.where(travel_id: @user.travels.ids).count %><br>
+<%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<% Card.where(travel_id: @user.travels.ids).includes(:images).each do |c| %>
-  <% if c.images.present? %>
-    <%= link_to image_tag(c.images.first.data.thumb.url), c %><br>
-  <% else %>
-    <%= link_to image_tag('blank.png'), c %><br>
+<div class="row" id="user_information1">
+  <div class="col-12">
+    <h2><%= @user.name %>'s page</h2>
+    <div class="btn btn-primary btn-sm">
+      Number of travels <span class="badge badge-light"><%= @user.travels.count %></span>
+    </div>
+    <div class="btn btn-primary btn-sm">
+      Number of cards <span class="badge badge-light"><%= Card.where(travel_id: @user.travels.ids).count %></span>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="user_information2">
+  <div class="col-12">
+    <h4><%= @user.name %>'s page</h4>
+    <div class="btn btn-primary btn-sm">
+      travels <span class="badge badge-light"><%= @user.travels.count %></span>
+    </div>
+    <div class="btn btn-primary btn-sm">
+      cards <span class="badge badge-light"><%= Card.where(travel_id: @user.travels.ids).count %></span>
+    </div>
+  </div>
+</div>
+
+<hr class="mb-0">
+
+<div class="row">
+  <% Card.where(travel_id: @user.travels.ids).includes(:images).each do |c| %>
+    <div class="col-sm-3 card_index">
+      <div class="card">
+        <% if c.images.present? %>
+          <%= link_to image_tag(c.images.first.data.thumb.url, class: 'card-img-top'), c %>
+        <% else %>
+          <%= link_to image_tag('blank.png', class: 'card-img-top'), c %>
+        <% end %>
+        <div class="card-body">
+          <div class="card-title"><%= c.title %></div>
+          <div class="card-text"><small>updated at <%= I18n.l(c.updated_at, format: :custom) %></small></div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <%= c.title %><br>
-<% end %>
+</div>
 
 <%= render 'layouts/users_footer' %>
