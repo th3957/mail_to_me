@@ -1,13 +1,23 @@
-<% @travels.each do |t| %>
-  <% if t.travel_image.url.nil? %>
-    <p><%= link_to image_tag('blank.png'), t %></p>
-  <% else %>
-    <p><%= link_to image_tag(t.travel_image.thumb.url), t %></p>
-  <% end %>
-  <%= t.title %><br>
-  <%= t.departured_at %><br>
-  ~<%= t.returend_at %><br>
-<% end %>
+<%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<hr>
-<%= link_to 'トラベル新規作成', new_travel_path %>
+<div class="row">
+  <% @travels.each do |t| %>
+    <div class="col-sm-3 travel_index">
+      <div class="card">
+        <% if t.travel_image.url.nil? %>
+          <%= link_to image_tag('blank.png', class: 'card-img-top'), t %>
+        <% else %>
+          <%= link_to image_tag(t.travel_image.thumb.url, class: 'card-img-top'), t %>
+        <% end %>
+        <div class="card-body">
+          <div class="card-title"><%= t.title %></div>
+          <div class="card-text"><small>
+            <%= I18n.l(t.departured_at, format: :custom) %> ~ <%= I18n.l(t.returend_at, format: :custom) %>
+          </small></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= render 'layouts/travels_footer' %>
