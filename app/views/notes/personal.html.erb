@@ -1,0 +1,5 @@
+<% @notes.each do |n| %>
+  <%= link_to n.content,n %><%= n.created_at %><br>
+<% end %>
+
+<%= render 'layouts/users_footer' %>
