@@ -37,14 +37,14 @@ end
 
 20.times do |s|
   title = "旅行のサンプル#{s}"
-  departured_at = Faker::Time.between(DateTime.now + 1, DateTime.now + 8)
-  returend_at = Faker::Time.between(DateTime.now + 9, DateTime.now + 30)
+  departed_at = Faker::Time.between(Date.today + 1, Date.today + 8)
+  returned_at = Faker::Time.between(Date.today + 9, Date.today + 30)
   user_id = 2
   Travel.create!(
     title: title,
     travel_image: File.open("./app/assets/images/sample_travel_image.png"),
-    departured_at: departured_at,
-    returend_at: returend_at,
+    departed_at: departed_at,
+    returned_at: returned_at,
     user_id: user_id,
   )
 end
@@ -52,10 +52,14 @@ end
 10.times do |s|
   country = Faker::Nation.nationality
   place = Faker::Nation.capital_city
+  arrived_at = Faker::Time.between(Date.today + 1, Date.today + 8)
+  left_at = Faker::Time.between(Date.today + 9, Date.today + 30)
   travel_id = 1
   Area.create!(
     country: country,
     place: place,
+    arrived_at: arrived_at,
+    left_at: left_at,
     travel_id: travel_id,
   )
 end
