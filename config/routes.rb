@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     get 'top', on: :collection
   end
   resources :travels
-  resources :notes, except: [:new]
+  resources :notes, except: [:new] do
+    get 'personal', on: :collection
+  end
   resources :cards, except: [:index]
   resources :lists, except: [:new] do
     get 'personal', on: :collection
