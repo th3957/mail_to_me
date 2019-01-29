@@ -1,9 +1,5 @@
-.container-fluid {
-  padding-top: 45px;
-  padding-bottom: 45px;
-}
-
-.travel_index {
+.travel_index,
+.card_index {
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -15,4 +11,8 @@
 
 .card-title {
   margin: 0;
+}
+
+#collapse_areas {
+  padding-top: 15px;
 }

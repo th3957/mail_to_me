@@ -1,21 +1,53 @@
-<%= @travel.title %><br>
-<%= 'departure date:' %><%= @travel.departured_at %><br>
-<%= 'return date:' %><%= @travel.returend_at %><br>
+<%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<% @travel.areas.each_with_index do |x, i| %>
-  area information<%= i+1 %><br>
-  <%= 'country:' %><%= x.country %><br>
-  <%= 'place:' %><%= x.place %><br>
-<% end %>
+<div class="row">
+  <div class="col-12">
+    <h2><%= @travel.title %></h2>
+    <span><%= @travel.departed_at %> ~ <%= @travel.returned_at %> (<%= (@travel.returned_at - @travel.departed_at).numerator %>days)</span>
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#collapse_areas" aria-expanded="false" aria-controls="collapse_areas">
+      areas
+    </button>
+  </div>
 
-<% @travel.cards.includes(:images).each do |c| %>
-  <% if c.images.present? %>
-    <%= link_to image_tag(c.images.last.data.thumb.url), c %><br>
-  <% else %>
-    <%= link_to image_tag('blank.png'), c %><br>
+  <div class="col-12 table-responsive collapse" id="collapse_areas">
+    <table class="table table-hover text-nowrap">
+      <tbody>
+        <tr>
+          <th>country</th>
+          <th>place</th>
+          <th>during </th>
+        </tr>
+        <% @travel.areas.each do |x| %>
+          <tr>
+            <td><%= x.country %></td>
+            <td><%= x.place %></td>
+            <td><%= x.arrived_at %> ~ <%= x.left_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="mb-0">
+
+<div class="row">
+  <% @travel.cards.includes(:images).each do |c| %>
+    <div class="col-sm-3 card_index">
+      <div class="card">
+        <% if c.images.present? %>
+          <%= link_to image_tag(c.images.last.data.thumb.url, class: 'card-img-top'), c %>
+        <% else %>
+          <%= link_to image_tag('blank.png', class: 'card-img-top'), c %>
+        <% end %>
+        <div class="card-body">
+          <div class="card-title"><%= c.title %></div>
+          <div class="card-text"><small>updated at <%= I18n.l(c.updated_at, format: :custom) %></small></div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <%= c.title %><br>
-<% end %>
+</div>
 
 <p>
   <%= link_to 'カード新規作成', new_card_path %>
