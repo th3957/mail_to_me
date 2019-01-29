@@ -1,11 +1,15 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_note, only: [:edit, :show, :update, :destroy]
-  before_action :set_associated_travel, only: [:index, :create, :show]
+  before_action :set_associated_travel, only: [:index, :create]
 
   def index
     @notes = @associated_travel.notes
     @note = Note.new
+  end
+
+  def personal
+    @notes = Note.where(travel_id: current_user.travels.ids)
   end
 
   def create
@@ -20,6 +24,8 @@ class NotesController < ApplicationController
   end
 
   def show
+    keep_own_travel_id
+    set_associated_travel
   end
 
   def edit
@@ -42,6 +48,10 @@ class NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def keep_own_travel_id
+    session[:travel_id] = @note.travel_id
   end
 
   def note_params
