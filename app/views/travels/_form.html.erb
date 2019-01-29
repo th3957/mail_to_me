@@ -7,8 +7,8 @@
 
 <%= form_with(model: travel, local: true) do |f| %>
   <%= f.label :"title" %><%= f.text_field :title %><br>
-  <%= f.label :"departure date" %><%= f.datetime_select :departured_at %><br>
-  <%= f.label :"return date" %><%= f.datetime_select :returend_at %><br>
+  <%= f.label :"departure date" %><%= f.date_select :departed_at %><br>
+  <%= f.label :"return date" %><%= f.date_select :returned_at %><br>
   <%= f.label :"image" %><%= f.file_field :travel_image %><br>
 
   <div id='add_area'>
