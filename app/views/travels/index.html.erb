@@ -12,7 +12,7 @@
         <div class="card-body">
           <div class="card-title"><%= t.title %></div>
           <div class="card-text"><small>
-            <%= I18n.l(t.departured_at, format: :custom) %> ~ <%= I18n.l(t.returend_at, format: :custom) %>
+            <%= t.departed_at %> ~ <%= t.returned_at %>
           </small></div>
         </div>
       </div>
