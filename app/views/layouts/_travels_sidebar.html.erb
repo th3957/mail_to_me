@@ -1,9 +1,14 @@
-<footer class="navbar fixed-bottom bg-dark" id="footer">
+<div class="row" id="sidebar">
+  logo
   <% if controller_name == 'travels' && action_name == 'show' %>
     <%= link_to 'トラベル一覧', travels_path %>
-  <% else %>
+  <% elsif %>
     <%= link_to 'トラベル詳細', travel_path(@associated_travel) %>
   <% end %>
   <%= link_to 'メモ一覧', notes_path %>
   <%= link_to 'リスト一覧', lists_path %>
-</footer>
+  <%= link_to 'ユーザー詳細', user_path %>
+  <%= link_to 'ユーザー編集', edit_user_registration_path %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <%= link_to '戻る', :back %>
+</div>

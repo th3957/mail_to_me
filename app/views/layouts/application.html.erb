@@ -13,30 +13,24 @@
   <body>
     <div class="container-fluid">
       <% if user_signed_in? %>
-        <header class="navbar fixed-top bg-dark" id="header">
-          <% if action_name == 'show' && controller_name == 'users' %>
-            <%= link_to 'ユーザー編集', edit_user_registration_path %>
-            app名
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to 'ユーザー詳細', user_path %>
-            app名
-            <%= link_to '戻る', :back %>
-          <% end %>
-        </header>
-      <% end %>
-
-      <%# 通知 %>
-      <% if controller_name != 'sessions' %>
-        <% if notice.present? %>
-          <div class="notice"><%= notice %></div>
+        <% if action_name == 'personal' || (controller_name == 'travels' && action_name != 'show') || (controller_name == 'registrations') %>
+          <%= render 'layouts/users_header' %>
+          <%= render 'layouts/users_sidebar' %>
+          <%= yield %>
+          <%= render 'layouts/users_footer' %>
+        <% else %>
+          <%= render 'layouts/travels_header' %>
+          <%= render 'layouts/travels_sidebar' %>
+          <%= yield %>
+          <%= render 'layouts/travels_footer' %>
         <% end %>
-        <% if alert.present? %>
-          <div class="alert"><%= alert %></div>
-        <% end %>
+      <% elsif controller_name == 'users' %>
+        <%= yield %>
+      <% else %>
+        <header class="navbar fixed-top bg-dark" id="header">logo</header>
+        <%= yield %>
+        <footer class="navbar fixed-bottom bg-dark" id="footer">url</footer>
       <% end %>
-
-      <%= yield %>
     </div>
   </body>
 </html>

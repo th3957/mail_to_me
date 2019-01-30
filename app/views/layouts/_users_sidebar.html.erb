@@ -1,4 +1,5 @@
-<footer class="navbar fixed-bottom bg-dark" id="footer">
+<div class="row" id="sidebar">
+  logo
   <% if controller_name == 'travels' && action_name == 'index' %>
     <%= link_to 'トラベル新規作成', new_travel_path %>
   <% else %>
@@ -6,4 +7,8 @@
   <% end %>
   <%= link_to '作成したメモ一覧', personal_notes_path %>
   <%= link_to '作成したリスト一覧', personal_lists_path %>
-</footer>
+  <%= link_to 'ユーザー詳細', user_path %>
+  <%= link_to 'ユーザー編集', edit_user_registration_path %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <%= link_to '戻る', :back %>
+</div>
