@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  root to: 'users#top'
+  root to: 'users#landing'
+
+  get 'users/landing(.:format)', to: 'users#landing'
+  get 'users/personal(.:format)', to: 'users#personal', as: :user
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions:      'users/sessions'
   }
 
-  resource :user, only: [:show] do
-    get 'top', on: :collection
-  end
   resources :travels
   resources :notes, except: [:new] do
     get 'personal', on: :collection
