@@ -1,0 +1,14 @@
+#sidebar{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  flex-flow: column nowrap;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.logo_image {
+  max-width: 100%;
+  max-height: 100%;
+}
