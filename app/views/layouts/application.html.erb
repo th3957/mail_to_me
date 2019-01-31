@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Mail to Me !</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,25 +11,35 @@
   </head>
 
   <body>
-    <div class="container-fluid">
+    <div class='container-fluid'>
       <% if user_signed_in? %>
+        <%# ユーザーページおよびトラベルの詳細以外、ユーザー編集 %>
         <% if action_name == 'personal' || (controller_name == 'travels' && action_name != 'show') || (controller_name == 'registrations') %>
-          <%= render 'layouts/users_header' %>
-          <%= render 'layouts/users_sidebar' %>
-          <%= yield %>
+          <%= render 'layouts/header' %>
+          <div class='row'>
+            <%= render 'layouts/users_sidebar' %>
+            <%= yield %>
+          </div>
           <%= render 'layouts/users_footer' %>
+        <%# ノートおよびリスト、カード、トラベル詳細 %>
         <% else %>
-          <%= render 'layouts/travels_header' %>
-          <%= render 'layouts/travels_sidebar' %>
-          <%= yield %>
+          <%= render 'layouts/header' %>
+          <div class='row'>
+            <%= render 'layouts/travels_sidebar' %>
+            <%= yield %>
+          </div>
           <%= render 'layouts/travels_footer' %>
         <% end %>
-      <% elsif controller_name == 'users' %>
+      <%# トップページ %>
+      <% elsif controller_name == 'users' && action_name == 'landing' %>
         <%= yield %>
       <% else %>
-        <header class="navbar fixed-top bg-dark" id="header">logo</header>
+      <%# サインアップおよびログイン %>
+        <header class='navbar fixed-top bg-dark'>logo</header>
+          <div id='fix_contents'>
         <%= yield %>
-        <footer class="navbar fixed-bottom bg-dark" id="footer">url</footer>
+          </div>
+        <footer class='navbar fixed-bottom bg-dark'>url</footer>
       <% end %>
     </div>
   </body>

@@ -1,6 +1,6 @@
 <% if @list.errors.any? %>
-  <div id="list_error_area">
-    Creation failed due to <%= pluralize(@list.errors.count, "error") %>.<br>
+  <div id='list_error_area'>
+    Creation failed due to <%= pluralize(@list.errors.count, 'error') %>.<br>
     <% @list.errors.full_messages.each do |m| %>
       <li><%= m %></li>
     <% end %>
@@ -8,7 +8,7 @@
 <% end %>
 
 <%= form_with(model: @list) do |f| %>
-  <%= f.label :"title" %><%= f.text_field :title %><br>
+  <%= f.label :'title' %><%= f.text_field :title %><br>
 
   <div id='add_item'>
     <%= f.fields_for :items do |i| %>

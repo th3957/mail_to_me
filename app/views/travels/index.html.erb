@@ -1,23 +1,26 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= render 'layouts/notice' %>
-
-<div class="row">
-  <% @travels.each do |t| %>
-    <div class="col-sm-3 travel_index">
-      <div class="card">
-        <% if t.travel_image.url.nil? %>
-          <%= link_to image_tag('blank.png', class: 'card-img-top'), t %>
-        <% else %>
-          <%= link_to image_tag(t.travel_image.thumb.url, class: 'card-img-top'), t %>
-        <% end %>
-        <div class="card-body">
-          <div class="card-title"><%= t.title %></div>
-          <div class="card-text"><small>
-            <%= t.departed_at %> ~ <%= t.returned_at %>
-          </small></div>
+<div class='col-sm-10 offset-sm-2 contents'>
+  <%= render 'layouts/notice' %>
+  <div class='row'>
+    <% @travels.each do |t| %>
+      <div class='col-sm-3 travel_index'>
+        <div class='card'>
+          <% if t.travel_image.url.nil? %>
+            <%= link_to image_tag('blank.png', class: 'card-img-top'), t %>
+          <% else %>
+            <%= link_to image_tag(t.travel_image.thumb.url, class: 'card-img-top'), t %>
+          <% end %>
+          <div class='card-body'>
+            <div class='card-title'><%= t.title %></div>
+            <div class='card-text'>
+              <small>
+                <%= t.departed_at %> ~ <%= t.returned_at %>
+              </small>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

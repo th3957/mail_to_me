@@ -1,15 +1,15 @@
 <% if @travel.errors.any? %>
-  Creation failed due to <%= pluralize(@travel.errors.count, "error") %>.<br>
+  Creation failed due to <%= pluralize(@travel.errors.count, 'error') %>.<br>
   <% @travel.errors.full_messages.each do |m| %>
     <li><%= m %></li>
   <% end %>
 <% end %>
 
 <%= form_with(model: travel, local: true) do |f| %>
-  <%= f.label :"title" %><%= f.text_field :title %><br>
-  <%= f.label :"departure date" %><%= f.date_select :departed_at %><br>
-  <%= f.label :"return date" %><%= f.date_select :returned_at %><br>
-  <%= f.label :"image" %><%= f.file_field :travel_image %><br>
+  <%= f.label :'title' %><%= f.text_field :title %><br>
+  <%= f.label :'departure date' %><%= f.date_select :departed_at %><br>
+  <%= f.label :'return date' %><%= f.date_select :returned_at %><br>
+  <%= f.label :'image' %><%= f.file_field :travel_image %><br>
 
   <div id='add_area'>
     <%= f.fields_for :areas do |a| %>
@@ -26,11 +26,11 @@
   %><br>
 
   <% if action_name == 'edit' %>
-    <%= f.submit "UPDATE" %>
-    <%= link_to "DELETE", travel_path(@travel),
-        data: { confirm: "Are you sure?" }, method: :delete
+    <%= f.submit 'UPDATE' %>
+    <%= link_to 'DELETE', travel_path(@travel),
+        data: { confirm: 'Are you sure?' }, method: :delete
     %>
   <% else %>
-    <%= f.submit "CREATE" %>
+    <%= f.submit 'CREATE' %>
   <% end %>
 <% end %>
