@@ -1,31 +1,46 @@
 <%= stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<div id='fullpage'>
-  <div class='section'>
-    <div class='row' id='first_row'>
-      <div class='col-sm-6 offset-sm-3'><%= image_tag('logo.png', class: 'top_image') %></div>
-    </div>
-    <div class='row'>
-      <div class='col-sm-6 offset-sm-3 log_in'>
-        <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-light' %>
+<div id='carouselControls' class='carousel slide' data-ride='carousel' data-interval='false'>
+  <div class='carousel-inner'>
+
+    <div class='carousel-item active'>
+      <div class='title_wrapper'>
+        <div class='title_inner'>
+          <%= image_tag('logo.png', class: 'logo') %>
+          <div class='log_in'>
+            <p><%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-light' %></p>
+            <p>or slide</p>
+          </div>
+        </div>
       </div>
-      <div class='col-sm-6 offset-sm-3 scroll_down'>
-        <br><p>or scroll down</p>
+    </div>
+
+    <div class='carousel-item'>
+      <div class='image_wrapper'>
+        <div class='image_inner'>
+          <%= image_tag('explanation.png', class: 'image') %>
+          <%= image_tag('explanation.png', class: 'image') %>
+          <%= image_tag('explanation.png', class: 'image') %>
+        </div>
+      </div>
+      <div class='sentence_wrapper'>
+        <div class='sentence_inner'>
+          <div class='sentence'>
+            <div class='text-justify'>
+              <p>STEP○. app概要＋操作説明と画面のスクリーンショットを張り付け</p>
+              <p>この文章はレイアウト確認用です。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はレイアウト確認用です。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+            </div>
+            <p><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-light' %></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class='section' id='second_section'>
-    <div class='row' id='second_row'>
-      <div class='col-sm-6 offset-sm-1'>
-        <%= image_tag('key_image.png', class: 'key_image') %>
-      </div>
-      <div class='col-sm-4 message_box'>
-        <p class='text-justify'>
-          左にイメージ画像、ここにappの説明が入ります。以下はレイアウト確認用です。サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト
-        </p>
-        <p><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-light' %></p>
-      </div>
-    </div>
-  </div>
+  <a class='carousel-control-prev' href='#carouselControls' role='button' data-slide='prev'>
+    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+  </a>
+  <a class='carousel-control-next' href='#carouselControls' role='button' data-slide='next'>
+    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+  </a>
 </div>
