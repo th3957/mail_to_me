@@ -16,7 +16,7 @@
         <%# ユーザーページおよびトラベルの詳細以外、ユーザー編集 %>
         <% if action_name == 'personal' || (controller_name == 'travels' && action_name != 'show') || (controller_name == 'registrations') %>
           <%= render 'layouts/header' %>
-          <div class='row'>
+          <div class='row contents_wrapper'>
             <%= render 'layouts/users_sidebar' %>
             <%= yield %>
           </div>
@@ -24,7 +24,7 @@
         <%# ノートおよびリスト、カード、トラベル詳細 %>
         <% else %>
           <%= render 'layouts/header' %>
-          <div class='row'>
+          <div class='row contents_wrapper'>
             <%= render 'layouts/travels_sidebar' %>
             <%= yield %>
           </div>
@@ -35,11 +35,9 @@
         <%= yield %>
       <% else %>
       <%# サインアップおよびログイン %>
-        <header class='navbar fixed-top bg-dark'>logo</header>
-          <div id='fix_contents'>
-        <%= yield %>
-          </div>
-        <footer class='navbar fixed-bottom bg-dark'>url</footer>
+        <header class='navbar fixed-top bg-dark' id='header'>logo</header>
+          <%= yield %>
+        <footer class='navbar fixed-bottom bg-dark' id='footer'>url</footer>
       <% end %>
     </div>
   </body>

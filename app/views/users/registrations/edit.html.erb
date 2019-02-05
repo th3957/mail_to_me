@@ -1,58 +1,67 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= stylesheet_link_tag 'registrations_edit', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= render 'layouts/notice' %>
+<div class='col-sm-10 offset-sm-2 contents'>
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <%= render 'layouts/notice' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <% if resource.errors.any? %>
+      <div class='border rounded' id='error_explanation'>
+          <% resource.errors.full_messages.each do |m| %>
+            <li><%= m %></li>
+          <% end %>
+      </div>
+    <% end %>
 
-  <div class="form-group">
-    <%= f.label :'name' %>
-    <%= f.text_field :name,
-                     class: 'form-control'
-    %>
-  </div>
+    <div class='form-group'>
+      <%= f.label :'name' %>
+      <%= f.text_field :name,
+                       class: 'form-control'
+      %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :'email' %>
-    <%= f.email_field :email,
-                      autocomplete: "email",
-                      class: 'form-control'
-    %>
-  </div>
+    <div class='form-group'>
+      <%= f.label :'email' %>
+      <%= f.email_field :email,
+                        autocomplete: 'email',
+                        class: 'form-control'
+      %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class='form-group'>
+      <%= f.label :'current password ( we need your current password to confirm your changes )' %>
+      <%= f.password_field :current_password,
+                           placeholder: "#{@minimum_password_length} characters minimum",
+                           autocomplete: 'current-password',
+                           class: 'form-control'
+      %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :"new password ( leave blank if you don't want to change it )" %>
+      <%= f.password_field :password,
+                           autocomplete: 'new-password',
+                           placeholder: "#{@minimum_password_length} characters minimum",
+                           class: 'form-control'
+      %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.password_field :password_confirmation,
+                           autocomplete: 'new-password',
+                           placeholder: 'new password confirmation',
+                           class: 'form-control'
+      %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
+    </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :'current password' %>
-    <%= f.password_field :current_password,
-                         placeholder: 'we need your current password to confirm your changes',
-                         autocomplete: "current-password",
-                         class: 'form-control'
-    %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :'new password' %>
-    <%= f.password_field :password,
-                         autocomplete: "new-password",
-                         placeholder: "#{@minimum_password_length} characters minimum, leave blank if you don't want to change it",
-                         class: 'form-control'
-    %>
-  </div>
-
-  <div class="form-group">
-    <%= f.password_field :password_confirmation,
-                         autocomplete: "new-password",
-                         placeholder: 'new password confirmation',
-                         class: 'form-control'
-    %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "Update", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<p>If you want to delete your account, please click <%= link_to 'here.', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %> This operation can't be canceled.</p>
+  <p class='mb-0'>If you want to delete your account, please click <%= link_to 'here.', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete %> This operation can't be canceled.</p>
+</div>

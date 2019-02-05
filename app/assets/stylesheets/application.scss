@@ -18,8 +18,12 @@
     display: none;
   }
 
-  .container-fluid {
-    padding-top: 15%;
-    padding-bottom: 15%;
+  .contents_wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .contents {
+    padding: 15px;
   }
 }
