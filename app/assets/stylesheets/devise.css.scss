@@ -1,3 +1,9 @@
+@media only screen and (max-width: 576px){
+  #error_explanation, .notice, .alert {
+    border-color: black !important;
+  }
+}
+
 html, body,
 .container-fluid {
   height: 100%;
@@ -37,21 +43,5 @@ html, body,
     transform : translate(-50%,-45%);
     padding-left: 15px;
     padding-right: 15px;
-  }
-}
-
-#error_explanation,
-.notice {
-  padding: 12px 20px;
-  margin-bottom: 15px;
-  list-style: none;
-  @media only screen and (max-width: 576px){
-    border-color: black !important;
-  }
-}
-
-.alert {
-  @media only screen and (max-width: 576px){
-    border-color: black !important;
   }
 }

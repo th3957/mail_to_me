@@ -27,3 +27,10 @@
     padding: 15px;
   }
 }
+
+#error_explanation,
+.notice, .alert {
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  list-style: none;
+}
