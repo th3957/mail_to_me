@@ -4,13 +4,13 @@ class ListsController < ApplicationController
   before_action :set_associated_travel, only: [:index, :create]
 
   def index
-    @lists = @associated_travel.lists
+    @lists = @associated_travel.lists.page(params[:page]).per(15).order('id DESC')
     @list = List.new
     @list.items.build
   end
 
   def personal
-    @lists = List.where(travel_id: current_user.travels.ids)
+    @lists = List.where(travel_id: current_user.travels.ids).page(params[:page]).per(15).order('id DESC')
   end
 
   def create
