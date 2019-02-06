@@ -8,7 +8,7 @@
         Number of travels <span class='badge badge-light'><%= @user.travels.count %></span>
       </div>
       <div class='btn btn-primary btn-sm'>
-        Number of cards <span class='badge badge-light'><%= Card.where(travel_id: @user.travels.ids).count %></span>
+        Number of cards <span class='badge badge-light'><%= @cards.count %></span>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
         travels <span class='badge badge-light'><%= @user.travels.count %></span>
       </div>
       <div class='btn btn-primary btn-sm'>
-        cards <span class='badge badge-light'><%= Card.where(travel_id: @user.travels.ids).count %></span>
+        cards <span class='badge badge-light'><%= @cards.count %></span>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
   <hr class='mb-0'>
 
   <div class='row'>
-    <% Card.where(travel_id: @user.travels.ids).includes(:images).each do |c| %>
+    <% @cards.includes(:images).each do |c| %>
       <div class='col-sm-3 card_index'>
         <div class='card'>
           <% if c.images.present? %>
@@ -38,10 +38,18 @@
           <% end %>
           <div class='card-body'>
             <div class='card-title'><%= c.title %></div>
-            <div class='card-text'><small>updated at <%= I18n.l(c.updated_at, format: :custom) %></small></div>
+            <div class='card-text'>
+              <small>
+                updated at<%= I18n.l(c.updated_at, format: :custom) %>
+              </small>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+
+  <hr class='mt-0'>
+
+  <%= paginate @cards %>
 </div>
