@@ -1,7 +1,21 @@
-<div id='lists_area'>
-  <%= render partial: 'lists/index', locals: { lists: @lists } %>
-</div>
+<%= stylesheet_link_tag 'lists', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<div id='list_area'>
-<%= render partial: 'lists/new', locals: { list: @list } %>
+<div class='col-sm-10 offset-sm-2 contents'>
+  <h2>Lists</h2>
+  <button type='button' class='btn btn-primary btn-sm' data-toggle='collapse' data-target='#list_area' aria-expanded='false' aria-controls='list_area'>
+    リスト新規作成
+  </button>
+  <div class='collapse' id='list_area'>
+  <%= render partial: 'lists/new', locals: { list: @list } %>
+  </div>
+
+  <hr>
+
+  <div id='lists_area'>
+    <%= render partial: 'lists/index', locals: { lists: @lists } %>
+  </div>
+
+  <hr>
+
+  <%= paginate @lists %>
 </div>

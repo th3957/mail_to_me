@@ -1,6 +1,5 @@
 <% if @list.errors.any? %>
-  <div id='list_error_area'>
-    Creation failed due to <%= pluralize(@list.errors.count, 'error') %>.<br>
+  <div class='border rounded mt-2 mb-2' id='list_error_area'>
     <% @list.errors.full_messages.each do |m| %>
       <li><%= m %></li>
     <% end %>
@@ -8,7 +7,12 @@
 <% end %>
 
 <%= form_with(model: @list) do |f| %>
-  <%= f.label :'title' %><%= f.text_field :title %><br>
+  <div class='form-group'>
+    <%= f.text_field :title,
+                     placeholder: 'list title',
+                     class: 'form-control'
+    %>
+  </div>
 
   <div id='add_item'>
     <%= f.fields_for :items do |i| %>
@@ -16,13 +20,16 @@
     <% end %>
   </div>
 
-  <%= link_to_add_association 'ADD ITEM', f, :items,
-    id: 'add_item_link',
-    data: {
-     association_insertion_node: '#add_item',
-     association_insertion_method: 'append'
-    }
-  %><br>
+  <div class='form-group'>
+    <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm' %>
 
-  <%= f.submit 'CREATE' %>
+    <%= link_to_add_association 'ADD ITEM', f, :items,
+      class: 'btn btn-primary btn-sm',
+      id: 'add_item_link',
+      data: {
+       association_insertion_node: '#add_item',
+       association_insertion_method: 'append'
+      }
+    %>
+  </div>
 <% end %>
