@@ -1,11 +1,27 @@
-<header class='navbar fixed-top bg-dark' id='header'>
+<header class='navbar fixed-top' id='header'>
   <% if controller_name == 'users' && action_name == 'personal' %>
-    <%= link_to 'ユーザー編集', edit_user_registration_path %>
-    logo
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <p class='mb-0'>
+      <small>
+        <%= link_to 'ユーザー編集', edit_user_registration_path %>
+      </small>
+    </p>
+    <%= image_tag('title.png', class: 'header_image') %>
+    <p class='mb-0'>
+      <small>
+        <%= link_to '　ログアウト', destroy_user_session_path, method: :delete %>
+      </small>
+    </p>
   <% else %>
-    <%= link_to 'ユーザー詳細', user_path %>
-    logo
-    <%= link_to '戻る', :back %>
+    <p class='mb-0'>
+      <small>
+        <%= link_to 'ユーザー詳細', user_path %>
+      </small>
+    </p>
+    <%= image_tag('title.png', class: 'header_image') %>
+    <p class='mb-0'>
+      <small>
+        <%= link_to '　　　　戻る', :back %>
+      </small>
+    </p>
   <% end %>
 </header>

@@ -28,6 +28,26 @@
   }
 }
 
+#header, #footer, #sidebar {
+  background-color: #032123;
+}
+
+#header, #footer {
+  height: 40px;
+}
+
+.header_image {
+  width: 30%;
+  display: block;
+  margin: auto;
+}
+
+.url_footer {
+  color: white;
+  display: block;
+  margin: auto;
+}
+
 #error_explanation,
 .notice, .alert {
   padding: 12px 20px;

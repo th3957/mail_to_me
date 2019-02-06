@@ -35,9 +35,13 @@
         <%= yield %>
       <% else %>
       <%# サインアップおよびログイン %>
-        <header class='navbar fixed-top bg-dark' id='header'>logo</header>
+        <header class='navbar fixed-top' id='header'>
+          <%= image_tag('title.png', class: 'header_image') %>
+        </header>
           <%= yield %>
-        <footer class='navbar fixed-bottom bg-dark' id='footer'>url</footer>
+        <footer class='navbar fixed-bottom' id='footer'>
+          <p class='url_footer mb-0'><small>https://mail-to-me.herokuapp.com/</small></p>
+        </footer>
       <% end %>
     </div>
   </body>

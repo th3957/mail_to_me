@@ -1,9 +1,9 @@
-<footer class='navbar fixed-bottom bg-dark' id='footer'>
+<footer class='navbar fixed-bottom' id='footer'>
   <% if controller_name == 'travels' && action_name == 'index' %>
-    <%= link_to 'トラベル新規作成', new_travel_path %>
+    <p class='mb-0'><small><%= link_to 'トラベル新規作成', new_travel_path %></small></p>
   <% else %>
-    <%= link_to 'トラベル一覧', travels_path %>
+    <p class='mb-0'><small><%= link_to 'トラベル一覧', travels_path %></small></p>
   <% end %>
-  <%= link_to '作成したメモ一覧', personal_notes_path %>
-  <%= link_to '作成したリスト一覧', personal_lists_path %>
+    <p class='mb-0'><small><%= link_to '作成メモ一覧', personal_notes_path %></small></p>
+    <p class='mb-0'><small><%= link_to '作成リスト一覧', personal_lists_path %></small></p>
 </footer>
