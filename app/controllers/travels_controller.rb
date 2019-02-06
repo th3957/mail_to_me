@@ -23,6 +23,7 @@ class TravelsController < ApplicationController
   end
 
   def show
+    @cards = @travel.cards.page(params[:page]).per(8).order('updated_at DESC')
     keep_travel_id
   end
 

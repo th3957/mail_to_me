@@ -4,10 +4,14 @@
   <div class='row'>
     <div class='col-12'>
       <h2><%= @travel.title %></h2>
-      <span><%= @travel.departed_at %> ~ <%= @travel.returned_at %> (<%= (@travel.returned_at - @travel.departed_at).numerator %>days)</span>
+      <p class='mb-2'>
+        <%= @travel.departed_at %> ~ <%= @travel.returned_at %> (<%= (@travel.returned_at - @travel.departed_at).numerator %>days)
+      </p>
       <button type='button' class='btn btn-primary btn-sm' data-toggle='collapse' data-target='#collapse_areas' aria-expanded='false' aria-controls='collapse_areas'>
-        areas
+        行先
       </button>
+      <%= link_to 'カード新規作成', new_card_path, class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'トラベル編集', edit_travel_path(@travel), class: 'btn btn-primary btn-sm' %>
     </div>
 
     <div class='col-12 table-responsive collapse' id='collapse_areas'>
@@ -33,7 +37,7 @@
   <hr class='mb-0'>
 
   <div class='row'>
-    <% @travel.cards.includes(:images).each do |c| %>
+    <% @cards.includes(:images).each do |c| %>
       <div class='col-sm-3 card_index'>
         <div class='card'>
           <% if c.images.present? %>
@@ -50,8 +54,7 @@
     <% end %>
   </div>
 
-  <p>
-    <%= link_to 'カード新規作成', new_card_path %>
-    <%= link_to 'トラベル編集', edit_travel_path(@travel) %>
-  </p>
+  <hr class='mt-0'>
+
+  <%= paginate @cards %>
 </div>
