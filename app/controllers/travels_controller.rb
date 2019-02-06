@@ -4,6 +4,8 @@ class TravelsController < ApplicationController
 
   def index
     @travels = Travel.where(user_id: current_user.id)
+    @latest_travel = @travels.order('returned_at').last
+    @travels = @travels.page(params[:page]).per(8).order('updated_at DESC')
   end
 
   def new
