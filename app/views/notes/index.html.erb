@@ -1,7 +1,21 @@
-<div id='notes_area'>
-  <%= render partial: 'notes/index', locals: { notes: @notes } %>
-</div>
+<%= stylesheet_link_tag 'notes', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<div id='note_area'>
-<%= render partial: 'notes/new', locals: { note: @note } %>
+<div class='col-sm-10 offset-sm-2 contents'>
+  <h2>Notes</h2>
+  <button type='button' class='btn btn-primary btn-sm' data-toggle='collapse' data-target='#note_area' aria-expanded='false' aria-controls='note_area'>
+    ノート新規作成
+  </button>
+  <div class='collapse' id='note_area'>
+  <%= render partial: 'notes/new', locals: { note: @note } %>
+  </div>
+
+  <hr>
+
+  <div id='notes_area'>
+    <%= render partial: 'notes/index', locals: { notes: @notes } %>
+  </div>
+
+  <hr>
+
+  <%= paginate @notes %>
 </div>

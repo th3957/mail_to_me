@@ -1,6 +1,5 @@
 <% if @note.errors.any? %>
-  <div id='note_error_area'>
-    Creation failed due to <%= pluralize(@note.errors.count, 'error') %>.<br>
+  <div class='border rounded mt-2 mb-2' id='note_error_area'>
     <% @note.errors.full_messages.each do |m| %>
       <li><%= m %></li>
     <% end %>
@@ -8,9 +7,39 @@
 <% end %>
 
 <%= form_with(model: @note) do |f| %>
-  <%= f.label :'content' %><%= f.text_area :content %><br>
-  <%= f.label :'image' %><%= f.file_field :image %><br>
-  <%= f.label :'remove image' %><%= f.check_box :remove_image %><br>
-  <%= f.label :'importance' %><%= f.check_box :importance, {}, true, false %><br>
-  <%= f.submit 'CREATE' %>
+  <div class='form-group'>
+    <%= f.text_area :content,
+                    placeholder: 'list title',
+                    class: 'form-control'
+    %>
+  </div>
+
+  <%= f.file_field :image, class: 'mb-3' %>
+
+  <div class='custom-control custom-checkbox'>
+    <%= f.check_box :remove_image,
+                    class: 'custom-control-input',
+                    id: 'remove_image'
+    %>
+    <label class='custom-control-label mb-3' for='remove_image'>
+      cancel upload image
+    </label>
+  </div>
+
+  <div class='custom-control custom-checkbox'>
+    <%= f.check_box :importance,
+                    { class: 'custom-control-input',
+                      id: 'importance',
+                      checked_value: 'true',
+                      unchecked_value: 'false'
+                    }
+    %>
+    <label class='custom-control-label mb-3' for='importance'>
+      important
+    </label>
+  </div>
+
+  <div class='form-group'>
+    <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm' %>
+  </div>
 <% end %>
