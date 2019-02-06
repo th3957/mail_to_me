@@ -4,12 +4,12 @@ class NotesController < ApplicationController
   before_action :set_associated_travel, only: [:index, :create]
 
   def index
-    @notes = @associated_travel.notes
+    @notes = @associated_travel.notes.page(params[:page]).per(10).order('id DESC')
     @note = Note.new
   end
 
   def personal
-    @notes = Note.where(travel_id: current_user.travels.ids)
+    @notes = Note.where(travel_id: current_user.travels.ids).page(params[:page]).per(10).order('id DESC')
   end
 
   def create
