@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card, only: [:edit, :show, :update, :destroy]
-  before_action :set_associated_travel, only: [:create, :destroy]
+  before_action :set_associated_travel, only: [:new, :create, :destroy]
 
   def new
     @card = Card.new
