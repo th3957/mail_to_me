@@ -1,36 +1,68 @@
-<% if @travel.errors.any? %>
-  Creation failed due to <%= pluralize(@travel.errors.count, 'error') %>.<br>
-  <% @travel.errors.full_messages.each do |m| %>
-    <li><%= m %></li>
+<%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class='col-sm-10 offset-sm-2 contents'>
+  <h2>New travel</h2>
+  <% if @travel.errors.any? %>
+    <div class='border rounded mt-2 mb-2' id='travel_error_area'>
+      <% @travel.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
 
-<%= form_with(model: travel, local: true) do |f| %>
-  <%= f.label :'title' %><%= f.text_field :title %><br>
-  <%= f.label :'departure date' %><%= f.date_select :departed_at %><br>
-  <%= f.label :'return date' %><%= f.date_select :returned_at %><br>
-  <%= f.label :'image' %><%= f.file_field :travel_image %><br>
+  <hr>
 
-  <div id='add_area'>
-    <%= f.fields_for :areas do |a| %>
-      <%= render 'area_fields', f: a %>
+  <%= form_with(model: travel, local: true) do |f| %>
+    <div class='form-group'>
+      <%= f.text_field :title,
+                       placeholder: 'title',
+                       class: 'form-control'
+      %>
+    </div>
+
+    <div class='mb-2'>
+      <%= f.label :'departure date' %>
+      <%= f.date_select :departed_at %>
+      ～
+      <%= f.label :'return date' %>
+      <%= f.date_select :returned_at %>
+    </div>
+
+    <%= f.file_field :travel_image, class: 'mb-3' %>
+
+    <div id='add_area'>
+      <%= f.fields_for :areas do |a| %>
+        <%= render 'area_fields', f: a %>
+      <% end %>
+    </div>
+
+    <% if action_name == 'edit' %>
+      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm' %>
+
+      <%= link_to_add_association 'ADD AREA', f, :areas,
+        class: 'btn btn-primary btn-sm',
+        id: 'add_area_link',
+        data: {
+         association_insertion_node: '#add_area',
+         association_insertion_method: 'append'
+        }
+      %>
+
+      <%= link_to 'DELETE', travel_path(@travel),
+          data: { confirm: 'Are you sure?' }, method: :delete,
+          class: 'btn btn-secondary btn-sm'
+      %>
+    <% else %>
+      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm' %>
+
+      <%= link_to_add_association 'ADD AREA', f, :areas,
+        class: 'btn btn-primary btn-sm',
+        id: 'add_area_link',
+        data: {
+         association_insertion_node: '#add_area',
+         association_insertion_method: 'append'
+        }
+      %>
     <% end %>
-  </div>
-
-  <%= link_to_add_association 'ADD AREA', f, :areas,
-    id: 'add_area_link',
-    data: {
-     association_insertion_node: '#add_area',
-     association_insertion_method: 'append'
-    }
-  %><br>
-
-  <% if action_name == 'edit' %>
-    <%= f.submit 'UPDATE' %>
-    <%= link_to 'DELETE', travel_path(@travel),
-        data: { confirm: 'Are you sure?' }, method: :delete
-    %>
-  <% else %>
-    <%= f.submit 'CREATE' %>
   <% end %>
-<% end %>
+</div>
