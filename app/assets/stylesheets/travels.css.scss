@@ -19,10 +19,18 @@
   margin: 0;
 }
 
-#collapse_areas {
+#collapse_areas,
+#note_area, #list_area {
   padding-top: 15px;
 }
 
-.notice {
+.notice,
+#note_error_area,
+#list_error_area,
+#card_error_area {
   border-color: black !important;
+}
+
+.nested-fields {
+  margin-bottom: 15px;
 }
