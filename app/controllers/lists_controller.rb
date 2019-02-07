@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_list, only: [:edit, :show, :update, :destroy]
-  before_action :set_associated_travel, only: [:index, :create]
+  before_action :set_associated_travel, only: [:index, :create, :edit]
 
   def index
     @lists = @associated_travel.lists.page(params[:page]).per(15).order('id DESC')
