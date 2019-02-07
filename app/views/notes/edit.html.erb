@@ -1,17 +1,7 @@
-<% if @note.errors.any? %>
-  <div id='note_error_area'>
-    Creation failed due to <%= pluralize(@note.errors.count, 'error') %>.<br>
-    <% @note.errors.full_messages.each do |m| %>
-      <li><%= m %></li>
-    <% end %>
-  </div>
-<% end %>
+<%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= form_with(model: @note, local: true) do |f| %>
-  <p><%= f.label :'content' %><%= f.text_area :content %></p>
-  <p><%= f.label :'image' %><%= f.file_field :image %></p>
-  <p><%= f.label :'remove image' %><%= f.check_box :remove_image %><p>
-  <p><%= f.label :'importance' %><%= f.check_box :importance, {}, true, false %></p>
-  <%= f.submit 'UPDATE' %>
-  <%= link_to 'DELETE', note_path(@note), data: { confirm: 'Are you sure?' }, method: :delete %>
-<% end %>
+<div class='col-sm-10 offset-sm-2 contents'>
+  <h2>Edit note</h2>
+  <hr>
+  <%= render 'new', note: @note %>
+</div>

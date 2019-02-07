@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_note, only: [:edit, :show, :update, :destroy]
-  before_action :set_associated_travel, only: [:index, :create]
+  before_action :set_associated_travel, only: [:index, :create, :edit]
 
   def index
     @notes = @associated_travel.notes.page(params[:page]).per(10).order('id DESC')
