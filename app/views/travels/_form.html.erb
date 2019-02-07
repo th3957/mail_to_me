@@ -1,7 +1,12 @@
-<%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2>New travel</h2>
+  <% if action_name == 'edit' %>
+    <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <h2>Edit travel</h2>
+  <% else %>
+    <%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <h2>New travel</h2>
+  <% end %>
+
   <% if @travel.errors.any? %>
     <div class='border rounded mt-2 mb-2' id='travel_error_area'>
       <% @travel.errors.full_messages.each do |m| %>
