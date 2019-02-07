@@ -6,6 +6,7 @@
   background-size: cover;
 }
 
+.travel_index,
 .card_index {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -18,4 +19,16 @@
 
 .card-title {
   margin: 0;
+}
+
+#collapse_areas {
+  padding-top: 15px;
+}
+
+.notice {
+  border-color: black !important;
+}
+
+.nested-fields {
+  margin-bottom: 15px;
 }

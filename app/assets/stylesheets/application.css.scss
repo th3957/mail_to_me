@@ -1,4 +1,4 @@
-@import "bootstrap";
+@import 'bootstrap';
 
 @media only screen and (min-width: 576px){
   #header,
@@ -48,7 +48,10 @@
   margin: auto;
 }
 
-#error_explanation,
+#registrations_error_area,
+#travel_error_area,
+#note_error_area,
+#list_error_area,
 .notice, .alert {
   padding: 12px 20px;
   margin-bottom: 15px;

@@ -6,7 +6,7 @@
   <hr>
 
   <% @notes.each do |n| %>
-    <li><%= link_to n.content,n %></li>
+    <li><%= link_to n.content, n %></li>
     <p>( <%= I18n.l(n.created_at, format: :long) %> )</p>
   <% end %>
 
