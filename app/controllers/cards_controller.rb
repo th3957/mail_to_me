@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card, only: [:edit, :show, :update, :destroy]
-  before_action :set_associated_travel, only: [:new, :create, :destroy]
+  before_action :set_associated_travel, only: [:new, :edit, :create, :destroy]
 
   def new
     @card = Card.new
@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   end
 
   def edit
-    Image::FORM.times { @card.images.build }
+    (Image::FORM - @card.images.count).times { @card.images.build }
   end
 
   def update
