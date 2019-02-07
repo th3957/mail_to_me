@@ -214,3 +214,10 @@ en:
       short: "%d %b %H:%M"
       custom: "%m/%d/%Y"
     pm: pm
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"

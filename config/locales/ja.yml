@@ -206,3 +206,10 @@ ja:
       short: "%m/%d %H:%M"
       custom: "%Y/%m/%d"
     pm: 午後
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
