@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :cards, except: [:index]
   resources :lists, except: [:new] do
     get 'personal', on: :collection
+    post 'duplicate', on: :member
   end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

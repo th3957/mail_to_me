@@ -22,4 +22,17 @@
   </div>
 
   <%= link_to 'リスト編集', edit_list_path(@list), class: 'btn btn-primary btn-sm' %>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      リスト複製
+    </button>
+    <div class="dropdown-menu">
+      <% @travels.each do |t| %>
+        <div class="dropdown-item" href="#">
+          <%= link_to t.title, duplicate_list_path(@list, travel_id: t.id), method: :post %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

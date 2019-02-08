@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list, only: [:edit, :show, :update, :destroy]
+  before_action :set_list, only: [:edit, :duplicate, :show, :update, :destroy]
   before_action :set_associated_travel, only: [:index, :create, :edit]
 
   def index
@@ -23,12 +23,30 @@ class ListsController < ApplicationController
   end
 
   def show
+    @travels = Travel.where(user_id: current_user.id)
     keep_own_travel_id
     set_associated_travel
   end
 
   def edit
     @list.items.build if @list.items.blank?
+  end
+
+  def duplicate
+    @duplicate_list = @list.deep_dup
+    @duplicate_list.id = (List.last.id+1)
+    @duplicate_list.travel_id = params[:travel_id]
+    @duplicate_list.save
+
+    @list.items.each_with_index do |i, n|
+      @duplicate_item = i.deep_dup
+      @duplicate_item.id = (Item.last.id+1+n)
+      @duplicate_item.list_id = @duplicate_list.id
+      @duplicate_item.save
+    end
+
+    session[:travel_id] = params[:travel_id]
+    redirect_to lists_path, notice: 'Successfully duplicated.'
   end
 
   def update

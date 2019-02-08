@@ -42,7 +42,7 @@
   - [x] アイテム作成・編集・更新・削除
   - [x] アイテムを登録することができる
   - [x] アイテム数は自由に増減できる
-  - [ ] 既存リストからコピーを作成できる
+  - [x] 既存リストからコピーを作成できる
   - [ ] リストの内容をメールで送信できる
 - 通知機能
   - [ ] サインアップ時に本人確認メールを送る
@@ -50,16 +50,16 @@
   - [ ] メモからリマインドメールを作成して送る
 
 ## カタログ設計
-<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=0>
+&nbsp; &nbsp; &nbsp;<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=0>
 
 ## テーブル定義
-<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=255551928>
+&nbsp; &nbsp; &nbsp;<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=255551928>
 
 ## 画面遷移図
-<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=1021057277>
+&nbsp; &nbsp; &nbsp;<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=1021057277>
 
 ## 画面ワイヤーフレーム
-<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=128152128>
+&nbsp; &nbsp; &nbsp;<https://docs.google.com/spreadsheets/d/1kCIofNG83koBNCXzaRXhvRF0SJqR9lMNZJCMTbLqp34/edit#gid=128152128>
 
 ## 使用予定Gem
 - active_decorator
