@@ -1,8 +1,10 @@
-<%= @note.content %><br>
-<%= image_tag(@note.image.thumb.url) if @note.image.present? %><br>
-<%= 'create_at:' %><%= @note.created_at %><br>
-<%= 'update_at:' %><%= @note.updated_at %><br>
+<%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<p>
-  <%= link_to 'メモ編集', edit_note_path(@note) %>
-</p>
+<div class='col-sm-10 offset-sm-2 contents'>
+  <%= render 'layouts/notice' %>
+  <p class='text-justify'><%= @note.content %></p>
+  <%= image_tag(@note.image.url, class: 'img-thumbnail mb-3') if @note.image.present? %>
+  <p class='mb-0'>create at <%= I18n.l(@note.created_at, format: :long) %></p>
+  <p>update at <%= I18n.l(@note.updated_at, format: :long) %></p>
+  <%= link_to 'メモ編集', edit_note_path(@note), class: 'btn btn-primary btn-sm' %>
+</div>
