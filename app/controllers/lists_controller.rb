@@ -15,12 +15,10 @@ class ListsController < ApplicationController
 
   def create
     @list = @associated_travel.lists.build(list_params)
-    respond_to do |f|
-      if @list.save
-        f.js { render partial: 'lists/index_js' }
-      else
-        f.js { render partial: 'lists/new_js' }
-      end
+    if @list.save
+      render partial: 'lists/index_js'
+    else
+      render partial: 'lists/new_js'
     end
   end
 
@@ -34,10 +32,12 @@ class ListsController < ApplicationController
   end
 
   def update
-    if @list.update(list_params)
-      redirect_to list_path(@list), notice: 'Successfully updated.'
-    else
-      render :edit
+    respond_to do |f|
+      if @list.update(list_params)
+        f.html { redirect_to list_path(@list), notice: 'Successfully updated.' }
+      else
+        f.js { render partial: 'lists/new_js' }
+      end
     end
   end
 

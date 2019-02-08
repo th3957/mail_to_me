@@ -14,12 +14,10 @@ class NotesController < ApplicationController
 
   def create
     @note = @associated_travel.notes.build(note_params)
-    respond_to do |f|
-      if @note.save
-        f.js { render partial: 'notes/index_js' }
-      else
-        f.js { render partial: 'notes/new_js' }
-      end
+    if @note.save
+      render partial: 'notes/index_js'
+    else
+      render partial: 'notes/new_js'
     end
   end
 
@@ -32,10 +30,12 @@ class NotesController < ApplicationController
   end
 
   def update
-    if @note.update(note_params)
-      redirect_to note_path(@note), notice: 'Successfully updated.'
-    else
-      render :edit
+    respond_to do |f|
+      if @note.update(note_params)
+        f.html { redirect_to note_path(@note), notice: 'Successfully updated.' }
+      else
+        f.js { render partial: 'notes/new_js' }
+      end
     end
   end
 

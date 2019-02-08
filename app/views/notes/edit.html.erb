@@ -2,6 +2,8 @@
 
 <div class='col-sm-10 offset-sm-2 contents'>
   <h2>Edit note</h2>
-  <hr>
-  <%= render 'new', note: @note %>
+  <hr class='mb-0'>
+  <div id='note_area'>
+    <%= render partial: 'notes/new', locals: { note: @note } %>
+  </div>
 </div>
