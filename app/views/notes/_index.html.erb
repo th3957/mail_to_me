@@ -1,4 +1,7 @@
 <% notes.each do |n| %>
-  <li><%= link_to n.content, n %></li>
+  <li>
+    <%= link_to n.content, n %>
+    <%= raw(t 'views.list.importance') if n.importance %>
+  </li>
   <p>( <%= I18n.l(n.created_at, format: :long) %> )</p>
 <% end %>

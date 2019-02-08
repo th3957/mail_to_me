@@ -213,3 +213,5 @@ ja:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
+    list:
+      importance: "&olcir;"
