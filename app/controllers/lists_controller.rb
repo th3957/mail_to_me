@@ -50,12 +50,10 @@ class ListsController < ApplicationController
   end
 
   def update
-    respond_to do |f|
-      if @list.update(list_params)
-        f.html { redirect_to list_path(@list), notice: 'Successfully updated.' }
-      else
-        f.js { render partial: 'lists/new_js' }
-      end
+    if @list.update(list_params)
+      redirect_to list_path(@list), notice: 'Successfully updated.'
+    else
+      render partial: 'lists/new_js'
     end
   end
 

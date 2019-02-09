@@ -30,12 +30,10 @@ class NotesController < ApplicationController
   end
 
   def update
-    respond_to do |f|
-      if @note.update(note_params)
-        f.html { redirect_to note_path(@note), notice: 'Successfully updated.' }
-      else
-        f.js { render partial: 'notes/new_js' }
-      end
+    if @note.update(note_params)
+      redirect_to note_path(@note), notice: 'Successfully updated.'
+    else
+      render partial: 'notes/new_js'
     end
   end
 
