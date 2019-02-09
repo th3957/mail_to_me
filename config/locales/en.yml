@@ -213,6 +213,7 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
       custom: "%m/%d/%Y"
+      download: "_%m%d%Y%H%M%S"
     pm: pm
   views:
     pagination:

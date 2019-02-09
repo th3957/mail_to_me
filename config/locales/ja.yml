@@ -205,6 +205,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
       custom: "%Y/%m/%d"
+      download: "_%Y%m%d%H%M%S"
     pm: 午後
   views:
     pagination:

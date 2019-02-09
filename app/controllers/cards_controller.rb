@@ -18,8 +18,20 @@ class CardsController < ApplicationController
   end
 
   def show
-    keep_own_travel_id
-    set_associated_travel
+    respond_to do |f|
+      f.html do
+        keep_own_travel_id
+        set_associated_travel
+      end
+
+      f.pdf do
+        card_pdf = CardPdf.new.render
+        send_data card_pdf,
+                  filename: "#{@card.title}#{I18n.l(Time.current, format: :download)}.pdf",
+                  type: 'application/pdf',
+                  disposition: 'inline'
+      end
+    end
   end
 
   def edit
