@@ -14,11 +14,24 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = @associated_travel.lists.build(list_params)
-    if @list.save
-      render partial: 'lists/index_js'
-    else
-      render partial: 'lists/new_js'
+    respond_to do |f|
+      f.js do
+        @list = @associated_travel.lists.build(list_params)
+        if @list.save
+          render partial: 'lists/index_js'
+        else
+          render partial: 'lists/new_js'
+        end
+      end
+
+      f.html do
+        @list = @associated_travel.lists.build(duplicate_list_params)
+        if @list.save
+          redirect_to lists_path, notice: 'Successfully duplicated.'
+        else
+          render :duplicate
+        end
+      end
     end
   end
 
@@ -33,20 +46,8 @@ class ListsController < ApplicationController
   end
 
   def duplicate
-    @duplicate_list = @list.deep_dup
-    @duplicate_list.id = (List.last.id+1)
-    @duplicate_list.travel_id = params[:travel_id]
-    @duplicate_list.save
-
-    @list.items.each_with_index do |i, n|
-      @duplicate_item = i.deep_dup
-      @duplicate_item.id = (Item.last.id+1+n)
-      @duplicate_item.list_id = @duplicate_list.id
-      @duplicate_item.save
-    end
-
     session[:travel_id] = params[:travel_id]
-    redirect_to lists_path, notice: 'Successfully duplicated.'
+    set_associated_travel
   end
 
   def update
@@ -75,6 +76,12 @@ class ListsController < ApplicationController
   def list_params
     params.require(:list).permit(:title,
                                  items_attributes:[:id, :name, :remark, :_destroy]
+                                 )
+  end
+
+  def duplicate_list_params
+    params.require(:list).permit(:title,
+                                 items_attributes:[:name, :remark, :_destroy]
                                  )
   end
 end

@@ -30,7 +30,7 @@
     <div class="dropdown-menu">
       <% @travels.each do |t| %>
         <div class="dropdown-item" href="#">
-          <%= link_to t.title, duplicate_list_path(@list, travel_id: t.id), method: :post %>
+          <%= link_to t.title, duplicate_list_path(@list, travel_id: t.id) %>
         </div>
       <% end %>
     </div>

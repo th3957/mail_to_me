@@ -1,3 +1,4 @@
 $("#lists_area").html("<%= j(render 'lists/index', { lists: @associated_travel.lists }) %>")
+$("textarea").val('')
 $("input").val('')
 $("#list_error_area").remove()
