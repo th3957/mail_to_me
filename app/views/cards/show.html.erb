@@ -1,14 +1,23 @@
-<%= @card.sentence %><br>
+<%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<% @card.images.each_with_index do |x| %>
-  <% if x.present? %>
-    <%= image_tag(x.data.url) %><br>
-  <% else %>
-    <%= image_tag('sample_card_image.png') %><br>
+<div class='col-sm-10 offset-sm-2 contents'>
+  <h2>Card config</h2>
+  <%= render 'layouts/notice' %>
+
+  <hr>
+
+  <%= @card.sentence %><br>
+  <% @card.images.each_with_index do |x| %>
+    <% if x.present? %>
+      <%= image_tag(x.data.url) %><br>
+    <% else %>
+      <%= image_tag('sample_card_image.png') %><br>
+    <% end %>
   <% end %>
-<% end %>
 
-<p>
-  <%= link_to 'カード編集', edit_card_path(@card) %>
-  <%= link_to 'カード新規作成', new_card_path %>
-</p>
+  <hr>
+
+  <%= link_to 'カード編集', edit_card_path(@card), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'PDFで表示', card_path(@card, format: 'pdf'), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'ダウンロード', download_card_path(@card), class: 'btn btn-primary btn-sm' %>
+</div>

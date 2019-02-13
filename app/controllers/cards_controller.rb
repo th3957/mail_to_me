@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_card, only: [:edit, :show, :update, :destroy]
+  before_action :set_card, only: [:edit, :show, :download, :update, :destroy]
   before_action :set_associated_travel, only: [:new, :edit, :create, :destroy]
 
   def new
@@ -25,13 +25,16 @@ class CardsController < ApplicationController
       end
 
       f.pdf do
-        card_pdf = CardPdf.new.render
-        send_data card_pdf,
+        card_pdf = CardPdf.new(@card)
+        send_data card_pdf.render,
                   filename: "#{@card.title}#{I18n.l(Time.current, format: :download)}.pdf",
-                  type: 'application/pdf',
                   disposition: 'inline'
       end
     end
+  end
+
+  def download
+    send_data CardPdf.new(@card).render,filename: "#{@card.title}#{I18n.l(Time.current, format: :download)}.pdf"
   end
 
   def edit
