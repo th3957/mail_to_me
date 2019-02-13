@@ -16,10 +16,9 @@ ja:
         admin: 管理ユーザー
     card:
       frame_style:
-        frame_sample0: フレーム0番
-        frame_sample1: フレーム1番
-        frame_sample2: フレーム2番
+        basic: ベーシック
+        tile: タイル
       font_style:
-        font_sample0: フォント0番
-        font_sample1: フォント1番
-        font_sample2: フォント2番
+        ipaex_gothic: IPAexゴシック
+        yasashisa_gothic: やさしさゴシック
+        playball: Playball(英数字のみ)
