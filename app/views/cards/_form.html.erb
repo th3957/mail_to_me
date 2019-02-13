@@ -19,11 +19,13 @@
 
   <%= form_with(model: card, local: true) do |f| %>
     <%= f.select :frame_style, @card.frame_style_labels,
-                 {}, class: 'custom-select mb-3', include_blank: @card.frame_style_label
+          { include_blank: @card.frame_style_label },
+          class: 'custom-select mb-3'
     %>
 
     <%= f.select :font_style, @card.font_style_labels,
-                 {}, class: 'custom-select mb-3', include_blank: @card.font_style_label
+          { include_blank: @card.font_style_label },
+          class: 'custom-select mb-3'
     %>
 
     <%= f.fields_for :images do |i| %>

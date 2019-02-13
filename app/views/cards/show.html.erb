@@ -6,12 +6,12 @@
 
   <hr>
 
-  <%= @card.sentence %><br>
+  <p class='text-justify'><%= @card.sentence %></p>
   <% @card.images.each_with_index do |x| %>
     <% if x.present? %>
-      <%= image_tag(x.data.url) %><br>
+      <%= image_tag(x.data.url, class: 'img-thumbnail mb-3') %>
     <% else %>
-      <%= image_tag('sample_card_image.png') %><br>
+      <%= image_tag('sample_card_image.png') %>
     <% end %>
   <% end %>
 

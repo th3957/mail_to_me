@@ -1,26 +1,14 @@
 <%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <div class='row' id='user_information1'>
+  <div class='row'>
     <div class='col-12'>
-      <h2><%= @user.name %>'s page</h2>
+      <h2>Home</h2>
       <div class='btn btn-primary btn-sm'>
-        Number of travels <span class='badge badge-light'><%= @user.travels.count %></span>
+        Travels <span class='badge badge-light'><%= @user.travels.count %></span>
       </div>
       <div class='btn btn-primary btn-sm'>
-        Number of cards <span class='badge badge-light'><%= @cards.count %></span>
-      </div>
-    </div>
-  </div>
-
-  <div class='row' id='user_information2'>
-    <div class='col-12'>
-      <h4><%= @user.name %>'s page</h4>
-      <div class='btn btn-primary btn-sm'>
-        travels <span class='badge badge-light'><%= @user.travels.count %></span>
-      </div>
-      <div class='btn btn-primary btn-sm'>
-        cards <span class='badge badge-light'><%= @cards.count %></span>
+        Cards <span class='badge badge-light'><%= @cards_count %></span>
       </div>
     </div>
   </div>

@@ -42,7 +42,7 @@
       <div class='col-sm-3 card_index'>
         <div class='card'>
           <% if c.images.present? %>
-            <%= link_to image_tag(c.images.last.data.thumb.url, class: 'card-img-top'), c %>
+            <%= link_to image_tag(c.images.first.data.thumb.url, class: 'card-img-top'), c %>
           <% else %>
             <%= link_to image_tag('blank.png', class: 'card-img-top'), c %>
           <% end %>

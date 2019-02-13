@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 
   def personal
     @user = User.find(current_user.id)
-    @cards = Card.where(travel_id: @user.travels.ids).page(params[:page]).per(8).order('updated_at DESC')
+    @cards = Card.where(travel_id: @user.travels.ids)
+    @cards_count = @cards.count
+    @cards = @cards.page(params[:page]).per(8).order('updated_at DESC')
   end
 
   def landing
