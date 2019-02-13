@@ -3,9 +3,7 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: [:edit, :show, :update, :destroy]
 
   def index
-    @travels = Travel.where(user_id: current_user.id)
-    @latest_travel = @travels.order('returned_at').last
-    @travels = @travels.page(params[:page]).per(8).order('updated_at DESC')
+    @travels = Travel.where(user_id: current_user.id).page(params[:page]).per(8).order('updated_at DESC')
   end
 
   def new
@@ -56,11 +54,11 @@ class TravelsController < ApplicationController
 
   def travel_params
     params.require(:travel).permit(:title,
-                                   :departured_at,
-                                   :returend_at,
+                                   :departed_at,
+                                   :returned_at,
                                    :travel_image,
                                    :user_id,
-                                   areas_attributes:[:id, :country, :place, :_destroy]
+                                   areas_attributes:[:id, :country, :place, :arrived_at, :left_at, :_destroy]
                                    )
   end
 end
