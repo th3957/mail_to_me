@@ -3,7 +3,6 @@ class ImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::Magic
   process :set_magic_content_type => [true]
 
-  storage :fog if Rails.env.production?
   storage :file
 
   def store_dir

@@ -16,7 +16,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'enum_help'
 gem 'file_validators'
-gem 'fog'
+gem 'faker'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
@@ -50,7 +50,6 @@ end
 
 group :development do
   gem 'bullet'
-  gem 'faker'
   gem 'letter_opener_web'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
