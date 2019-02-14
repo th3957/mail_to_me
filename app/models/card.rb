@@ -5,13 +5,17 @@ class Card < ApplicationRecord
                                 allow_destroy: true,
                                 limit: 2
 
-  enum frame_style: { basic:  0,
-                      tile:   1,
+  enum frame_style: { basic:    0,
+                      overlay:  1,
+                      overlay2: 2
                      }
 
   enum font_style: { ipaex_gothic:     0,
                      yasashisa_gothic: 1,
-                     playball:         2,
+                     koku_gothic:      2,
+                     shippori_mincho:  3,
+                     soukou_mincho:    4,
+                     playball:         5
                     }
 
   validates :title, presence: true, length: { in: 1..20 }

@@ -17,8 +17,12 @@ ja:
     card:
       frame_style:
         basic: basic
-        tile: tile
+        overlay: overlay
+        overlay2: overlay(white character)
       font_style:
         ipaex_gothic: IPAex Gothic
         yasashisa_gothic: Yasashisa Gothic
+        koku_gothic: Koku Gothic
+        shippori_mincho: Shippori Mincho
+        soukou_mincho: Soukou Mincho
         playball: Playball(alphanumeric only)

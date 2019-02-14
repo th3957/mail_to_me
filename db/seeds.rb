@@ -77,8 +77,8 @@ end
 20.times do |s|
   title = "カードのサンプル#{s}"
   sentence = Faker::Lorem.paragraph(sentence_count = 10)
-  frame_style = [0, 1].sample
-  font_style = [0, 1, 2].sample
+  frame_style = [0, 1, 2].sample
+  font_style = [0, 1, 2, 3, 4, 5].sample
   travel_id = 1
   Card.create!(
     title: title,

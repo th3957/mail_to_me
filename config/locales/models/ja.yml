@@ -17,8 +17,12 @@ ja:
     card:
       frame_style:
         basic: ベーシック
-        tile: タイル
+        overlay: オーバーレイ
+        overlay2: オーバーレイ(白文字)
       font_style:
         ipaex_gothic: IPAexゴシック
         yasashisa_gothic: やさしさゴシック
+        koku_gothic: 刻ゴシック
+        shippori_mincho: しっぽり明朝
+        soukou_mincho: 装甲明朝
         playball: Playball(英数字のみ)
