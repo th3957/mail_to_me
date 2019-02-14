@@ -42,7 +42,7 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list.items.build if @list.items.blank?
+    @list.items.build ||= @list.items
   end
 
   def duplicate

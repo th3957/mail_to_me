@@ -11,9 +11,9 @@ $(function() {
 
   function check_to_hide_or_show_add_link() {
     if ($('#add_area .nested-fields').length == 10) {
-      $('#add_area_link').hide();
+      $('a#add_area_link').hide();
     } else {
-      $('#add_area_link').show();
+      $('a#add_area_link').show();
     }
   }
 })
