@@ -3,8 +3,7 @@ class Card < ApplicationRecord
   has_many :images, inverse_of: :card, dependent: :destroy
   accepts_nested_attributes_for :images,
                                 allow_destroy: true,
-                                reject_if: :all_blank,
-                                limit: 8
+                                limit: 2
 
   enum frame_style: { basic:  0,
                       tile:   1,

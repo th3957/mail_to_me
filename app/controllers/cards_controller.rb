@@ -5,7 +5,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    Image::FORM.times { @card.images.build }
+    @card.images.build
   end
 
   def create
@@ -38,7 +38,6 @@ class CardsController < ApplicationController
   end
 
   def edit
-    (Image::FORM - @card.images.count).times { @card.images.build }
   end
 
   def update
@@ -70,7 +69,7 @@ class CardsController < ApplicationController
                                  :frame_style,
                                  :font_style,
                                  :travel_id,
-                                 images_attributes:[:id, :data]
+                                 images_attributes:[:id, :data, :_destroy]
                                  )
   end
 end
