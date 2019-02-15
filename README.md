@@ -10,6 +10,7 @@
 &nbsp; &nbsp; &nbsp;スマートフォンとPCでの表示に対応しています。  
 
 &nbsp; &nbsp; &nbsp;<img src="https://user-images.githubusercontent.com/42922656/52122193-794aac00-2665-11e9-81d7-7a55053dfb02.JPG" width="200">
+&nbsp; &nbsp;<img src="https://user-images.githubusercontent.com/42922656/52842297-01d74b00-3142-11e9-8200-9f95a68deb7b.JPG" height="355">
 
 ## コンセプト
 &nbsp; &nbsp; &nbsp;旅先での体験を物として残すことを目的とします。  
