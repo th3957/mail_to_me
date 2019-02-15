@@ -17,4 +17,5 @@ Rails.application.config.assets.precompile += %w( landing.css
                                                   sidebar.css
                                                   personal.css
                                                   travels.css
+                                                  images.css
                                                 )

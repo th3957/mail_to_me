@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list, only: [:edit, :duplicate, :show, :update, :destroy]
+  before_action :set_list, :identify_owner,
+    only: [:edit, :duplicate, :show, :update, :destroy]
   before_action :set_associated_travel, only: [:index, :create, :edit]
 
   def index
@@ -67,6 +68,15 @@ class ListsController < ApplicationController
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def identify_owner
+    if @list.travel.user_id != current_user.id
+      render file: Rails.root.join('public/404.html'),
+             status: 404,
+             layout: false,
+             content_type: 'text/html'
+    end
   end
 
   def keep_own_travel_id

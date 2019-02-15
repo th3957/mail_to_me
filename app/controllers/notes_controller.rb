@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_note, only: [:edit, :show, :update, :destroy]
+  before_action :set_note, :identify_owner, only: [:edit, :show, :update, :destroy]
   before_action :set_associated_travel, only: [:index, :create, :edit]
 
   def index
@@ -46,6 +46,15 @@ class NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def identify_owner
+    if @note.travel.user_id != current_user.id
+      render file: Rails.root.join('public/404.html'),
+             status: 404,
+             layout: false,
+             content_type: 'text/html'
+    end
   end
 
   def keep_own_travel_id

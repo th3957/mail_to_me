@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_card, only: [:edit, :show, :download, :update, :destroy]
+  before_action :set_card, :identify_owner,
+    only: [:edit, :show, :download, :update, :destroy]
   before_action :set_associated_travel, only: [:new, :edit, :create, :destroy]
 
   def new
@@ -28,13 +29,16 @@ class CardsController < ApplicationController
         card_pdf = CardPdf.new(@card)
         send_data card_pdf.render,
                   filename: "#{@card.title}#{I18n.l(Time.current, format: :download)}.pdf",
+                  type: 'application/pdf',
                   disposition: 'inline'
       end
     end
   end
 
   def download
-    send_data CardPdf.new(@card).render,filename: "#{@card.title}#{I18n.l(Time.current, format: :download)}.pdf"
+    send_data CardPdf.new(@card).render,
+              filename: "#{@card.title}#{I18n.l(Time.current, format: :download)}.pdf",
+              type: 'application/pdf'
   end
 
   def edit
@@ -57,6 +61,15 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find(params[:id])
+  end
+
+  def identify_owner
+    if @card.travel.user_id != current_user.id
+      render file: Rails.root.join('public/404.html'),
+             status: 404,
+             layout: false,
+             content_type: 'text/html'
+    end
   end
 
   def keep_own_travel_id

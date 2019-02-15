@@ -1,6 +1,6 @@
 class TravelsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_travel, only: [:edit, :show, :update, :destroy]
+  before_action :set_travel, :identify_owner, only: [:edit, :show, :update, :destroy]
 
   def index
     @travels = Travel.where(user_id: current_user.id).page(params[:page]).per(8).order('updated_at DESC')
@@ -46,6 +46,15 @@ class TravelsController < ApplicationController
 
   def set_travel
     @travel = Travel.find(params[:id])
+  end
+
+  def identify_owner
+    if @travel.user_id != current_user.id
+      render file: Rails.root.join('public/404.html'),
+             status: 404,
+             layout: false,
+             content_type: 'text/html'
+    end
   end
 
   def keep_travel_id
