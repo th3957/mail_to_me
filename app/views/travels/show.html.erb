@@ -23,7 +23,7 @@
             <th>place</th>
             <th>during </th>
           </thead>
-          <% @travel.areas.each do |x| %>
+          <% @travel.areas.order('arrived_at ASC').each do |x| %>
             <tr>
               <td><%= x.country %></td>
               <td><%= x.place %></td>
