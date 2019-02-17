@@ -18,6 +18,6 @@
   <hr>
 
   <%= link_to 'カード編集', edit_card_path(@card), class: 'btn btn-primary btn-sm' %>
-  <%= link_to 'PDFで表示', card_path(@card, format: 'pdf'), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'PDFで表示', card_path(@card, format: 'pdf'), class: 'btn btn-primary btn-sm show_pdf' %>
   <%= link_to 'ダウンロード', download_card_path(@card), class: 'btn btn-primary btn-sm' %>
 </div>

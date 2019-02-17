@@ -35,3 +35,9 @@
 .nested-fields {
   margin-bottom: 15px;
 }
+
+@media only screen and (max-width: 576px){
+  .show_pdf {
+    display: none;
+  }
+}
