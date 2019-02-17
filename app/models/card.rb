@@ -3,6 +3,7 @@ class Card < ApplicationRecord
   has_many :images, inverse_of: :card, dependent: :destroy
   accepts_nested_attributes_for :images,
                                 allow_destroy: true,
+                                reject_if: :all_blank,
                                 limit: 2
 
   enum frame_style: { basic:    0,
@@ -23,4 +24,11 @@ class Card < ApplicationRecord
   validates :frame_style, presence: true, inclusion: { in: Card.frame_styles.keys }
   validates :font_style, presence: true, inclusion: { in: Card.font_styles.keys }
   validates_presence_of :travel
+  validate :number_of_images
+
+  def number_of_images
+    if self.images.length <= 1
+      errors[:base] << 'Two images are required to create.'
+    end
+  end
 end
