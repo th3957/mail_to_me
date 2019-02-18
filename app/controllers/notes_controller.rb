@@ -64,9 +64,10 @@ class NotesController < ApplicationController
   def note_params
     params.require(:note).permit(:content,
                                  :image,
+                                 :image_cache,
+                                 :remove_image,
                                  :importance,
-                                 :travel_id,
-                                 :remove_image
+                                 :travel_id
                                  )
   end
 end
