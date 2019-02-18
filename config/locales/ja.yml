@@ -216,3 +216,7 @@ ja:
       truncate: "&hellip;"
     list:
       importance: "&olcir;"
+    card:
+      frame_style_select: "フレームを選んでください"
+      font_style_select: "フォントを選んでください"
+      more_image: "作成には２枚の画像が必要です"

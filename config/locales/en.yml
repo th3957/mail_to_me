@@ -224,3 +224,7 @@ en:
       truncate: "&hellip;"
     list:
       importance: "&olcir;"
+    card:
+      frame_style_select: "choose layout"
+      font_style_select: "choose font"
+      more_image: "Two images are required to create"

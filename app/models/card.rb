@@ -28,7 +28,7 @@ class Card < ApplicationRecord
 
   def number_of_images
     if self.images.length <= 1
-      errors[:base] << 'Two images are required to create.'
+      errors[:base] << I18n.t('views.card.more_image')
     end
   end
 end
