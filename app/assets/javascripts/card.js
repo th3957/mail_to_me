@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-  const limit_of_nested_images = 2
+  var limit_of_nested_images = 2
 
   function check_to_hide_or_show_add_link() {
     if ($('#add_image .nested-fields').length - $('#add_image .nested-fields').filter(':hidden').length == limit_of_nested_images) {

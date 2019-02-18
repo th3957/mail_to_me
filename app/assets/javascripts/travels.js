@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-  const limit_of_nested_areas = 10
+  var limit_of_nested_areas = 10
 
   function check_to_hide_or_show_add_link() {
     if ($('#add_area .nested-fields').length - $('#add_area .nested-fields').filter(':hidden').length == limit_of_nested_areas) {
