@@ -8,7 +8,6 @@ class TravelsController < ApplicationController
 
   def new
     @travel = Travel.new
-    @travel.areas.build
   end
 
   def create
@@ -26,7 +25,6 @@ class TravelsController < ApplicationController
   end
 
   def edit
-    @travel.areas.build if @travel.areas.blank?
   end
 
   def update
@@ -66,6 +64,8 @@ class TravelsController < ApplicationController
                                    :departed_at,
                                    :returned_at,
                                    :travel_image,
+                                   :travel_image_cache,
+                                   :remove_travel_image,
                                    :user_id,
                                    areas_attributes:[:id, :country, :place, :arrived_at, :left_at, :_destroy]
                                    )

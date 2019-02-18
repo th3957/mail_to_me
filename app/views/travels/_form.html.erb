@@ -25,7 +25,7 @@
       %>
     </div>
 
-    <div class='mb-2'>
+    <div class='mb-4'>
       <%= f.label :'departure date' %>
       <%= f.date_select :departed_at %>
       ～
@@ -33,7 +33,20 @@
       <%= f.date_select :returned_at %>
     </div>
 
-    <%= f.file_field :travel_image, class: 'mb-3' %>
+    <% if @travel.travel_image.present? %>
+      <%= image_tag(@travel.travel_image.thumb.url, class: 'img-thumbnail mb-2') %>
+      <div class='custom-control custom-checkbox'>
+        <%= f.check_box :remove_travel_image,
+                        class: 'custom-control-input',
+                        id: 'remove_travel_image'
+        %>
+        <label class='custom-control-label mb-2' for='remove_travel_image'>
+          cancel upload image
+        </label>
+      </div>
+    <% end %>
+    <%= f.file_field :travel_image, class: 'mb-4' %>
+    <%= f.hidden_field :travel_image_cache %>
 
     <div id='add_area'>
       <%= f.fields_for :areas do |a| %>
