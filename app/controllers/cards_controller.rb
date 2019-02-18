@@ -6,7 +6,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    @card.images.build
+    Image::FORM.times { @card.images.build }
   end
 
   def create
@@ -48,6 +48,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to card_path(@card), notice: 'Successfully updated.'
     else
+      set_associated_travel
       render :edit
     end
   end
@@ -82,7 +83,7 @@ class CardsController < ApplicationController
                                  :frame_style,
                                  :font_style,
                                  :travel_id,
-                                 images_attributes:[:id, :data, :_destroy]
+                                 images_attributes:[:id, :data, :data_cache, :_destroy]
                                  )
   end
 end

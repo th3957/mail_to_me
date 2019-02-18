@@ -29,6 +29,10 @@
           class: 'custom-select mb-3'
     %>
 
+    <% @card.images.each do |i| %>
+      <%= image_tag(i.data.thumb.url, class: 'img-thumbnail mb-3') if i.data.present? %>
+    <% end %>
+
     <div id='add_image'>
       <%= f.fields_for :images do |i| %>
         <%= render 'image_fields', f: i %>
