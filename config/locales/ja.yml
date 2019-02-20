@@ -42,6 +42,7 @@ ja:
       default: "%Y/%m/%d"
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
+      custom: "%Y/%m/%d"
     month_names:
     -
     - 1月
@@ -133,6 +134,17 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+      carrierwave_processing_error: 処理に失敗しました
+      carrierwave_integrity_error: 許可されたファイルタイプではありません
+      carrierwave_download_error: ダウンロードできませんでした
+      extension_whitelist_error: "%{extension}ファイルをアップロードすることはできません(許可されたファイルタイプ：%{allowed_types})"
+      extension_blacklist_error: "%{extension}ファイルをアップロードすることはできません(禁止されたファイルタイプ：%{prohibited_types})"
+      content_type_whitelist_error: "%{content_type}ファイルをアップロードすることはできません(許可されたファイルタイプ：%{allowed_types})"
+      content_type_blacklist_error: "%{content_type}ファイルをアップロードすることはできません"
+      rmagick_processing_error: "RMagickの処理に失敗しました。画像ファイルですか？"
+      mini_magick_processing_error: "MiniMagickの処理に失敗しました。画像ファイルですか？(元のエラー:%{e})"
+      min_size_error: "ファイルサイズは%{min_size}より大きくなければなりません"
+      max_size_error: "ファイルサイズは%{max_size}より小さくなければなりません"
     template:
       body: 次の項目を確認してください
       header:
@@ -214,9 +226,13 @@ ja:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
-    list:
-      importance: "&olcir;"
+    message:
+      success_create: "正常に作成しました。"
+      success_update: "正常に更新しました。"
+      success_delete: "正常に削除しました。"
+      success_duplicate: "正常に複製しました。"
     card:
       frame_style_select: "フレームを選んでください"
       font_style_select: "フォントを選んでください"
-      more_image: "作成には２枚の画像が必要です"
+    list:
+      importance: "&olcir;"

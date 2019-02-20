@@ -1,14 +1,51 @@
 ja:
   activerecord:
     models:
-      user: user
+      area: area
       card: card
+      image: image
+      item: item
+      list: list
+      note: note
+      travel: booklet
+      user: user
     attributes:
-      user:
-        role: role
       card:
+        title: card title
+        sentence: sentence
         frame_style: frame
         font_style: font
+      card/images:
+        data: image
+      list:
+        title: list title
+      list/items:
+        name: item name
+        remark: remark
+      note:
+        content: content
+        image: image
+        importance: importance
+      travel:
+        title: booklet title
+        departed_at: departed at
+        returned_at: returned at
+        travel_image: image
+      travel/areas:
+        country: country
+        place: place
+        arrived_at: arrived at
+        left_at: left at
+        date_check: ""
+      user:
+        email: e-mail
+        password: password
+        password_confirmation: password confirmation
+        name: nickname
+        role: role
+  attributes:
+    created_at: created at
+    updated_at: updated at
   enums:
     user:
       role:
@@ -26,3 +63,10 @@ ja:
         shippori_mincho: Shippori Mincho
         soukou_mincho: Soukou Mincho
         playball: Playball(alphanumeric only)
+  errors:
+    area:
+      date_check: Can't set leave date before arrived date
+    card:
+      more_image: Two images are required to create
+    travel:
+      date_check: Can't set return date before departed date
