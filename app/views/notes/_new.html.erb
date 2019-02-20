@@ -38,18 +38,18 @@
                     }
     %>
     <label class='custom-control-label mb-3' for='importance'>
-      important
+      important?
     </label>
   </div>
 
   <% if action_name == 'edit' %>
     <div class='form-group'>
-      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm' %>
-      <%= link_to 'DELETE', note_path(@note), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm' %>
+      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= link_to 'DELETE', note_path(@note), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm font-weight-light' %>
     </div>
   <% else %>
     <div class='form-group'>
-      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm' %>
+      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm font-weight-light' %>
     </div>
   <% end %>
 <% end %>

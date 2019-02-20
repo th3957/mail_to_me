@@ -12,7 +12,7 @@ class CardsController < ApplicationController
   def create
     @card = @associated_travel.cards.build(card_params)
     if @card.save
-      redirect_to card_path(@card), notice: 'Successfully created.'
+      redirect_to card_path(@card), notice: I18n.t('views.message.success_create')
     else
       render :new
     end
@@ -46,7 +46,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to card_path(@card), notice: 'Successfully updated.'
+      redirect_to card_path(@card), notice: I18n.t('views.message.success_update')
     else
       set_associated_travel
       render :edit
@@ -55,7 +55,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to travel_path(@associated_travel), notice: 'Successfully deleted.'
+    redirect_to travel_path(@associated_travel), notice: I18n.t('views.message.success_delete')
   end
 
   private

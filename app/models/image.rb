@@ -5,6 +5,6 @@ class Image < ApplicationRecord
 
   belongs_to :card, inverse_of: :images
 
-  validates :data, presence: true, image: true, file_size: { less_than: 5.megabytes }
-  validates_presence_of :card
+  validates :data, presence: true, image: true, file_size: { less_than: 10.megabytes }
+  validates :card, presence: true
 end

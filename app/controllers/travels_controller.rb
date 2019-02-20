@@ -13,7 +13,7 @@ class TravelsController < ApplicationController
   def create
     @travel = current_user.travels.build(travel_params)
     if @travel.save
-      redirect_to travels_path, notice: 'Successfully created.'
+      redirect_to travels_path, notice: I18n.t('views.message.success_create')
     else
       render :new
     end
@@ -29,7 +29,7 @@ class TravelsController < ApplicationController
 
   def update
     if @travel.update(travel_params)
-      redirect_to travel_path(@travel), notice: 'Successfully updated.'
+      redirect_to travel_path(@travel), I18n.t('views.message.success_update')
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class TravelsController < ApplicationController
 
   def destroy
     @travel.destroy
-    redirect_to travels_path, notice: 'Successfully deleted.'
+    redirect_to travels_path, notice: I18n.t('views.message.success_delete')
   end
 
   private

@@ -7,5 +7,5 @@ class List < ApplicationRecord
                                 limit: 100
 
   validates :title, presence: true, length: { in: 1..20 }
-  validates_presence_of :travel
+  validates :travel, presence: true
 end

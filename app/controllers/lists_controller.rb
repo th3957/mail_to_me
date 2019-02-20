@@ -28,7 +28,7 @@ class ListsController < ApplicationController
       f.html do
         @list = @associated_travel.lists.build(duplicate_list_params)
         if @list.save
-          redirect_to lists_path, notice: 'Successfully duplicated.'
+          redirect_to lists_path, notice: I18n.t('views.message.success_duplicate')
         else
           render :duplicate
         end
@@ -53,7 +53,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      redirect_to list_path(@list), notice: 'Successfully updated.'
+      redirect_to list_path(@list), notice: I18n.t('views.message.success_update')
     else
       render partial: 'lists/new_js'
     end
@@ -61,7 +61,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to lists_path, notice: 'Successfully deleted.'
+    redirect_to lists_path, notice: I18n.t('views.message.success_delete')
   end
 
   private

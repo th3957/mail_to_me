@@ -21,11 +21,11 @@
     </table>
   </div>
 
-  <%= link_to 'リスト編集', edit_list_path(@list), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'EDIT LIST', edit_list_path(@list), class: 'btn btn-primary btn-sm' %>
 
   <div class="btn-group">
     <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      リスト複製
+      DUPLICATE LIST
     </button>
     <div class="dropdown-menu">
       <% @travels.each do |t| %>

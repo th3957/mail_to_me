@@ -1,9 +1,9 @@
 <%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2>All travels</h2>
+  <h2>BOOKLETS</h2>
   <%= render 'layouts/notice' %>
-  <%= link_to 'トラベル新規作成', new_travel_path, class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'NEW BOOKLET', new_travel_path, class: 'btn btn-primary btn-sm font-weight-light' %>
 
   <hr class='mb-0'>
 
@@ -20,7 +20,7 @@
             <div class='card-title'><%= t.title %></div>
             <div class='card-text'>
               <small>
-                <%= t.departed_at %> ~ <%= t.returned_at %>
+                <%= I18n.l(t.departed_at, format: :custom) %> ~ <%= I18n.l(t.returned_at, format: :custom) %>
               </small>
             </div>
           </div>

@@ -2,6 +2,7 @@
   background-color: #FFB11B;
   background-attachment: fixed;
   background-size: cover;
+  min-height: 100vh;
 }
 
 .travel_index,
@@ -29,7 +30,7 @@
 #note_error_area,
 #list_error_area,
 #card_error_area {
-  border-color: black !important;
+  border-color: #212529 !important;
 }
 
 .nested-fields {
@@ -40,4 +41,8 @@
   .show_pdf {
     display: none;
   }
+}
+
+.notes_content, .lists_title {
+  color: #212529;
 }

@@ -1,5 +1,11 @@
 <footer class='navbar fixed-bottom' id='footer'>
-  <p class='mb-0'><small><%= link_to 'トラベル一覧', travels_path %></small></p>
-  <p class='mb-0'><small><%= link_to '作成メモ一覧', personal_notes_path %></small></p>
-  <p class='mb-0'><small><%= link_to '作成リスト一覧', personal_lists_path %></small></p>
+  <div class='col-4'>
+    <small><%= link_to 'BOOKLETS', travels_path %></small>
+  </div>
+  <div class='col-4 text-center'>
+    <small><%= link_to 'ALL NOTES', personal_notes_path %></small>
+  </div>
+  <div class='col-4 text-right'>
+    <small><%= link_to 'ALL LISTS', personal_lists_path %></small>
+  </div>
 </footer>

@@ -3,9 +3,9 @@
 
 <div class='col-sm-10 offset-sm-2 contents'>
   <% if action_name == 'edit' %>
-    <h2>Edit card</h2>
+    <h2>EDIT CARD</h2>
   <% else %>
-    <h2>New card</h2>
+    <h2>NEW CARD</h2>
   <% end %>
 
   <hr>
@@ -55,21 +55,21 @@
 
     <% if action_name == 'edit' %>
       <div class='form-group'>
-        <%= f.submit "UPDATE", class: 'btn btn-primary btn-sm' %>
+        <%= f.submit "UPDATE", class: 'btn btn-primary btn-sm font-weight-light' %>
         <%= link_to_add_association 'ADD IMAGE', f, :images,
-              class: 'btn btn-primary btn-sm',
+              class: 'btn btn-primary btn-sm font-weight-light',
               id: 'add_image_link',
               data: { association_insertion_node: '#add_image',
                       association_insertion_method: 'append'
                     }
         %>
-        <%= link_to "DELETE", card_path(@card), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-secondary btn-sm' %>
+        <%= link_to "DELETE", card_path(@card), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-secondary btn-sm font-weight-light' %>
       </div>
     <% else %>
       <div class='form-group'>
-        <%= f.submit "CREATE", class: 'btn btn-primary btn-sm' %>
+        <%= f.submit "CREATE", class: 'btn btn-primary btn-sm font-weight-light' %>
         <%= link_to_add_association 'ADD IMAGE', f, :images,
-              class: 'btn btn-primary btn-sm',
+              class: 'btn btn-primary btn-sm font-weight-light',
               id: 'add_image_link',
               data: { association_insertion_node: '#add_image',
                       association_insertion_method: 'append'

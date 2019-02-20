@@ -13,7 +13,7 @@
   <body>
     <div class='container-fluid'>
       <% if user_signed_in? %>
-        <%# ユーザーページおよびトラベルの詳細以外、ユーザー編集 %>
+        <%# 各personalページおよびトラベルの詳細以外、ユーザー編集 %>
         <% if action_name == 'personal' || (controller_name == 'travels' && action_name != 'show') || (controller_name == 'registrations') %>
           <%= render 'layouts/header' %>
           <div class='row contents_wrapper'>
@@ -40,7 +40,11 @@
         </header>
           <%= yield %>
         <footer class='navbar fixed-bottom' id='footer'>
-          <p class='url_footer mb-0'><small>https://mail-to-me.herokuapp.com/</small></p>
+          <div class='url_footer mb-0'>
+            <small class='font-weight-light'>
+              https://mail-to-me.herokuapp.com/
+            </small>
+          </div>
         </footer>
       <% end %>
     </div>

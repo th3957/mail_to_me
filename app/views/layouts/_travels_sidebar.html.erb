@@ -2,19 +2,32 @@
 
 <nav class='col-2 flex-column' id='sidebar'>
   <%= image_tag('logo.png', class: 'logo_image') %>
+
   <hr class='dotted_white'>
-  <%= link_to 'ユーザー詳細', user_path, class: 'nav-link' %>
+
+  <%= link_to 'HOME', user_path,
+              class: 'nav-link font-weight-light' %>
 
   <% if controller_name == 'travels' && action_name == 'show' %>
-    <%= link_to 'トラベル一覧', travels_path, class: 'nav-link' %>
+    <%= link_to 'BOOKLETS', travels_path,
+                class: 'nav-link font-weight-light' %>
   <% elsif %>
-    <%= link_to 'トラベル詳細', travel_path(@associated_travel), class: 'nav-link' %>
+    <%= link_to 'INDEX', travel_path(@associated_travel),
+                class: 'nav-link font-weight-light' %>
   <% end %>
 
-  <%= link_to 'メモ一覧', notes_path, class: 'nav-link' %>
-  <%= link_to 'リスト一覧', lists_path, class: 'nav-link' %>
-  <%= link_to '戻る', :back, class: 'nav-link' %>
+  <%= link_to 'NOTES', notes_path,
+              class: 'nav-link font-weight-light' %>
+  <%= link_to 'LISTS', lists_path,
+              class: 'nav-link font-weight-light' %>
+  <%= link_to 'BACK', :back,
+              class: 'nav-link font-weight-light' %>
+
   <hr class='dotted_white'>
-  <%= link_to 'ユーザー編集', edit_user_registration_path, class: 'nav-link' %>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+
+  <%= link_to 'EDIT USER', edit_user_registration_path,
+              class: 'nav-link font-weight-light' %>
+  <%= link_to 'LOG OUT', destroy_user_session_path,
+              method: :delete,
+              class: 'nav-link font-weight-light' %>
 </nav>

@@ -31,7 +31,7 @@ class NotesController < ApplicationController
 
   def update
     if @note.update(note_params)
-      redirect_to note_path(@note), notice: 'Successfully updated.'
+      redirect_to note_path(@note), notice: I18n.t('views.message.success_update')
     else
       render partial: 'notes/new_js'
     end
@@ -39,7 +39,7 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to notes_path, notice: 'Successfully deleted.'
+    redirect_to notes_path, notice: I18n.t('views.message.success_delete')
   end
 
   private

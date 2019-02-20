@@ -14,13 +14,13 @@ class Travel < ApplicationRecord
   validates :title, presence: true, length: { in: 1..20 }
   validates :departed_at, presence: true
   validates :returned_at, presence: true
+  validates :travel_image, image: true, file_size: { less_than: 10.megabytes }
+  validates :user, presence: true
   validate :return_before_departed_date?
-  validates :travel_image, image: true, file_size: { less_than: 5.megabytes }
-  validates_presence_of :user
 
   def return_before_departed_date?
     if returned_at < departed_at
-      errors.add(:returned_at, ": Can't set return date before departed date.")
+      errors[:base] << I18n.t('errors.travel.date_check')
     end
   end
 end
