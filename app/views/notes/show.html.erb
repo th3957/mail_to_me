@@ -6,5 +6,6 @@
   <%= image_tag(@note.image.url, class: 'img-thumbnail mb-3') if @note.image.present? %>
   <p class='mb-0'><%= t('.created_at') %> <%= l(@note.created_at, format: :long) %></p>
   <p><%= t('.updated_at') %> <%= l(@note.updated_at, format: :long) %></p>
+  <p>(<%= @associated_travel.title %>)</p>
   <%= link_to t('.edit_note'), edit_note_path(@note), class: 'btn btn-primary btn-sm font-weight-light' %>
 </div>

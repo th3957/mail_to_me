@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2><%= t('.lists') %></h2>
+  <h2><%= t('.lists') %>(<%= @associated_travel.title %>)</h2>
   <%= render 'layouts/notice' %>
   <button type='button' class='btn btn-primary btn-sm font-weight-light' data-toggle='collapse' data-target='#list_area' aria-expanded='false' aria-controls='list_area'>
     <%= t('.new_list') %>

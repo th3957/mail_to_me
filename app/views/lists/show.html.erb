@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <p><strong><%= @list.title %></strong></p>
+  <p><strong><%= @list.title %></strong>(<%= @associated_travel.title %>)</p>
   <%= render 'layouts/notice' %>
 
   <div class='col-12 table-responsive pr-0 pl-0'>

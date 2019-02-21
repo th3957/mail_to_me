@@ -3,9 +3,9 @@
 
 <div class='col-sm-10 offset-sm-2 contents'>
   <% if action_name == 'edit' %>
-    <h2><%= t('.edit_card') %></h2>
+    <h2><%= t('.edit_card') %>(<%= @associated_travel.title %>)</h2>
   <% else %>
-    <h2><%= t('.new_card') %></h2>
+    <h2><%= t('.new_card') %>(<%= @associated_travel.title %>)</h2>
   <% end %>
 
   <hr>
