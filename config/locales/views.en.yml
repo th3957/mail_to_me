@@ -1,0 +1,189 @@
+en:
+  users:
+    landing:
+      log_in: Log in
+      click_side: or click side
+      step0_caption: Welcome!
+      step1_caption: STEP.1
+      step2_caption: STEP.2
+      step3_caption: STEP.3
+      step0: In this application, you can make cards by putting a comment on the picture taken during the trip.
+      step1: Firstly, create a trip schedule from "NEW BOOKLET".(images and areas can be added later)
+      step2: Next, select "NEW CARD" from the schedule of the trip that you created. (two images to be uploaded are required)
+      step3: You can create PDF from "DOWNLOAD" at the bottom of the screen, and download it.
+      step4: Besides this, there are a list function, note function, and so on. Have a good trip!
+      sign_up: Sign up
+    personal:
+      home: HOME
+      booklets: BOOKLETS
+      cards: CARDS
+      updated_at: updated at
+    sessions:
+      new:
+        log_in: Log in
+        email: e-mail
+        password: password
+    registrations:
+      new:
+        sign_up: Sign up
+        name: nickname
+        email: e-mail
+        password: password (%{num} characters minimum)
+        password_confirmation: password confirmation
+      edit:
+        edit_user: EDIT USER
+        current_password: Current password
+        current_password_tips: ( we need your current password to confirm your changes )
+        password_placeholder: "%{num} characters minimum"
+        new_password: New password
+        new_password_tips: ( leave blank if you don't want to change it )
+        new_password_confirmation: new password confirmation
+        update: UPDATE
+        sentence1: "If you want to delete your account, please click "
+        here: here.
+        sentence2: " This operation can't be canceled."
+  travels:
+    area_fields:
+      country: country
+      place: place
+      arrived_at: Arrived at
+      left_at: ～ Left at
+      delete_area: DELETE AREA
+    form:
+      edit_booklet: EDIT BOOKLET
+      new_booklet: NEW BOOKLET
+      booklet_title: booklet title
+      departed_at: Departed at
+      returned_at: Returned at
+      cancel: Cancel upload image
+      update: UPDATE
+      add_area: ADD AREA
+      delete: DELETE
+      create: CREATE
+    index:
+      booklets: BOOKLETS
+      new_booklet: NEW BOOKLET
+    show:
+      days: days
+      areas: AREAS
+      new_card: NEW CARD
+      edit_booklet: EDIT BOOKLET
+      updated_at: updated at
+  notes:
+    new:
+      content: content
+      cancel: Cancel upload image
+      importance: important?
+      update: UPDATE
+      delete: DELETE
+      create: CREATE
+    edit:
+      edit_note: EDIT NOTE
+    index:
+      notes: NOTES
+      new_note: NEW NOTE
+    personal:
+      all_notes: ALL NOTES
+    show:
+      created_at: created at
+      updated_at: updated at
+      edit_note: EDIT NOTE
+  lists:
+    item_fields:
+      item_name: item name
+      remark: remark
+      delete_item: DELETE ITEM
+    new:
+      list_title: list title
+      update: UPDATE
+      add_item: ADD ITEM
+      delete: DELETE
+      create: CREATE
+    duplicate:
+      duplicate_list: DUPLICATE LIST
+      create: CREATE
+      add_item: ADD ITEM
+    edit:
+      edit_list: EDIT LIST
+    index:
+      lists: LISTS
+      new_list: NEW LIST
+    personal:
+      all_lists: ALL LISTS
+      insert_before: "（items:"
+      insert_after: ", on"
+    show:
+      item_name: item name
+      remark: remark
+      edit_list: EDIT LIST
+      duplicate_list: DUPLICATE LIST
+  layouts:
+    header:
+      edit_user: EDIT USER
+      log_out: LOG OUT
+      home: HOME
+      back: BACK
+    travels_footer:
+      booklets: BOOKLETS
+      notes: NOTES
+      lists: LISTS
+      index: INDEX
+    travels_sidebar:
+      home: HOME
+      booklets: BOOKLETS
+      index: INDEX
+      notes: NOTES
+      lists: LISTS
+      back: BACK
+      edit_user: EDIT USER
+      log_out: LOG OUT
+    users_footer:
+      booklets: BOOKLETS
+      all_notes: ALL NOTES
+      all_lists: ALL LISTS
+    users_sidebar:
+      home: HOME
+      booklets: BOOKLETS
+      all_notes: ALL NOTES
+      all_lists: ALL LISTS
+      back: BACK
+      edit_user: EDIT USER
+      log_out: LOG OUT
+  cards:
+    form:
+      edit_card: EDIT CARD
+      new_card: NEW CARD
+      card_title: card title
+      sentence: sentence
+      uodate: UPDATE
+      add_image: ADD IMAGE
+      delete: DELETE
+      create: CREATE
+    image_fields:
+      delete_image: DELETE IMAGE
+    show:
+      card_config: CARD CONFIG
+      edit_card: EDIT CARD
+      show_pdf: SHOW PDF
+      download: DOWNLOAD
+  views:
+    lists:
+      index:
+        insert_before: "（items:"
+        insert_after: ）
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+    message:
+      success_create: Successfully created
+      success_update: Successfully updated
+      success_delete: Successfully deleted
+      success_duplicate: Successfully duplicated
+    card:
+      frame_style_select: choose layout
+      font_style_select: choose font
+    list:
+      importance: "&olcir;"

@@ -7,7 +7,7 @@ ja:
       item: アイテム
       list: リスト
       note: ノート
-      travel: しおり
+      travel: ブックレット
       user: ユーザー
     attributes:
       card:
@@ -23,11 +23,11 @@ ja:
         name: アイテム名
         remark: 備考
       note:
-        content: 内容
+        content: メモ内容
         image: 画像
         importance: 重要度
       travel:
-        title: しおり名
+        title: ブックレット名
         departed_at: 出発日
         returned_at: 帰宅日
         travel_image: 画像
@@ -65,8 +65,8 @@ ja:
         playball: Playball(英数字のみ)
   errors:
     area:
-      date_check: "到着日より前に出発することはできません"
+      date_check: 到着日より前に出発することはできません
     card:
-      more_image: "作成には２枚の画像が必要です"
+      more_image: 作成には２枚の画像が必要です
     travel:
-      date_check: "帰宅日より前に出発することはできません"
+      date_check: 帰宅日より前に出発することはできません
