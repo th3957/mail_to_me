@@ -1,9 +1,9 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2>NOTES</h2>
+  <h2><%= t('.notes') %></h2>
   <button type='button' class='btn btn-primary btn-sm font-weight-light' data-toggle='collapse' data-target='#note_area' aria-expanded='false' aria-controls='note_area'>
-    NEW NOTE
+    <%= t('.new_note') %>
   </button>
   <div class='collapse' id='note_area'>
     <%= render partial: 'notes/new', locals: { note: @note } %>

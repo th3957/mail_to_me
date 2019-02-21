@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2>CARD CONFIG</h2>
+  <h2><%= t('.card_config') %></h2>
   <%= render 'layouts/notice' %>
 
   <hr>
@@ -13,7 +13,7 @@
 
   <hr>
 
-  <%= link_to 'EDIT CARD', edit_card_path(@card), class: 'btn btn-primary btn-sm font-weight-light' %>
-  <%= link_to 'SHOW PDF', card_path(@card, format: 'pdf'), class: 'btn btn-primary btn-sm font-weight-light show_pdf' %>
-  <%= link_to 'DOWNLOAD', download_card_path(@card), class: 'btn btn-primary btn-sm font-weight-light' %>
+  <%= link_to t('.edit_card'), edit_card_path(@card), class: 'btn btn-primary btn-sm font-weight-light' %>
+  <%= link_to t('.show_pdf'), card_path(@card, format: 'pdf'), class: 'btn btn-primary btn-sm font-weight-light show_pdf' %>
+  <%= link_to t('.download'), download_card_path(@card), class: 'btn btn-primary btn-sm font-weight-light' %>
 </div>

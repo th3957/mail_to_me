@@ -2,25 +2,25 @@
   <% if controller_name == 'users' && action_name == 'personal' %>
     <div class='col-4'>
       <small>
-        <%= link_to 'EDIT USER', edit_user_registration_path %>
+        <%= link_to t('.edit_user'), edit_user_registration_path %>
       </small>
     </div>
     <%= image_tag('title.png', class: 'header_image') %>
     <div class='col-4 text-right'>
       <small>
-        <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %>
+        <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
       </small>
     </div>
   <% else %>
     <div class='col-4'>
       <small>
-        <%= link_to 'HOME', user_path %>
+        <%= link_to t('.home'), user_path %>
       </small>
     </div>
     <%= image_tag('title.png', class: 'header_image') %>
     <div class='col-4 text-right'>
       <small>
-        <%= link_to 'BACK', :back %>
+        <%= link_to t('.back'), :back %>
       </small>
     </div>
   <% end %>

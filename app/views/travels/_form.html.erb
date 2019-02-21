@@ -3,10 +3,10 @@
 <div class='col-sm-10 offset-sm-2 contents'>
   <% if action_name == 'edit' || action_name == 'update' %>
     <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <h2>EDIT BOOKLET</h2>
+    <h2><%= t('.edit_booklet') %></h2>
   <% else %>
     <%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <h2>NEW BOOKLET</h2>
+    <h2><%= t('.new_booklet') %></h2>
   <% end %>
 
   <% if @travel.errors.any? %>
@@ -22,16 +22,16 @@
   <%= form_with(model: travel, local: true) do |f| %>
     <div class='form-group'>
       <%= f.text_field :title,
-                       placeholder: 'title',
+                       placeholder: t('.booklet_title'),
                        class: 'form-control'
       %>
     </div>
 
     <div class='mb-4'>
-      <%= f.label :'departure date' %>
+      <label for='departed_at'><%= t('.departed_at') %></label>
       <%= f.date_select :departed_at %>
-      ～
-      <%= f.label :'return date' %>
+
+      <label for='returned_at'><%= t('.returned_at') %></label>
       <%= f.date_select :returned_at %>
     </div>
 
@@ -43,7 +43,7 @@
                         id: 'remove_travel_image'
         %>
         <label class='custom-control-label mb-2' for='remove_travel_image'>
-          cancel upload image
+          <%= t('.cancel') %>
         </label>
       </div>
     <% end %>
@@ -57,9 +57,9 @@
     </div>
 
     <% if action_name == 'edit' || action_name == 'update' %>
-      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= f.submit t('.update'), class: 'btn btn-primary btn-sm font-weight-light' %>
 
-      <%= link_to_add_association 'ADD AREA', f, :areas,
+      <%= link_to_add_association t('.add_area'), f, :areas,
         class: 'btn btn-primary btn-sm font-weight-light',
         id: 'add_area_link',
         data: {
@@ -68,14 +68,14 @@
         }
       %>
 
-      <%= link_to 'DELETE', travel_path(@travel),
+      <%= link_to t('.delete'), travel_path(@travel),
           data: { confirm: 'Are you sure?' }, method: :delete,
           class: 'btn btn-secondary btn-sm font-weight-light'
       %>
     <% else %>
-      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= f.submit t('.create'), class: 'btn btn-primary btn-sm font-weight-light' %>
 
-      <%= link_to_add_association 'ADD AREA', f, :areas,
+      <%= link_to_add_association t('.add_area'), f, :areas,
         class: 'btn btn-primary btn-sm font-weight-light',
         id: 'add_area_link',
         data: {

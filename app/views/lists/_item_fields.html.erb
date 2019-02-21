@@ -1,17 +1,17 @@
 <div class='nested-fields'>
   <div class='form-group'>
     <%= f.text_field :name,
-                     placeholder: 'item name',
+                     placeholder: t('.item_name'),
                      class: 'form-control'
     %>
   </div>
 
   <div class='form-group'>
     <%= f.text_area :remark,
-                     placeholder: 'remark',
+                     placeholder: t('.remark'),
                      class: 'form-control'
     %>
   </div>
 
-  <%= link_to_remove_association 'DELERT ITEM', f, class: 'btn btn-secondary btn-sm font-weight-light' %>
+  <%= link_to_remove_association t('.delete_item'), f, class: 'btn btn-secondary btn-sm font-weight-light' %>
 </div>

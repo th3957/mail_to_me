@@ -1,9 +1,9 @@
 <%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2>BOOKLETS</h2>
+  <h2><%= t('.booklets') %></h2>
   <%= render 'layouts/notice' %>
-  <%= link_to 'NEW BOOKLET', new_travel_path, class: 'btn btn-primary btn-sm font-weight-light' %>
+  <%= link_to t('.new_booklet'), new_travel_path, class: 'btn btn-primary btn-sm font-weight-light' %>
 
   <hr class='mb-0'>
 
@@ -20,7 +20,7 @@
             <div class='card-title'><%= t.title %></div>
             <div class='card-text'>
               <small>
-                <%= I18n.l(t.departed_at, format: :custom) %> ~ <%= I18n.l(t.returned_at, format: :custom) %>
+                <%= l(t.departed_at, format: :custom) %> ~ <%= l(t.returned_at, format: :custom) %>
               </small>
             </div>
           </div>

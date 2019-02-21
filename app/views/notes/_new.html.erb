@@ -9,7 +9,7 @@
 <%= form_with(model: @note) do |f| %>
   <div class='form-group'>
     <%= f.text_area :content,
-                    placeholder: 'content',
+                    placeholder: t('.content'),
                     class: 'form-control'
     %>
   </div>
@@ -22,7 +22,7 @@
                       id: 'remove_image'
       %>
       <label class='custom-control-label mb-2' for='remove_image'>
-        cancel upload image
+        <%= t('.cancel') %>
       </label>
     </div>
   <% end %>
@@ -38,18 +38,18 @@
                     }
     %>
     <label class='custom-control-label mb-3' for='importance'>
-      important?
+      <%= t('.importance') %>
     </label>
   </div>
 
   <% if action_name == 'edit' %>
     <div class='form-group'>
-      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm font-weight-light' %>
-      <%= link_to 'DELETE', note_path(@note), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm font-weight-light' %>
+      <%= f.submit t('.update'), class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= link_to t('.delete'), note_path(@note), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm font-weight-light' %>
     </div>
   <% else %>
     <div class='form-group'>
-      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= f.submit t('.create'), class: 'btn btn-primary btn-sm font-weight-light' %>
     </div>
   <% end %>
 <% end %>

@@ -4,7 +4,7 @@
   <%= render 'layouts/notice' %>
   <p class='text-justify'><%= @note.content %></p>
   <%= image_tag(@note.image.url, class: 'img-thumbnail mb-3') if @note.image.present? %>
-  <p class='mb-0'>create at <%= I18n.l(@note.created_at, format: :long) %></p>
-  <p>update at <%= I18n.l(@note.updated_at, format: :long) %></p>
-  <%= link_to 'EDIT NOTE', edit_note_path(@note), class: 'btn btn-primary btn-sm font-weight-light' %>
+  <p class='mb-0'><%= t('.created_at') %> <%= l(@note.created_at, format: :long) %></p>
+  <p><%= t('.updated_at') %> <%= l(@note.updated_at, format: :long) %></p>
+  <%= link_to t('.edit_note'), edit_note_path(@note), class: 'btn btn-primary btn-sm font-weight-light' %>
 </div>

@@ -3,5 +3,5 @@
     <%= link_to n.content, n, class: 'notes_content' %>
     <%= raw(t 'views.list.importance') if n.importance %>
   </li>
-  <p>( <%= I18n.l(n.created_at, format: :long) %> )</p>
+  <p>( <%= l(n.created_at, format: :long) %> )</p>
 <% end %>

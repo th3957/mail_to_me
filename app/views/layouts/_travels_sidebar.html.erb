@@ -5,29 +5,29 @@
 
   <hr class='dotted_white'>
 
-  <%= link_to 'HOME', user_path,
+  <%= link_to t('.home'), user_path,
               class: 'nav-link font-weight-light' %>
 
   <% if controller_name == 'travels' && action_name == 'show' %>
-    <%= link_to 'BOOKLETS', travels_path,
+    <%= link_to t('.booklets'), travels_path,
                 class: 'nav-link font-weight-light' %>
   <% elsif %>
-    <%= link_to 'INDEX', travel_path(@associated_travel),
+    <%= link_to t('.index'), travel_path(@associated_travel),
                 class: 'nav-link font-weight-light' %>
   <% end %>
 
-  <%= link_to 'NOTES', notes_path,
+  <%= link_to t('.notes'), notes_path,
               class: 'nav-link font-weight-light' %>
-  <%= link_to 'LISTS', lists_path,
+  <%= link_to t('.lists'), lists_path,
               class: 'nav-link font-weight-light' %>
-  <%= link_to 'BACK', :back,
+  <%= link_to t('.back'), :back,
               class: 'nav-link font-weight-light' %>
 
   <hr class='dotted_white'>
 
-  <%= link_to 'EDIT USER', edit_user_registration_path,
+  <%= link_to t('.edit_user'), edit_user_registration_path,
               class: 'nav-link font-weight-light' %>
-  <%= link_to 'LOG OUT', destroy_user_session_path,
+  <%= link_to t('.log_out'), destroy_user_session_path,
               method: :delete,
               class: 'nav-link font-weight-light' %>
 </nav>
