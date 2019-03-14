@@ -1,9 +1,12 @@
 class TravelsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_travel, :identify_owner, only: [:edit, :show, :update, :destroy]
+  before_action :set_travel, :identify_owner,
+    only: [:edit, :show, :update, :destroy]
 
   def index
-    @travels = Travel.where(user_id: current_user.id).page(params[:page]).per(8).order('updated_at DESC')
+    @travels = Travel.where(user_id: current_user.id).
+                      page(params[:page]).
+                      per(8).order('updated_at DESC')
   end
 
   def new
@@ -13,23 +16,27 @@ class TravelsController < ApplicationController
   def create
     @travel = current_user.travels.build(travel_params)
     if @travel.save
-      redirect_to travels_path, notice: I18n.t('views.message.success_create')
+      redirect_to travels_path,
+        notice: I18n.t('views.message.success_create')
     else
       render :new
     end
   end
 
   def show
-    @cards = @travel.cards.page(params[:page]).per(8).order('updated_at DESC')
+    @cards = @travel.cards.
+                     page(params[:page]).
+                     per(8).
+                     order('updated_at DESC')
     keep_travel_id
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @travel.update(travel_params)
-      redirect_to travel_path(@travel), I18n.t('views.message.success_update')
+      redirect_to travel_path(@travel),
+        I18n.t('views.message.success_update')
     else
       render :edit
     end
@@ -37,7 +44,8 @@ class TravelsController < ApplicationController
 
   def destroy
     @travel.destroy
-    redirect_to travels_path, notice: I18n.t('views.message.success_delete')
+    redirect_to travels_path,
+      notice: I18n.t('views.message.success_delete')
   end
 
   private
@@ -60,14 +68,19 @@ class TravelsController < ApplicationController
   end
 
   def travel_params
-    params.require(:travel).permit(:title,
-                                   :departed_at,
-                                   :returned_at,
-                                   :travel_image,
-                                   :travel_image_cache,
-                                   :remove_travel_image,
-                                   :user_id,
-                                   areas_attributes:[:id, :country, :place, :arrived_at, :left_at, :_destroy]
-                                   )
+    params.require(:travel).
+           permit(:title,
+                  :departed_at,
+                  :returned_at,
+                  :travel_image,
+                  :travel_image_cache,
+                  :remove_travel_image,
+                  :user_id,
+                  areas_attributes:[:id,
+                                    :country,
+                                    :place,
+                                    :arrived_at,
+                                    :left_at,
+                                    :_destroy])
   end
 end

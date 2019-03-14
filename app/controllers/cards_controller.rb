@@ -2,7 +2,8 @@ class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card, :identify_owner,
     only: [:edit, :show, :download, :update, :destroy]
-  before_action :set_associated_travel, only: [:new, :edit, :create, :destroy]
+  before_action :set_associated_travel,
+    only: [:new, :edit, :create, :destroy]
 
   def new
     @card = Card.new
@@ -12,7 +13,8 @@ class CardsController < ApplicationController
   def create
     @card = @associated_travel.cards.build(card_params)
     if @card.save
-      redirect_to card_path(@card), notice: I18n.t('views.message.success_create')
+      redirect_to card_path(@card),
+        notice: I18n.t('views.message.success_create')
     else
       render :new
     end
@@ -41,12 +43,12 @@ class CardsController < ApplicationController
               type: 'application/pdf'
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @card.update(card_params)
-      redirect_to card_path(@card), notice: I18n.t('views.message.success_update')
+      redirect_to card_path(@card),
+        notice: I18n.t('views.message.success_update')
     else
       set_associated_travel
       render :edit
@@ -55,7 +57,8 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to travel_path(@associated_travel), notice: I18n.t('views.message.success_delete')
+    redirect_to travel_path(@associated_travel),
+      notice: I18n.t('views.message.success_delete')
   end
 
   private
@@ -78,12 +81,9 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:title,
-                                 :sentence,
-                                 :frame_style,
-                                 :font_style,
-                                 :travel_id,
-                                 images_attributes:[:id, :data, :data_cache, :_destroy]
-                                 )
+    params.require(:card).
+           permit(:title, :sentence, :frame_style, :font_style, :travel_id,
+                  images_attributes:[:id, :data, :data_cache, :_destroy]
+                 )
   end
 end
