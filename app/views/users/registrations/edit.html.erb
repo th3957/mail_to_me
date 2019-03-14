@@ -4,6 +4,8 @@
   <h2><%= t('.edit_user') %></h2>
   <%= render 'layouts/notice' %>
 
+  <hr>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <% if resource.errors.any? %>
       <div class='border rounded' id='registrations_error_area'>
@@ -71,6 +73,8 @@
       <%= f.submit t('.update'), class: 'btn btn-primary btn-sm font-weight-light' %>
     </div>
   <% end %>
+
+  <hr>
 
   <p class='mb-0'>
     <%= t('.sentence1') %>
