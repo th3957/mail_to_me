@@ -1,6 +1,6 @@
 # Mail to Me !
 [![Ruby](https://img.shields.io/badge/Ruby-2.5.3-red.svg)](https://docs.ruby-lang.org/ja/2.5.0/doc/index.html)
-[![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-5.2.1-red.svg)](https://guides.rubyonrails.org/)
+[![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-5.2.2-red.svg)](https://guides.rubyonrails.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-9.5.14-blue.svg)](https://www.postgresql.org/)
 
 ## アプリケーションの概要
