@@ -1,0 +1,72 @@
+ja:
+  activerecord:
+    models:
+      area: エリア
+      card: カード
+      image: 画像
+      item: アイテム
+      list: リスト
+      note: ノート
+      travel: ブックレット
+      user: ユーザー
+    attributes:
+      card:
+        title: カード名
+        sentence: 文章
+        frame_style: フレーム
+        font_style: フォント
+      card/images:
+        data: 画像
+      list:
+        title: リスト名
+      list/items:
+        name: アイテム名
+        remark: 備考
+      note:
+        content: メモ内容
+        image: 画像
+        importance: 重要度
+      travel:
+        title: ブックレット名
+        departed_at: 出発日
+        returned_at: 帰宅日
+        travel_image: 画像
+      travel/areas:
+        country: 国名
+        place: 場所
+        arrived_at: 到着日
+        left_at: 出発日
+        date_check: ""
+      user:
+        email: Eメール
+        password: パスワード
+        password_confirmation: パスワード確認
+        name: ニックネーム
+        role: 権限
+  attributes:
+    created_at: 作成日時
+    updated_at: 更新日時
+  enums:
+    user:
+      role:
+        common: 一般ユーザー
+        admin: 管理ユーザー
+    card:
+      frame_style:
+        basic: ベーシック
+        overlay: オーバーレイ
+        overlay2: オーバーレイ(白文字)
+      font_style:
+        ipaex_gothic: IPAexゴシック
+        yasashisa_gothic: やさしさゴシック
+        koku_gothic: 刻ゴシック
+        shippori_mincho: しっぽり明朝
+        soukou_mincho: 装甲明朝
+        playball: Playball(英数字のみ)
+  errors:
+    area:
+      date_check: 到着日より前に出発することはできません
+    card:
+      more_image: 作成には２枚の画像が必要です
+    travel:
+      date_check: 帰宅日より前に出発することはできません

@@ -1,13 +1,17 @@
 <%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2>All lists</h2>
+  <h2><%= t('.all_lists') %></h2>
 
   <hr>
 
   <% @lists.includes(:travel).each do |l| %>
     <li class='mb-2'>
-      <%= link_to l.title, l %> has <%= l.items.count %> items, on <%= l.travel.title %>
+      <%= link_to l.title, l, class: 'lists_title' %>
+      <%= t('.insert_before') %>
+      <%= l.items.count %>
+      <%= t('.insert_after') %>
+      <%= l.travel.title %>）
     </li>
   <% end %>
 

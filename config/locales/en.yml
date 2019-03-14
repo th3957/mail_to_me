@@ -42,6 +42,7 @@ en:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%b %d"
+      custom: "%m/%d/%Y"
     month_names:
     -
     - January
@@ -215,12 +216,3 @@ en:
       custom: "%m/%d/%Y"
       download: "_%m%d%Y%H%M%S"
     pm: pm
-  views:
-    pagination:
-      first: "&laquo;"
-      last: "&raquo;"
-      previous: "&lsaquo;"
-      next: "&rsaquo;"
-      truncate: "&hellip;"
-    list:
-      importance: "&olcir;"

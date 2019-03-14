@@ -4,6 +4,7 @@
   background-color: #ffffff;
   background-attachment: fixed;
   background-size: cover;
+  min-height: 100vh;
 }
 
 .travel_index,
@@ -25,10 +26,15 @@
   padding-top: 15px;
 }
 
-.notice {
-  border-color: black !important;
+.notice, .alert,
+#travel_error_area {
+  border-color: #212529 !important;
 }
 
 .nested-fields {
   margin-bottom: 15px;
+}
+
+.notes_content, .lists_title {
+  color: #212529;
 }

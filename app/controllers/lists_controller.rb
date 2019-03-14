@@ -1,16 +1,24 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list, only: [:edit, :duplicate, :show, :update, :destroy]
+  before_action :set_list, :identify_owner,
+    only: [:edit, :duplicate, :show, :update, :destroy]
   before_action :set_associated_travel, only: [:index, :create, :edit]
 
   def index
-    @lists = @associated_travel.lists.page(params[:page]).per(15).order('id DESC')
+    @lists = @associated_travel.lists.
+                                page(params[:page]).
+                                per(15).
+                                order('id DESC')
+
     @list = List.new
     @list.items.build
   end
 
   def personal
-    @lists = List.where(travel_id: current_user.travels.ids).page(params[:page]).per(15).order('id DESC')
+    @lists = List.where(travel_id: current_user.travels.ids).
+                  page(params[:page]).
+                  per(15).
+                  order('id DESC')
   end
 
   def create
@@ -27,7 +35,8 @@ class ListsController < ApplicationController
       f.html do
         @list = @associated_travel.lists.build(duplicate_list_params)
         if @list.save
-          redirect_to lists_path, notice: 'Successfully duplicated.'
+          redirect_to lists_path,
+            notice: I18n.t('views.message.success_duplicate')
         else
           render :duplicate
         end
@@ -42,7 +51,7 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list.items.build if @list.items.blank?
+    @list.items.build ||= @list.items
   end
 
   def duplicate
@@ -52,7 +61,8 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      redirect_to list_path(@list), notice: 'Successfully updated.'
+      redirect_to list_path(@list),
+        notice: I18n.t('views.message.success_update')
     else
       render partial: 'lists/new_js'
     end
@@ -60,7 +70,8 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to lists_path, notice: 'Successfully deleted.'
+    redirect_to lists_path,
+      notice: I18n.t('views.message.success_delete')
   end
 
   private
@@ -69,19 +80,26 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
   end
 
+  def identify_owner
+    if @list.travel.user_id != current_user.id
+      render file: Rails.root.join('public/404.html'),
+             status: 404,
+             layout: false,
+             content_type: 'text/html'
+    end
+  end
+
   def keep_own_travel_id
     session[:travel_id] = @list.travel_id
   end
 
   def list_params
-    params.require(:list).permit(:title,
-                                 items_attributes:[:id, :name, :remark, :_destroy]
-                                 )
+    params.require(:list).
+           permit(:title, items_attributes:[:id, :name, :remark, :_destroy])
   end
 
   def duplicate_list_params
-    params.require(:list).permit(:title,
-                                 items_attributes:[:name, :remark, :_destroy]
-                                 )
+    params.require(:list).
+           permit(:title, items_attributes:[:name, :remark, :_destroy])
   end
 end

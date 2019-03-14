@@ -1,27 +1,27 @@
 <header class='navbar fixed-top' id='header'>
   <% if controller_name == 'users' && action_name == 'personal' %>
-    <p class='mb-0'>
+    <div class='col-4'>
       <small>
-        <%= link_to 'ユーザー編集', edit_user_registration_path %>
+        <%= link_to t('.edit_user'), edit_user_registration_path %>
       </small>
-    </p>
+    </div>
     <%= image_tag('title.png', class: 'header_image') %>
-    <p class='mb-0'>
+    <div class='col-4 text-right'>
       <small>
-        <%= link_to '　ログアウト', destroy_user_session_path, method: :delete %>
+        <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
       </small>
-    </p>
+    </div>
   <% else %>
-    <p class='mb-0'>
+    <div class='col-4'>
       <small>
-        <%= link_to 'ユーザー詳細', user_path %>
+        <%= link_to t('.home'), user_path %>
       </small>
-    </p>
+    </div>
     <%= image_tag('title.png', class: 'header_image') %>
-    <p class='mb-0'>
+    <div class='col-4 text-right'>
       <small>
-        <%= link_to '　　　　戻る', :back %>
+        <%= link_to t('.back'), :back %>
       </small>
-    </p>
+    </div>
   <% end %>
 </header>

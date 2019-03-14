@@ -2,35 +2,73 @@
 
 <div id='carouselControls' class='carousel slide' data-ride='carousel' data-interval='false'>
   <div class='carousel-inner'>
-
     <div class='carousel-item active'>
       <div class='title_wrapper'>
         <div class='title_inner'>
-          <%= image_tag('logo.png', class: 'logo') %>
-          <div class='log_in'>
-            <p><%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-light' %></p>
-            <p>or slide</p>
+          <%= image_tag('logo.png', class: 'image') %>
+          <div class='title_content'>
+            <p><%= link_to t('.log_in'), new_user_session_path, class: 'btn btn-outline-light' %></p>
+            <p><%= t('.click_side') %></p>
           </div>
         </div>
       </div>
     </div>
 
     <div class='carousel-item'>
-      <div class='image_wrapper'>
-        <div class='image_inner'>
-          <%= image_tag('explanation.png', class: 'image') %>
-          <%= image_tag('explanation.png', class: 'image') %>
-          <%= image_tag('explanation.png', class: 'image') %>
+      <div class='nav_wrapper'>
+        <div class='nav_inner'>
+          <%= image_tag('nav_image1.png', class: 'img-thumbnail image') %>
+          <div class='nav_content'>
+            <p class='nav_caption'><%= t('.step0_caption') %></p>
+            <p class='text-justify'><%= t('.step0') %></p>
+          </div>
         </div>
       </div>
-      <div class='sentence_wrapper'>
-        <div class='sentence_inner'>
-          <div class='sentence'>
-            <div class='text-justify'>
-              <p>STEP○. app概要＋操作説明と画面のスクリーンショットを張り付け</p>
-              <p>この文章はレイアウト確認用です。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はレイアウト確認用です。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
-            </div>
-            <p><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-light' %></p>
+    </div>
+
+    <div class='carousel-item'>
+      <div class='nav_wrapper'>
+        <div class='nav_inner'>
+          <%= image_tag('nav_image2.png', class: 'img-thumbnail image') %>
+          <div class='nav_content'>
+            <p class='nav_caption'><%= t('.step1_caption') %></p>
+            <p class='text-justify'><%= t('.step1') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='carousel-item'>
+      <div class='nav_wrapper'>
+        <div class='nav_inner'>
+          <%= image_tag('nav_image3.png', class: 'img-thumbnail image') %>
+          <div class='nav_content'>
+            <p class='nav_caption'><%= t('.step2_caption') %></p>
+            <p class='text-justify'><%= t('.step2') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='carousel-item'>
+      <div class='nav_wrapper'>
+        <div class='nav_inner'>
+          <%= image_tag('nav_image4.png', class: 'img-thumbnail image') %>
+          <div class='nav_content'>
+            <p class='nav_caption'><%= t('.step3_caption') %></p>
+            <p class='text-justify'><%= t('.step3') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='carousel-item'>
+      <div class='nav_wrapper'>
+        <div class='nav_inner'>
+          <%= image_tag('nav_image5.png', class: 'img-thumbnail image') %>
+          <div class='nav_content'>
+            <p class='text-justify'><%= t('.step4') %></p>
+            <p><%= link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-outline-light' %></p>
           </div>
         </div>
       </div>

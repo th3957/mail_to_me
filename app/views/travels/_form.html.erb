@@ -1,10 +1,12 @@
+<%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <div class='col-sm-10 offset-sm-2 contents'>
-  <% if action_name == 'edit' %>
+  <% if action_name == 'edit' || action_name == 'update' %>
     <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <h2>Edit travel</h2>
+    <h2><%= t('.edit_booklet') %></h2>
   <% else %>
     <%= stylesheet_link_tag 'personal', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <h2>New travel</h2>
+    <h2><%= t('.new_booklet') %></h2>
   <% end %>
 
   <% if @travel.errors.any? %>
@@ -20,20 +22,33 @@
   <%= form_with(model: travel, local: true) do |f| %>
     <div class='form-group'>
       <%= f.text_field :title,
-                       placeholder: 'title',
+                       placeholder: t('.booklet_title'),
                        class: 'form-control'
       %>
     </div>
 
-    <div class='mb-2'>
-      <%= f.label :'departure date' %>
+    <div class='mb-4'>
+      <label for='departed_at'><%= t('.departed_at') %></label>
       <%= f.date_select :departed_at %>
-      ～
-      <%= f.label :'return date' %>
+
+      <label for='returned_at'><%= t('.returned_at') %></label>
       <%= f.date_select :returned_at %>
     </div>
 
-    <%= f.file_field :travel_image, class: 'mb-3' %>
+    <% if @travel.travel_image.present? %>
+      <%= image_tag(@travel.travel_image.thumb.url, class: 'img-thumbnail mb-2') %>
+      <div class='custom-control custom-checkbox'>
+        <%= f.check_box :remove_travel_image,
+                        class: 'custom-control-input',
+                        id: 'remove_travel_image'
+        %>
+        <label class='custom-control-label mb-2' for='remove_travel_image'>
+          <%= t('.cancel') %>
+        </label>
+      </div>
+    <% end %>
+    <%= f.file_field :travel_image, class: 'mb-4' %>
+    <%= f.hidden_field :travel_image_cache %>
 
     <div id='add_area'>
       <%= f.fields_for :areas do |a| %>
@@ -41,11 +56,11 @@
       <% end %>
     </div>
 
-    <% if action_name == 'edit' %>
-      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm' %>
+    <% if action_name == 'edit' || action_name == 'update' %>
+      <%= f.submit t('.update'), class: 'btn btn-primary btn-sm font-weight-light' %>
 
-      <%= link_to_add_association 'ADD AREA', f, :areas,
-        class: 'btn btn-primary btn-sm',
+      <%= link_to_add_association t('.add_area'), f, :areas,
+        class: 'btn btn-primary btn-sm font-weight-light',
         id: 'add_area_link',
         data: {
          association_insertion_node: '#add_area',
@@ -53,15 +68,15 @@
         }
       %>
 
-      <%= link_to 'DELETE', travel_path(@travel),
+      <%= link_to t('.delete'), travel_path(@travel),
           data: { confirm: 'Are you sure?' }, method: :delete,
-          class: 'btn btn-secondary btn-sm'
+          class: 'btn btn-secondary btn-sm font-weight-light'
       %>
     <% else %>
-      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm' %>
+      <%= f.submit t('.create'), class: 'btn btn-primary btn-sm font-weight-light' %>
 
-      <%= link_to_add_association 'ADD AREA', f, :areas,
-        class: 'btn btn-primary btn-sm',
+      <%= link_to_add_association t('.add_area'), f, :areas,
+        class: 'btn btn-primary btn-sm font-weight-light',
         id: 'add_area_link',
         data: {
          association_insertion_node: '#add_area',

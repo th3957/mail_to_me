@@ -9,7 +9,7 @@
 <%= form_with(model: @list) do |f| %>
   <div class='form-group'>
     <%= f.text_field :title,
-                     placeholder: 'list title',
+                     placeholder: t('.list_title'),
                      class: 'form-control'
     %>
   </div>
@@ -22,19 +22,19 @@
 
   <div class='form-group'>
     <% if action_name == 'edit' %>
-      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm' %>
-      <%= link_to_add_association 'ADD ITEM', f, :items,
-            class: 'btn btn-primary btn-sm',
+      <%= f.submit t('.update'), class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= link_to_add_association t('.add_item'), f, :items,
+            class: 'btn btn-primary btn-sm font-weight-light',
             id: 'add_item_link',
             data: { association_insertion_node: '#add_item',
                     association_insertion_method: 'append'
                   }
       %>
-      <%= link_to 'DELETE', list_path(@list), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm' %>
+      <%= link_to t('.delete'), list_path(@list), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm font-weight-light' %>
     <% else %>
-      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm' %>
-      <%= link_to_add_association 'ADD ITEM', f, :items,
-            class: 'btn btn-primary btn-sm',
+      <%= f.submit t('.create'), class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= link_to_add_association t('.add_item'), f, :items,
+            class: 'btn btn-primary btn-sm font-weight-light',
             id: 'add_item_link',
             data: { association_insertion_node: '#add_item',
                     association_insertion_method: 'append'

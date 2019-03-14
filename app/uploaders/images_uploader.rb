@@ -3,7 +3,6 @@ class ImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::Magic
   process :set_magic_content_type => [true]
 
-  storage :fog if Rails.env.production?
   storage :file
 
   def store_dir
@@ -17,11 +16,11 @@ class ImagesUploader < CarrierWave::Uploader::Base
   end
 
   def size_range
-    1..5.megabytes
+    1..10.megabytes
   end
 
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg png)
   end
 
   def filename

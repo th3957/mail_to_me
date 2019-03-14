@@ -9,22 +9,25 @@
 <%= form_with(model: @note) do |f| %>
   <div class='form-group'>
     <%= f.text_area :content,
-                    placeholder: 'content',
+                    placeholder: t('.content'),
                     class: 'form-control'
     %>
   </div>
 
+  <% if @note.image.present? %>
+    <%= image_tag(@note.image.thumb.url, class: 'img-thumbnail mb-2') %>
+    <div class='custom-control custom-checkbox'>
+      <%= f.check_box :remove_image,
+                      class: 'custom-control-input',
+                      id: 'remove_image'
+      %>
+      <label class='custom-control-label mb-2' for='remove_image'>
+        <%= t('.cancel') %>
+      </label>
+    </div>
+  <% end %>
   <%= f.file_field :image, class: 'mb-3' %>
-
-  <div class='custom-control custom-checkbox'>
-    <%= f.check_box :remove_image,
-                    class: 'custom-control-input',
-                    id: 'remove_image'
-    %>
-    <label class='custom-control-label mb-3' for='remove_image'>
-      cancel upload image
-    </label>
-  </div>
+  <%= f.hidden_field :image_cache %>
 
   <div class='custom-control custom-checkbox'>
     <%= f.check_box :importance,
@@ -35,18 +38,18 @@
                     }
     %>
     <label class='custom-control-label mb-3' for='importance'>
-      important
+      <%= t('.importance') %>
     </label>
   </div>
 
   <% if action_name == 'edit' %>
     <div class='form-group'>
-      <%= f.submit 'UPDATE', class: 'btn btn-primary btn-sm' %>
-      <%= link_to 'DELETE', note_path(@note), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm' %>
+      <%= f.submit t('.update'), class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= link_to t('.delete'), note_path(@note), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-secondary btn-sm font-weight-light' %>
     </div>
   <% else %>
     <div class='form-group'>
-      <%= f.submit 'CREATE', class: 'btn btn-primary btn-sm' %>
+      <%= f.submit t('.create'), class: 'btn btn-primary btn-sm font-weight-light' %>
     </div>
   <% end %>
 <% end %>

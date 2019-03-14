@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_072328) do
+ActiveRecord::Schema.define(version: 2019_02_18_065225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(version: 2019_01_29_072328) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "data", limit: 255, null: false
+    t.string "data", limit: 255, default: ""
     t.bigint "card_id", null: false
     t.index ["card_id"], name: "index_images_on_card_id"
   end
 
   create_table "items", force: :cascade do |t|
     t.string "name", limit: 255, null: false
-    t.string "remark", limit: 255
+    t.string "remark", limit: 255, default: ""
     t.bigint "list_id", null: false
     t.index ["list_id"], name: "index_items_on_list_id"
   end
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_01_29_072328) do
 
   create_table "notes", force: :cascade do |t|
     t.string "content", limit: 255, null: false
-    t.string "image", limit: 255
+    t.string "image", limit: 255, default: ""
     t.boolean "importance", default: false, null: false
     t.bigint "travel_id", null: false
     t.datetime "created_at", null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_01_29_072328) do
     t.string "title", limit: 255, null: false
     t.date "departed_at", null: false
     t.date "returned_at", null: false
-    t.string "travel_image", limit: 255, default: "", null: false
+    t.string "travel_image", limit: 255, default: ""
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,8 +82,6 @@ ActiveRecord::Schema.define(version: 2019_01_29_072328) do
     t.datetime "updated_at", null: false
     t.string "name", limit: 255, null: false
     t.integer "role", default: 0, null: false
-    t.boolean "identification", default: false, null: false
-    t.boolean "suspension", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

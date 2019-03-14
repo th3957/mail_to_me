@@ -1,23 +1,19 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <h2>Card config</h2>
+  <h2><%= t('.card_config') %>(<%= @associated_travel.title %>)</h2>
   <%= render 'layouts/notice' %>
 
   <hr>
 
   <p class='text-justify'><%= @card.sentence %></p>
-  <% @card.images.each_with_index do |x| %>
-    <% if x.present? %>
-      <%= image_tag(x.data.url, class: 'img-thumbnail mb-3') %>
-    <% else %>
-      <%= image_tag('sample_card_image.png') %>
-    <% end %>
+  <% @card.images.each do |i| %>
+    <%= image_tag(i.data.thumb.url, class: 'img-thumbnail mb-3') if i.present? %>
   <% end %>
 
   <hr>
 
-  <%= link_to 'カード編集', edit_card_path(@card), class: 'btn btn-primary btn-sm' %>
-  <%= link_to 'PDFで表示', card_path(@card, format: 'pdf'), class: 'btn btn-primary btn-sm' %>
-  <%= link_to 'ダウンロード', download_card_path(@card), class: 'btn btn-primary btn-sm' %>
+  <%= link_to t('.edit_card'), edit_card_path(@card), class: 'btn btn-primary btn-sm font-weight-light' %>
+  <%= link_to t('.show_pdf'), card_path(@card, format: 'pdf'), class: 'btn btn-primary btn-sm font-weight-light show_pdf' %>
+  <%= link_to t('.download'), download_card_path(@card), class: 'btn btn-primary btn-sm font-weight-light' %>
 </div>

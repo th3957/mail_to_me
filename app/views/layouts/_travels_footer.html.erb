@@ -1,9 +1,23 @@
 <footer class='navbar fixed-bottom' id='footer'>
   <% if controller_name == 'travels' && action_name == 'show' %>
-    <p class='mb-0'><small><%= link_to 'トラベル一覧', travels_path %></small></p>
+    <div class='col-4'>
+      <small><%= link_to t('.booklets'), travels_path %></small>
+    </div>
+    <div class='col-4 text-right'>
+      <small><%= link_to t('.notes'), notes_path %></small>
+    </div>
+    <div class='col-4 text-right'>
+      <small><%= link_to t('.lists'), lists_path %></small>
+    </div>
   <% else %>
-    <p class='mb-0'><small><%= link_to 'トラベル詳細', travel_path(@associated_travel) %></small></p>
+    <div class='col-4 text-center'>
+      <small><%= link_to t('.index'), travel_path(@associated_travel) %></small>
+    </div>
+    <div class='col-4 text-center'>
+      <small><%= link_to t('.notes'), notes_path %></small>
+    </div>
+    <div class='col-4 text-center'>
+      <small><%= link_to t('.lists'), lists_path %></small>
+    </div>
   <% end %>
-    <p class='mb-0'><small><%= link_to 'メモ一覧', notes_path %></small></p>
-    <p class='mb-0'><small><%= link_to 'リスト一覧', lists_path %></small></p>
 </footer>

@@ -42,6 +42,7 @@ ja:
       default: "%Y/%m/%d"
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
+      custom: "%Y/%m/%d"
     month_names:
     -
     - 1月
@@ -207,12 +208,3 @@ ja:
       custom: "%Y/%m/%d"
       download: "_%Y%m%d%H%M%S"
     pm: 午後
-  views:
-    pagination:
-      first: "&laquo;"
-      last: "&raquo;"
-      previous: "&lsaquo;"
-      next: "&rsaquo;"
-      truncate: "&hellip;"
-    list:
-      importance: "&olcir;"

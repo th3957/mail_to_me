@@ -1,6 +1,6 @@
 module CardDecorator
   def frame_style_label
-    I18n.t('activerecord.attributes.card.frame_style')
+    I18n.t('views.card.frame_style_select')
   end
 
   def frame_style_labels
@@ -8,7 +8,7 @@ module CardDecorator
   end
 
   def font_style_label
-    I18n.t('activerecord.attributes.card.font_style')
+    I18n.t('views.card.font_style_select')
   end
 
   def font_style_labels

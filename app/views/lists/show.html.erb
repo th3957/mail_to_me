@@ -1,15 +1,15 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
-  <p><strong><%= @list.title %></strong></p>
+  <p><strong><%= @list.title %></strong>(<%= @associated_travel.title %>)</p>
   <%= render 'layouts/notice' %>
 
   <div class='col-12 table-responsive pr-0 pl-0'>
     <table class='table table-sm table-bordered table-hover text-nowrap'>
       <tbody>
         <thead class='thead-light'>
-          <th>name</th>
-          <th>remark</th>
+          <th><%= t('.item_name') %></th>
+          <th><%= t('.remark') %></th>
         </thead>
         <% @list.items.each do |i| %>
           <tr>
@@ -21,11 +21,11 @@
     </table>
   </div>
 
-  <%= link_to 'リスト編集', edit_list_path(@list), class: 'btn btn-primary btn-sm' %>
+  <%= link_to t('.edit_list'), edit_list_path(@list), class: 'btn btn-primary btn-sm' %>
 
   <div class="btn-group">
     <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      リスト複製
+      <%= t('.duplicate_list') %>
     </button>
     <div class="dropdown-menu">
       <% @travels.each do |t| %>

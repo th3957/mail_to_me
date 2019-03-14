@@ -1,0 +1,14 @@
+ja:
+  errors:
+    messages:
+      carrierwave_processing_error: 処理に失敗しました
+      carrierwave_integrity_error: 許可されたファイルタイプではありません
+      carrierwave_download_error: ダウンロードできませんでした
+      extension_whitelist_error: "%{extension}ファイルをアップロードすることはできません(許可されたファイルタイプ：%{allowed_types})"
+      extension_blacklist_error: "%{extension}ファイルをアップロードすることはできません(禁止されたファイルタイプ：%{prohibited_types})"
+      content_type_whitelist_error: "%{content_type}ファイルをアップロードすることはできません(許可されたファイルタイプ：%{allowed_types})"
+      content_type_blacklist_error: "%{content_type}ファイルをアップロードすることはできません"
+      rmagick_processing_error: "RMagickの処理に失敗しました。画像ファイルですか？"
+      mini_magick_processing_error: "MiniMagickの処理に失敗しました。画像ファイルですか？(元のエラー:%{e})"
+      min_size_error: "ファイルサイズは%{min_size}より大きくなければなりません"
+      max_size_error: "ファイルサイズは%{max_size}より小さくなければなりません"

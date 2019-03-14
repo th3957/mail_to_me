@@ -78,7 +78,7 @@ end
   title = "カードのサンプル#{s}"
   sentence = Faker::Lorem.paragraph(sentence_count = 10)
   frame_style = [0, 1, 2].sample
-  font_style = [0, 1, 2].sample
+  font_style = [0, 1, 2, 3, 4, 5].sample
   travel_id = 1
   Card.create!(
     title: title,
@@ -86,11 +86,10 @@ end
     frame_style: frame_style,
     font_style: font_style,
     travel_id: travel_id,
-  )
-  card_id = Card.last.id
-  Image.create!(
-    data: File.open("./app/assets/images/sample_card_image.png"),
-    card_id: card_id,
+    images_attributes: [
+      { data: File.open("./app/assets/images/sample_card_image.png") },
+      { data: File.open("./app/assets/images/sample_card_image.png") }
+    ]
   )
 end
 

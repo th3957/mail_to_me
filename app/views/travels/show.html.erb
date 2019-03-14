@@ -5,29 +5,24 @@
     <div class='col-12'>
       <h2><%= @travel.title %></h2>
       <%= render 'layouts/notice' %>
-      <p class='mb-2'>
-        <%= @travel.departed_at %> ~ <%= @travel.returned_at %> (<%= (@travel.returned_at - @travel.departed_at).numerator %>days)
+      <p class='font-weight-light mb-2'>
+        <%= l(@travel.departed_at, format: :custom) %> ~ <%= l(@travel.returned_at, format: :custom) %> (<%= (@travel.returned_at - @travel.departed_at).numerator %><%= t('.days') %>)
       </p>
-      <button type='button' class='btn btn-primary btn-sm' data-toggle='collapse' data-target='#collapse_areas' aria-expanded='false' aria-controls='collapse_areas'>
-        行先
+      <button type='button' class='btn btn-primary btn-sm font-weight-light' data-toggle='collapse' data-target='#collapse_areas' aria-expanded='false' aria-controls='collapse_areas'>
+        <%= t('.areas') %>
       </button>
-      <%= link_to 'カード新規作成', new_card_path, class: 'btn btn-primary btn-sm' %>
-      <%= link_to 'トラベル編集', edit_travel_path(@travel), class: 'btn btn-primary btn-sm' %>
+      <%= link_to t('.new_card'), new_card_path, class: 'btn btn-primary btn-sm font-weight-light' %>
+      <%= link_to t('.edit_booklet'), edit_travel_path(@travel), class: 'btn btn-primary btn-sm font-weight-light' %>
     </div>
 
-    <div class='col-12 table-responsive collapse' id='collapse_areas'>
-      <table class='table table-sm table-hover text-nowrap'>
+    <div class='col-12 table-responsive-sm collapse' id='collapse_areas'>
+      <table class='table table-sm table-hover text-nowrap font-weight-light'>
         <tbody>
-          <thead class='thead-light'>
-            <th>country</th>
-            <th>place</th>
-            <th>during </th>
-          </thead>
-          <% @travel.areas.each do |x| %>
+          <% @travel.areas.order('arrived_at ASC').each do |x| %>
             <tr>
               <td><%= x.country %></td>
               <td><%= x.place %></td>
-              <td><%= x.arrived_at %> ~ <%= x.left_at %></td>
+              <td><%= l(x.arrived_at, format: :custom) %> ~ <%= l(x.left_at, format: :custom) %></td>
             </tr>
           <% end %>
         </tbody>
@@ -48,7 +43,7 @@
           <% end %>
           <div class='card-body'>
             <div class='card-title'><%= c.title %></div>
-            <div class='card-text'><small>updated at <%= I18n.l(c.updated_at, format: :custom) %></small></div>
+            <div class='card-text'><small><%= t('.updated_at') %> <%= l(c.updated_at, format: :custom) %></small></div>
           </div>
         </div>
       </div>

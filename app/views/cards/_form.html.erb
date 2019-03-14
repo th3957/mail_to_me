@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag 'travels', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'images', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class='col-sm-10 offset-sm-2 contents'>
   <% if action_name == 'edit' %>
-    <h2>Edit card</h2>
+    <h2><%= t('.edit_card') %>(<%= @associated_travel.title %>)</h2>
   <% else %>
-    <h2>New card</h2>
+    <h2><%= t('.new_card') %>(<%= @associated_travel.title %>)</h2>
   <% end %>
 
   <hr>
@@ -28,32 +29,52 @@
           class: 'custom-select mb-3'
     %>
 
-    <%= f.fields_for :images do |i| %>
-      <%= i.file_field :data, class: 'mb-3' %><br>
+    <% @card.images.each do |i| %>
+      <%= image_tag(i.data.thumb.url, class: 'img-thumbnail mb-3') if i.data.present? %>
     <% end %>
+
+    <div id='add_image'>
+      <%= f.fields_for :images do |i| %>
+        <%= render 'image_fields', f: i %>
+      <% end %>
+    </div>
 
     <div class='form-group'>
       <%= f.text_field :title,
-                       placeholder: 'title',
+                       placeholder: t('.card_title'),
                        class: 'form-control'
       %>
     </div>
 
     <div class='form-group'>
       <%= f.text_area :sentence,
-                      placeholder: 'sentence',
+                      placeholder: t('.sentence'),
                       class: 'form-control'
       %>
     </div>
 
     <% if action_name == 'edit' %>
       <div class='form-group'>
-        <%= f.submit "UPDATE", class: 'btn btn-primary btn-sm' %>
-        <%= link_to "DELETE", card_path(@card), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-secondary btn-sm' %>
+        <%= f.submit t('.update'), class: 'btn btn-primary btn-sm font-weight-light' %>
+        <%= link_to_add_association t('.add_image'), f, :images,
+              class: 'btn btn-primary btn-sm font-weight-light',
+              id: 'add_image_link',
+              data: { association_insertion_node: '#add_image',
+                      association_insertion_method: 'append'
+                    }
+        %>
+        <%= link_to t('.delete'), card_path(@card), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-secondary btn-sm font-weight-light' %>
       </div>
     <% else %>
       <div class='form-group'>
-        <%= f.submit "CREATE", class: 'btn btn-primary btn-sm' %>
+        <%= f.submit t('.create'), class: 'btn btn-primary btn-sm font-weight-light' %>
+        <%= link_to_add_association t('.add_image'), f, :images,
+              class: 'btn btn-primary btn-sm font-weight-light',
+              id: 'add_image_link',
+              data: { association_insertion_node: '#add_image',
+                      association_insertion_method: 'append'
+                    }
+        %>
       </div>
     <% end %>
   <% end %>

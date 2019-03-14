@@ -3,5 +3,5 @@ class Item < ApplicationRecord
 
   validates :name, presence: true, length: { in: 1..20 }
   validates :remark, length: { maximum: 50 }
-  validates_presence_of :list
+  validates :list, presence: true
 end
