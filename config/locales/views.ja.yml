@@ -1,211 +1,44 @@
 ja:
-  # users:
-  #   landing:
-  #     log_in: Log in
-  #     click_side: or click side
-  #     step0_caption: Welcome!
-  #     step1_caption: STEP.1
-  #     step2_caption: STEP.2
-  #     step3_caption: STEP.3
-  #     step0: このアプリケーションは、旅行中に撮った写真にコメントを入れてカードを作ることができます。
-  #     step1: 最初に「NEW BOOKLET」から、旅行の予定を作成します。（画像とエリア情報は後から追加することができます。）
-  #     step2: 作成した旅行の予定から、「NEW CARD」を選択します。（アップロードする画像が2枚必要です。）
-  #     step3: 画面下部の「DOWNLOAD」からPDFを作成しダウンロードすることができます。
-  #     step4: この他に、持ち物リストなどを作るリスト作成機能、メモ帳機能などがあります。Have a good trip！
-  #     sign_up: Sign up
-  #   personal:
-  #     home: HOME
-  #     booklets: BOOKLETS
-  #     cards: CARDS
-  #     updated_at: updated at
-  #   sessions:
-  #     new:
-  #       log_in: Log in
-  #       email: Eメール
-  #       password: パスワード
-  #   registrations:
-  #     new:
-  #       sign_up: Sign up
-  #       name: ニックネーム
-  #       email: Eメール
-  #       password: パスワード（最小%{num}文字）
-  #       password_confirmation: パスワードの入力確認
-  #     edit:
-  #       edit_user: EDIT USER
-  #       current_password: 現在のパスワード
-  #       current_password_tips: （変更内容の適用には、パスワードの確認が必要です。）
-  #       password_placeholder: "最小%{num}文字"
-  #       new_password: 新しいパスワード
-  #       new_password_tips: （パスワードを変更しない場合は空欄にしてください。）
-  #       new_password_confirmation: 新しいパスワードの入力確認
-  #       update: UPDATE
-  #       sentence1: アカウントを削除する場合は、
-  #       here: こちら
-  #       sentence2: をクリックしてください。この操作は取り消すことができません。
-  # travels:
-  #   area_fields:
-  #     country: 国名
-  #     place: 場所
-  #     arrived_at: 到着日
-  #     left_at: ～ 出発日
-  #     delete_area: DELETE AREA
-  #   form:
-  #     edit_booklet: EDIT BOOKLET
-  #     new_booklet: NEW BOOKLET
-  #     booklet_title: ブックレット名
-  #     departed_at: 出発日
-  #     returned_at: ～ 帰宅日
-  #     cancel: 画像アップロードをキャンセル
-  #     update: UPDATE
-  #     add_area: ADD AREA
-  #     delete: DELETE
-  #     create: CREATE
-  #   index:
-  #     booklets: BOOKLETS
-  #     new_booklet: NEW BOOKLET
-  #   show:
-  #     days: days
-  #     areas: AREAS
-  #     new_card: NEW CARD
-  #     edit_booklet: EDIT BOOKLET
-  #     updated_at: updated at
-  # notes:
-  #   new:
-  #     content: メモ内容
-  #     cancel: 画像アップロードをキャンセル
-  #     importance: 重要？
-  #     update: UPDATE
-  #     delete: DELETE
-  #     create: CREATE
-  #   edit:
-  #     edit_note: EDIT NOTE
-  #   index:
-  #     notes: NOTES
-  #     new_note: NEW NOTE
-  #   personal:
-  #     all_notes: ALL NOTES
-  #   show:
-  #     created_at: created at
-  #     updated_at: updated at
-  #     edit_note: EDIT NOTE
-  # lists:
-  #   item_fields:
-  #     item_name: アイテム名
-  #     remark: 備考
-  #     delete_item: DELETE ITEM
-  #   new:
-  #     list_title: リスト名
-  #     update: UPDATE
-  #     add_item: ADD ITEM
-  #     delete: DELETE
-  #     create: CREATE
-  #   duplicate:
-  #     duplicate_list: DUPLICATE LIST
-  #     create: CREATE
-  #     add_item: ADD ITEM
-  #   edit:
-  #     edit_list: EDIT LIST
-  #   index:
-  #     lists: LISTS
-  #     new_list: NEW LIST
-  #   personal:
-  #     all_lists: ALL LISTS
-  #     insert_before: "（登録数:"
-  #     insert_after: 個、
-  #   show:
-  #     item_name: アイテム名
-  #     remark: 備考
-  #     edit_list: EDIT LIST
-  #     duplicate_list: DUPLICATE LIST
-  # layouts:
-  #   header:
-  #     edit_user: EDIT USER
-  #     log_out: LOG OUT
-  #     home: HOME
-  #     back: BACK
-  #   travels_footer:
-  #     booklets: BOOKLETS
-  #     notes: NOTES
-  #     lists: LISTS
-  #     index: INDEX
-  #   travels_sidebar:
-  #     home: HOME
-  #     booklets: BOOKLETS
-  #     index: INDEX
-  #     notes: NOTES
-  #     lists: LISTS
-  #     back: BACK
-  #     edit_user: EDIT USER
-  #     log_out: LOG OUT
-  #   users_footer:
-  #     booklets: BOOKLETS
-  #     all_notes: ALL NOTES
-  #     all_lists: ALL LISTS
-  #   users_sidebar:
-  #     home: HOME
-  #     booklets: BOOKLETS
-  #     all_notes: ALL NOTES
-  #     all_lists: ALL LISTS
-  #     back: BACK
-  #     edit_user: EDIT USER
-  #     log_out: LOG OUT
-  # cards:
-  #   form:
-  #     edit_card: EDIT CARD
-  #     new_card: NEW CARD
-  #     card_title: カード名
-  #     sentence: 文章部分
-  #     update: UPDATE
-  #     add_image: ADD IMAGE
-  #     delete: DELETE
-  #     create: CREATE
-  #   image_fields:
-  #     delete_image: DELETE IMAGE
-  #   show:
-  #     card_config: CARD CONFIG
-  #     edit_card: EDIT CARD
-  #     show_pdf: SHOW PDF
-  #     download: DOWNLOAD
   users:
     landing:
-      log_in: ログイン
-      click_side: またはサイドをクリック
-      step0_caption: ようこそ！
-      step1_caption: ステップ.１
-      step2_caption: ステップ.２
-      step3_caption: ステップ.３
+      log_in: Log in
+      click_side: or click side
+      step0_caption: Welcome!
+      step1_caption: STEP.1
+      step2_caption: STEP.2
+      step3_caption: STEP.3
       step0: このアプリケーションは、旅行中に撮った写真にコメントを入れてカードを作ることができます。
-      step1: 最初に「ブックレット新規作成」から、旅行の予定を作成します。（画像とエリア情報は後から追加することができます。）
-      step2: 作成した旅行の予定から、「カード新規作成」を選択します。（アップロードする画像が2枚必要です。）
-      step3: 画面下部の「ダウンロード」からPDFを作成しダウンロードすることができます。
-      step4: この他に、持ち物リストなどを作るリスト作成機能、メモ帳機能などがあります。
-      sign_up: サインアップ
+      step1: 最初に「NEW BOOKLET」から、旅行の予定を作成します。（画像とエリア情報は後から追加することができます。）
+      step2: 作成した旅行の予定から、「NEW CARD」を選択します。（アップロードする画像が2枚必要です。）
+      step3: 画面下部の「DOWNLOAD」からPDFを作成しダウンロードすることができます。
+      step4: この他に、持ち物リストなどを作るリスト作成機能、メモ帳機能などがあります。Have a good trip！
+      sign_up: Sign up
     personal:
-      home: ホーム
-      booklets: ブックレット一覧
-      cards: カード一覧
-      updated_at: 更新日時
+      home: HOME
+      booklets: BOOKLETS
+      cards: CARDS
+      updated_at: updated at
     sessions:
       new:
-        log_in: ログイン
+        log_in: Log in
         email: Eメール
         password: パスワード
     registrations:
       new:
-        sign_up: サインアップ
+        sign_up: Sign up
         name: ニックネーム
         email: Eメール
         password: パスワード（最小%{num}文字）
         password_confirmation: パスワードの入力確認
       edit:
-        edit_user: ユーザー編集
+        edit_user: EDIT USER
         current_password: 現在のパスワード
         current_password_tips: （変更内容の適用には、パスワードの確認が必要です。）
         password_placeholder: "最小%{num}文字"
         new_password: 新しいパスワード
         new_password_tips: （パスワードを変更しない場合は空欄にしてください。）
         new_password_confirmation: 新しいパスワードの入力確認
-        update: ユーザーを更新
+        update: UPDATE
         sentence1: アカウントを削除する場合は、
         here: こちら
         sentence2: をクリックしてください。この操作は取り消すことができません。
@@ -215,124 +48,291 @@ ja:
       place: 場所
       arrived_at: 到着日
       left_at: ～ 出発日
-      delete_area: エリアを削除
+      delete_area: DELETE AREA
     form:
-      edit_booklet: ブックレット編集
-      new_booklet: ブックレット新規作成
+      edit_booklet: EDIT BOOKLET
+      new_booklet: NEW BOOKLET
       booklet_title: ブックレット名
       departed_at: 出発日
       returned_at: ～ 帰宅日
       cancel: 画像アップロードをキャンセル
-      update: ブックレットを更新
-      add_area: エリアを追加
-      delete: ブックレットを削除
-      create: ブックレットを作成
+      update: UPDATE
+      add_area: ADD AREA
+      delete: DELETE
+      create: CREATE
     index:
-      booklets: ブックレット一覧
-      new_booklet: ブックレット新規作成
+      booklets: BOOKLETS
+      new_booklet: NEW BOOKLET
     show:
-      days: 日間
-      areas: エリア
-      new_card: カード新規作成
-      edit_booklet: ブックレット編集
-      updated_at: 更新日時
+      days: days
+      areas: AREAS
+      new_card: NEW CARD
+      edit_booklet: EDIT BOOKLET
+      updated_at: updated at
   notes:
     new:
       content: メモ内容
       cancel: 画像アップロードをキャンセル
       importance: 重要？
-      update: ノートを更新
-      delete: ノートを削除
-      create: ノートを作成
+      update: UPDATE
+      delete: DELETE
+      create: CREATE
     edit:
-      edit_note: ノート編集
+      edit_note: EDIT NOTE
     index:
-      notes: ノート一覧
-      new_note: ノート新規作成
+      notes: NOTES
+      new_note: NEW NOTE
     personal:
-      all_notes: すべてのノート
+      all_notes: ALL NOTES
     show:
-      created_at: 作成日時
-      updated_at: 更新日時
-      edit_note: ノート編集
+      created_at: created at
+      updated_at: updated at
+      edit_note: EDIT NOTE
   lists:
     item_fields:
       item_name: アイテム名
       remark: 備考
-      delete_item: アイテムを削除
+      delete_item: DELETE ITEM
     new:
       list_title: リスト名
-      update: リストを更新
-      add_item: アイテムを追加
-      delete: リストを削除
-      create: リストを作成
+      update: UPDATE
+      add_item: ADD ITEM
+      delete: DELETE
+      create: CREATE
     duplicate:
-      duplicate_list: リスト複製
-      create: リストを複製
-      add_item: アイテムを追加
+      duplicate_list: DUPLICATE LIST
+      create: CREATE
+      add_item: ADD ITEM
     edit:
-      edit_list: リスト編集
+      edit_list: EDIT LIST
     index:
-      lists: リスト一覧
-      new_list: リスト新規作成
+      lists: LISTS
+      new_list: NEW LIST
     personal:
-      all_lists: すべてのリスト
+      all_lists: ALL LISTS
       insert_before: "（登録数:"
       insert_after: 個、
     show:
       item_name: アイテム名
       remark: 備考
-      edit_list: リスト編集
-      duplicate_list: リスト複製
+      edit_list: EDIT LIST
+      duplicate_list: DUPLICATE LIST
   layouts:
     header:
-      edit_user: ユーザー編集
-      log_out: ログアウト
-      home: ホーム
-      back: 戻る
+      edit_user: EDIT USER
+      log_out: LOG OUT
+      home: HOME
+      back: BACK
     travels_footer:
-      booklets: ブックレット一覧
-      notes: ノート一覧
-      lists: リスト一覧
-      index: ブックレット詳細
+      booklets: BOOKLETS
+      notes: NOTES
+      lists: LISTS
+      index: INDEX
     travels_sidebar:
-      home: ホーム
-      booklets: ブックレット一覧
-      index: ブックレット詳細
-      notes: ノート一覧
-      lists: リスト一覧
-      back: 戻る
-      edit_user: ユーザー編集
-      log_out: ログアウト
+      home: HOME
+      booklets: BOOKLETS
+      index: INDEX
+      notes: NOTES
+      lists: LISTS
+      back: BACK
+      edit_user: EDIT USER
+      log_out: LOG OUT
     users_footer:
-      booklets: ブックレット一覧
-      all_notes: すべてのノート
-      all_lists: すべてのリスト
+      booklets: BOOKLETS
+      all_notes: ALL NOTES
+      all_lists: ALL LISTS
     users_sidebar:
-      home: ホーム
-      booklets: ブックレット一覧
-      all_notes: すべてのノート
-      all_lists: すべてのリスト
-      back: 戻る
-      edit_user: ユーザー編集
-      log_out: ログアウト
+      home: HOME
+      booklets: BOOKLETS
+      all_notes: ALL NOTES
+      all_lists: ALL LISTS
+      back: BACK
+      edit_user: EDIT USER
+      log_out: LOG OUT
   cards:
     form:
-      edit_card: カード編集
-      new_card: カード新規作成
+      edit_card: EDIT CARD
+      new_card: NEW CARD
       card_title: カード名
       sentence: 文章部分
-      update: カードを更新
-      add_image: 画像を追加
-      delete: カードを削除
-      create: カードを作成
+      update: UPDATE
+      add_image: ADD IMAGE
+      delete: DELETE
+      create: CREATE
     image_fields:
-      delete_image: 画像を削除
+      delete_image: DELETE IMAGE
     show:
-      card_config: カード設定
-      edit_card: カード編集
-      show_pdf: PDFを表示
-      download: ダウンロード
+      card_config: CARD CONFIG
+      edit_card: EDIT CARD
+      show_pdf: SHOW PDF
+      download: DOWNLOAD
+  # users:
+  #   landing:
+  #     log_in: ログイン
+  #     click_side: またはサイドをクリック
+  #     step0_caption: ようこそ！
+  #     step1_caption: ステップ.１
+  #     step2_caption: ステップ.２
+  #     step3_caption: ステップ.３
+  #     step0: このアプリケーションは、旅行中に撮った写真にコメントを入れてカードを作ることができます。
+  #     step1: 最初に「ブックレット新規作成」から、旅行の予定を作成します。（画像とエリア情報は後から追加することができます。）
+  #     step2: 作成した旅行の予定から、「カード新規作成」を選択します。（アップロードする画像が2枚必要です。）
+  #     step3: 画面下部の「ダウンロード」からPDFを作成しダウンロードすることができます。
+  #     step4: この他に、持ち物リストなどを作るリスト作成機能、メモ帳機能などがあります。
+  #     sign_up: サインアップ
+  #   personal:
+  #     home: ホーム
+  #     booklets: ブックレット一覧
+  #     cards: カード一覧
+  #     updated_at: 更新日時
+  #   sessions:
+  #     new:
+  #       log_in: ログイン
+  #       email: Eメール
+  #       password: パスワード
+  #   registrations:
+  #     new:
+  #       sign_up: サインアップ
+  #       name: ニックネーム
+  #       email: Eメール
+  #       password: パスワード（最小%{num}文字）
+  #       password_confirmation: パスワードの入力確認
+  #     edit:
+  #       edit_user: ユーザー編集
+  #       current_password: 現在のパスワード
+  #       current_password_tips: （変更内容の適用には、パスワードの確認が必要です。）
+  #       password_placeholder: "最小%{num}文字"
+  #       new_password: 新しいパスワード
+  #       new_password_tips: （パスワードを変更しない場合は空欄にしてください。）
+  #       new_password_confirmation: 新しいパスワードの入力確認
+  #       update: ユーザーを更新
+  #       sentence1: アカウントを削除する場合は、
+  #       here: こちら
+  #       sentence2: をクリックしてください。この操作は取り消すことができません。
+  # travels:
+  #   area_fields:
+  #     country: 国名
+  #     place: 場所
+  #     arrived_at: 到着日
+  #     left_at: ～ 出発日
+  #     delete_area: エリアを削除
+  #   form:
+  #     edit_booklet: ブックレット編集
+  #     new_booklet: ブックレット新規作成
+  #     booklet_title: ブックレット名
+  #     departed_at: 出発日
+  #     returned_at: ～ 帰宅日
+  #     cancel: 画像アップロードをキャンセル
+  #     update: ブックレットを更新
+  #     add_area: エリアを追加
+  #     delete: ブックレットを削除
+  #     create: ブックレットを作成
+  #   index:
+  #     booklets: ブックレット一覧
+  #     new_booklet: ブックレット新規作成
+  #   show:
+  #     days: 日間
+  #     areas: エリア
+  #     new_card: カード新規作成
+  #     edit_booklet: ブックレット編集
+  #     updated_at: 更新日時
+  # notes:
+  #   new:
+  #     content: メモ内容
+  #     cancel: 画像アップロードをキャンセル
+  #     importance: 重要？
+  #     update: ノートを更新
+  #     delete: ノートを削除
+  #     create: ノートを作成
+  #   edit:
+  #     edit_note: ノート編集
+  #   index:
+  #     notes: ノート一覧
+  #     new_note: ノート新規作成
+  #   personal:
+  #     all_notes: すべてのノート
+  #   show:
+  #     created_at: 作成日時
+  #     updated_at: 更新日時
+  #     edit_note: ノート編集
+  # lists:
+  #   item_fields:
+  #     item_name: アイテム名
+  #     remark: 備考
+  #     delete_item: アイテムを削除
+  #   new:
+  #     list_title: リスト名
+  #     update: リストを更新
+  #     add_item: アイテムを追加
+  #     delete: リストを削除
+  #     create: リストを作成
+  #   duplicate:
+  #     duplicate_list: リスト複製
+  #     create: リストを複製
+  #     add_item: アイテムを追加
+  #   edit:
+  #     edit_list: リスト編集
+  #   index:
+  #     lists: リスト一覧
+  #     new_list: リスト新規作成
+  #   personal:
+  #     all_lists: すべてのリスト
+  #     insert_before: "（登録数:"
+  #     insert_after: 個、
+  #   show:
+  #     item_name: アイテム名
+  #     remark: 備考
+  #     edit_list: リスト編集
+  #     duplicate_list: リスト複製
+  # layouts:
+  #   header:
+  #     edit_user: ユーザー編集
+  #     log_out: ログアウト
+  #     home: ホーム
+  #     back: 戻る
+  #   travels_footer:
+  #     booklets: ブックレット一覧
+  #     notes: ノート一覧
+  #     lists: リスト一覧
+  #     index: ブックレット詳細
+  #   travels_sidebar:
+  #     home: ホーム
+  #     booklets: ブックレット一覧
+  #     index: ブックレット詳細
+  #     notes: ノート一覧
+  #     lists: リスト一覧
+  #     back: 戻る
+  #     edit_user: ユーザー編集
+  #     log_out: ログアウト
+  #   users_footer:
+  #     booklets: ブックレット一覧
+  #     all_notes: すべてのノート
+  #     all_lists: すべてのリスト
+  #   users_sidebar:
+  #     home: ホーム
+  #     booklets: ブックレット一覧
+  #     all_notes: すべてのノート
+  #     all_lists: すべてのリスト
+  #     back: 戻る
+  #     edit_user: ユーザー編集
+  #     log_out: ログアウト
+  # cards:
+  #   form:
+  #     edit_card: カード編集
+  #     new_card: カード新規作成
+  #     card_title: カード名
+  #     sentence: 文章部分
+  #     update: カードを更新
+  #     add_image: 画像を追加
+  #     delete: カードを削除
+  #     create: カードを作成
+  #   image_fields:
+  #     delete_image: 画像を削除
+  #   show:
+  #     card_config: カード設定
+  #     edit_card: カード編集
+  #     show_pdf: PDFを表示
+  #     download: ダウンロード
   views:
     lists:
       index:
