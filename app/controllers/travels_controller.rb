@@ -48,7 +48,7 @@ class TravelsController < ApplicationController
 
   def identify_owner
     if @travel.user_id != current_user.id
-      render file: Rails.root.join('public/404.html'),
+      render file: Rails.root.join('public/404.*.html'),
              status: 404,
              layout: false,
              content_type: 'text/html'
